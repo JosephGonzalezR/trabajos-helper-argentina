@@ -526,6 +526,55 @@ function setupNavScroll() {
   onScroll();
 }
 
+function setupPromoToasts() {
+  const messages = [
+    { title: "¡No lo dudes!", text: "Aca te ayudamos con tu trabajo. Escribinos." },
+    { title: "¿Llegas justo?", text: "Hacemos trabajos urgentes. Cotiza en 1 hora." },
+    { title: "Alguien acaba de cotizar", text: "Vos tambien podes. Es gratis y sin compromiso." },
+    { title: "¿TP para mañana?", text: "Tranqui, lo resolvemos. Mandanos la consigna." },
+    { title: "+500 trabajos entregados", text: "Estudiantes de UBA, UTN, UADE y mas confian en nosotros." },
+    { title: "Parcial o final?", text: "Te ayudamos a prepararlo. Escribinos por WhatsApp." },
+    { title: "Cotizacion gratuita", text: "Mandanos los requisitos y te respondemos al toque." },
+    { title: "Excel, Power BI, SQL...", text: "Lo que necesites, lo hacemos. Consulta sin cargo." },
+  ];
+
+  const toast = document.getElementById("promoToast");
+  if (!toast) return;
+
+  const titleEl = toast.querySelector(".promo-toast__text strong");
+  const textEl = toast.querySelector(".promo-toast__text span");
+  const closeBtn = toast.querySelector(".promo-toast__close");
+
+  if (!titleEl || !textEl) return;
+
+  let index = Math.floor(Math.random() * messages.length);
+  let timeout;
+
+  function showToast() {
+    const msg = messages[index];
+    titleEl.textContent = msg.title;
+    textEl.textContent = msg.text;
+    toast.classList.add("show");
+
+    timeout = setTimeout(() => {
+      toast.classList.remove("show");
+      index = (index + 1) % messages.length;
+      timeout = setTimeout(showToast, 12000 + Math.random() * 8000);
+    }, 6000);
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      toast.classList.remove("show");
+      clearTimeout(timeout);
+      timeout = setTimeout(showToast, 20000);
+    });
+  }
+
+  // Primer toast después de 8 segundos
+  setTimeout(showToast, 8000);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   bindConfig();
   bindWhatsAppLinks();
@@ -544,4 +593,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSwiper();
   setupParticles();
   setupTilt();
+  setupPromoToasts();
 });
