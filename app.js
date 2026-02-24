@@ -577,13 +577,15 @@ function setupPromoToasts() {
 
 function setupTabTitle() {
   const titles = [
-    "Trabajos Helper | ¿Tenés un TP? ¡Te ayudamos!",
-    "Trabajos Helper | No dudes en escribirnos 💬",
-    "Trabajos Helper | Cotizá gratis por WhatsApp",
-    "Trabajos Helper | +500 trabajos entregados ✓",
     "Trabajos Helper | Hacemos tus trabajos académicos",
-    "Trabajos Helper | ¿Llegás justo? ¡Te salvamos!",
-    "Trabajos Helper | Respuesta rápida garantizada",
+    "¿Tenés un TP? ¡Te ayudamos! 📚",
+    "No dudes en escribirnos 💬",
+    "Cotizá gratis por WhatsApp",
+    "+500 trabajos entregados ✓",
+    "¿Llegás justo? ¡Te salvamos!",
+    "Respuesta rápida garantizada ⚡",
+    "Excel, informes, monografías y más",
+    "¡Sin compromiso, consultá ya!",
   ];
 
   const awayTitle = "¡Volvé! Te esperamos 👋 — Trabajos Helper";
