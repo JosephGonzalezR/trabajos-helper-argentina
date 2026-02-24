@@ -575,6 +575,41 @@ function setupPromoToasts() {
   setTimeout(showToast, 8000);
 }
 
+function setupTabTitle() {
+  const titles = [
+    "Trabajos Helper | ¿Tenés un TP? ¡Te ayudamos!",
+    "Trabajos Helper | No dudes en escribirnos 💬",
+    "Trabajos Helper | Cotizá gratis por WhatsApp",
+    "Trabajos Helper | +500 trabajos entregados ✓",
+    "Trabajos Helper | Hacemos tus trabajos académicos",
+    "Trabajos Helper | ¿Llegás justo? ¡Te salvamos!",
+    "Trabajos Helper | Respuesta rápida garantizada",
+  ];
+
+  const awayTitle = "¡Volvé! Te esperamos 👋 — Trabajos Helper";
+  const originalTitle = document.title;
+
+  let index = 0;
+  let interval;
+
+  function rotate() {
+    document.title = titles[index];
+    index = (index + 1) % titles.length;
+  }
+
+  interval = setInterval(rotate, 3500);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      clearInterval(interval);
+      document.title = awayTitle;
+    } else {
+      rotate();
+      interval = setInterval(rotate, 3500);
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   bindConfig();
   bindWhatsAppLinks();
@@ -594,4 +629,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupParticles();
   setupTilt();
   setupPromoToasts();
+  setupTabTitle();
 });
