@@ -16,8 +16,8 @@
   --muted: rgba(45,45,45,.60);
   --line: rgba(0,0,0,.08);
 
-  --brand: #74ACDF;
-  --brand2:#5A96CC;
+  --brand: #2B7CB5;
+  --brand2:#1E6A9F;
   --brand3:#E8F4FD;
   --danger:#B34242;
 
@@ -37,7 +37,7 @@
   --h2: clamp(26px, 3.0vw, 40px);
   --h3: clamp(18px, 2.0vw, 22px);
 
-  --ring: rgba(116,172,223,.35);
+  --ring: rgba(43,124,181,.35);
 
   --grad: radial-gradient(900px 520px at 15% 12%, rgba(116,172,223,.10), transparent 55%),
           radial-gradient(860px 520px at 82% 14%, rgba(116,172,223,.08), transparent 56%),
@@ -1302,11 +1302,11 @@ body::after{ opacity: .06; }
 
 /* ── Paleta Trabajos Helper ───────────────────────────────── */
 :root {
-  --brand:  #74ACDF;
-  --brand2: #5A96CC;
+  --brand:  #2B7CB5;
+  --brand2: #1E6A9F;
   --brand3: #E8F4FD;
-  --celeste:   #74ACDF;
-  --celeste-d: #4A86BC;
+  --celeste:   #2B7CB5;
+  --celeste-d: #1E6A9F;
 
   --bg:      #FFFFFF;
   --bg2:     #FAFAFA;
@@ -1458,7 +1458,7 @@ h1, h2, h3,
 .urgente-band__copy h2 { color: #2D2D2D !important; -webkit-text-fill-color: #2D2D2D !important; }
 .urgente-band__copy p { color: rgba(45,45,45,.80) !important; }
 .urgente-band__icon { background: rgba(45,45,45,.12); color: #2D2D2D; }
-.urgente-band__cta { background: #2D2D2D !important; color: #74ACDF !important; }
+.urgente-band__cta { background: #2D2D2D !important; color: #8FC4E8 !important; }
 .urgente-band__cta:hover { background: #1A1A1A !important; }
 
 /* ── Nav Trabajos Helper ─────────────────────────────────── */
@@ -1581,7 +1581,7 @@ h1, h2, h3,
 .final-cta__inner p   { color: rgba(45,45,45,.75); }
 .final-cta__inner .btn--primary {
   background: #2D2D2D !important;
-  color: #74ACDF !important;
+  color: #2B7CB5 !important;
   box-shadow: 0 8px 24px rgba(0,0,0,.15) !important;
   animation: none !important;
 }
