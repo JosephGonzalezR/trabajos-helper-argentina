@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(claude config:*)",
+      "Bash(gh auth:*)",
+      "Bash(git:*)",
+      "Bash(gh api:*)",
+      "Bash(grep:*)",
+      "WebSearch",
+      "Bash(ls:*)",
+      "Bash(nslookup:*)",
+      "Bash(head:*)",
+      "Bash(which magick:*)",
+      "Bash(echo:*)",
+      "Bash(tail:*)",
+      "Bash(python:*)",
+      "Bash(cd \"/c/Claude/Tareapp-landing - v1 modificado\" && gh repo create JosephGonzalezR/tareapp-landing --public --description \"Tareapp - Soluciones Académicas \\(Trabajos + Tesis\\)\" 2>&1)",
+      "Bash(curl:*)"
+    ]
+  }
+}
