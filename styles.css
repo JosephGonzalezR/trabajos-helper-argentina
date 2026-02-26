@@ -1896,3 +1896,194 @@ h1, h2, h3,
 }
 @media (max-width: 980px) { .timeline--3 { grid-template-columns: 1fr; } }
 
+/* ── Imágenes en cards ── */
+.card__img{
+  margin:-1.5rem -1.5rem 1.25rem -1.5rem;
+  border-radius:12px 12px 0 0;
+  overflow:hidden;
+  max-height:180px;
+}
+.card__img img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+  filter:brightness(0.78);
+  transition:transform .4s ease, filter .4s ease;
+}
+.card:hover .card__img img{
+  transform:scale(1.05);
+  filter:brightness(0.88);
+}
+
+/* ── Imágenes en steps del proceso ── */
+.step__img{
+  margin-bottom:1rem;
+  border-radius:10px;
+  overflow:hidden;
+}
+.step__img img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  display:block;
+  filter:brightness(0.75);
+}
+@media(max-width:768px){
+  .step__img img{height:120px}
+}
+
+/* ── Imagen de sección (Para ti) ── */
+.section-img-wrap{
+  margin-bottom:2rem;
+  border-radius:12px;
+  overflow:hidden;
+  max-height:320px;
+}
+.section-img{
+  width:100%;
+  max-height:320px;
+  object-fit:cover;
+  display:block;
+  border-radius:12px;
+  opacity:.85;
+  filter:brightness(0.8);
+}
+
+/* ── Visual de sección (FAQ) ── */
+.section-visual{
+  margin-bottom:2.5rem;
+  border-radius:12px;
+  overflow:hidden;
+  max-height:280px;
+}
+.section-visual img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:brightness(0.75);
+}
+
+/* ── Backgrounds con imágenes ── */
+.hero__bg{
+  background-image:url('Imagenes/imagen 1.webp');
+  background-size:cover;
+  background-position:center top;
+  opacity:0.12;
+}
+.final-cta{
+  position:relative;
+  background-image:url('Imagenes/imagen 7.webp');
+  background-size:cover;
+  background-position:center;
+}
+.final-cta::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(43,124,181,0.92),rgba(30,106,159,0.88));
+  z-index:1;
+}
+.final-cta>.container{
+  position:relative;
+  z-index:2;
+}
+#opiniones-trabajos{
+  position:relative;
+  background-image:url('Imagenes/imagen 8.webp');
+  background-size:cover;
+  background-position:center;
+}
+#opiniones-trabajos::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(7,11,22,0.93);
+  z-index:0;
+}
+#opiniones-trabajos>*{
+  position:relative;
+  z-index:1;
+}
+#opiniones{
+  position:relative;
+  background-image:url('Imagenes/imagen 8.webp');
+  background-size:cover;
+  background-position:center;
+}
+#opiniones::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(7,11,22,0.93);
+  z-index:0;
+}
+#opiniones>*{
+  position:relative;
+  z-index:1;
+}
+.section--urgente{
+  position:relative;
+  background-image:url('Imagenes/imagen 2.webp');
+  background-size:cover;
+  background-position:center top;
+}
+.section--urgente::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,rgba(43,124,181,0.93) 0%,rgba(30,106,159,0.95) 55%,rgba(36,100,150,0.93) 100%);
+  z-index:0;
+}
+.section--urgente>.container{
+  position:relative;
+  z-index:1;
+}
+
+/* ── Background para nosotros ── */
+.about-hero__bg{
+  position:absolute;
+  inset:0;
+  background-image:url('Imagenes/imagen 16.webp');
+  background-size:cover;
+  background-position:center;
+  filter:brightness(0.35);
+}
+
+/* ── Fotos de equipo ── */
+.about-member__photo{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:1rem;
+  border:3px solid var(--brand);
+  filter:brightness(0.9);
+}
+.team-avatar-img{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  object-fit:cover;
+  flex-shrink:0;
+  border:2px solid var(--brand);
+}
+
+/* ── Blog cards ── */
+.blog-card__img{
+  overflow:hidden;
+  max-height:200px;
+}
+.blog-card__img img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  display:block;
+  filter:brightness(0.8);
+  transition:transform .4s ease;
+}
+.blog-card:hover .blog-card__img img{
+  transform:scale(1.05);
+}
+
