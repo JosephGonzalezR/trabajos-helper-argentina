@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
 
-  <title>Nosotros | Trabajos Helper - El equipo detras de tus trabajos</title>
-  <meta name="description" content="Conoce al equipo de Trabajos Helper. Profesionales dedicados a ayudarte con tus trabajos academicos. Calidad, puntualidad y confidencialidad en cada proyecto." />
+  <title>Como pagar | Trabajos Helper - Datos de pago Mercado Pago</title>
+  <meta name="description" content="Datos de pago de Trabajos Helper Argentina: Mercado Pago, CVU, alias. Transferi y mandanos el comprobante por WhatsApp." />
   <meta name="author" content="Trabajos Helper" />
   <meta name="theme-color" content="#2B7CB5" />
 
@@ -15,8 +15,8 @@
   <link rel="apple-touch-icon" href="NUEVO LOGO TRABAJOS HELPER.jpg" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Nosotros | Trabajos Helper - El equipo detras de tus trabajos" />
-  <meta property="og:description" content="Conoce al equipo de Trabajos Helper. Profesionales dedicados a ayudarte con tus trabajos academicos. Calidad, puntualidad y confidencialidad en cada proyecto." />
+  <meta property="og:title" content="Como pagar | Trabajos Helper" />
+  <meta property="og:description" content="Datos de pago de Trabajos Helper Argentina: Mercado Pago, CVU, alias. Transferi y mandanos el comprobante por WhatsApp." />
   <meta property="og:image" content="assets/og-image.png" />
   <meta property="og:type" content="website" />
 
@@ -26,9 +26,161 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Page-specific styles — pago */
+    main p, main li { font-size: 16.5px; line-height: 1.72; }
+
+    .bank-wrap { max-width: 620px; margin: 8px auto 36px; }
+    .bank-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--brand);
+      border-radius: 18px;
+      padding: 26px 24px;
+      box-shadow: var(--shadow);
+    }
+    .bank-card__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .bank-card__head h2 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      color: var(--text);
+    }
+    .copy-all {
+      border: 1px solid var(--brand);
+      background: transparent;
+      color: var(--brand);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .2s;
+    }
+    .copy-all:hover { background: var(--brand); color: #fff; }
+    .copy-all.done { background: #34d399; border-color: #34d399; color: #fff; }
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .bank-row:last-of-type { border-bottom: none; }
+    .bank-row .k {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .bank-row .v {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      text-align: right;
+    }
+    .bank-row .v.big {
+      font-size: 18px;
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      letter-spacing: 1px;
+      color: var(--brand);
+    }
+    .copy-btn {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .2s;
+    }
+    .copy-btn:hover { border-color: var(--brand); color: var(--brand); }
+    .copy-btn.done { color: #34d399; border-color: #34d399; }
+
+    .pay-note {
+      margin-top: 16px;
+      background: rgba(43,124,181,.06);
+      border: 1px solid rgba(43,124,181,.22);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .firsttime-note {
+      margin-top: 12px;
+      background: rgba(52,211,153,.08);
+      border: 1px solid rgba(52,211,153,.30);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .firsttime-note strong { color: var(--brand2); }
+
+    .steps-pay { max-width: 620px; margin: 0 auto 8px; }
+    .steps-pay h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .steps-pay ol {
+      padding: 0;
+      list-style: none;
+      counter-reset: s;
+      margin: 0;
+    }
+    .steps-pay li {
+      position: relative;
+      padding: 12px 0 12px 46px;
+      counter-increment: s;
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+    .steps-pay li::before {
+      content: counter(s);
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .steps-pay li strong { color: var(--text); }
+  </style>
 </head>
 
-<body data-page="nosotros">
+<body data-page="trabajos">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <!-- Scroll progress -->
@@ -98,7 +250,6 @@
       <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
     </symbol>
-    <!-- Iconos extra para trabajos -->
     <symbol id="i-code" viewBox="0 0 24 24">
       <path d="M16 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M8 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -149,7 +300,7 @@
       </a>
 
       <div class="page-switcher" aria-label="Tipo de servicio">
-        <a class="page-switcher__tab" href="index.html">Trabajos</a>
+        <a class="page-switcher__tab page-switcher__tab--active" href="index.html">Trabajos</a>
         <a class="page-switcher__tab" href="tesis.html">Tesis</a>
       </div>
 
@@ -159,14 +310,14 @@
         <a href="precios.html">Precios</a>
         <a href="faq.html">FAQ</a>
         <a href="blog.html">Blog</a>
-        <a href="nosotros.html" class="active">Nosotros</a>
+        <a href="nosotros.html">Nosotros</a>
         <a href="index.html#contacto-trabajos" class="nav__cta">Cotizar</a>
       </nav>
 
       <div class="nav__actions">
         <a class="btn btn--ghost btn--sm hide-sm" data-wa-message="Hola, necesito cotizar un trabajo academico. ¿Me orientan por favor?" href="#" rel="noopener">
           <svg class="i" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
-          <span class="btn__hint" data-bind="whatsappDisplay">+54 9 11 9999-9999</span>
+          <span class="btn__hint" data-bind="whatsappDisplay">+54 9 342 413-4914</span>
         </a>
 
         <button class="nav__burger" type="button" id="menuBtn" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
@@ -178,7 +329,7 @@
     <div class="mobile-menu" id="mobileMenu" hidden>
       <div class="mobile-menu__inner container">
         <div class="page-switcher page-switcher--mobile" aria-label="Tipo de servicio">
-          <a class="page-switcher__tab" href="index.html">Trabajos</a>
+          <a class="page-switcher__tab page-switcher__tab--active" href="index.html">Trabajos</a>
           <a class="page-switcher__tab" href="tesis.html">Tesis</a>
         </div>
         <a href="index.html#servicios-trabajos">Servicios</a>
@@ -186,7 +337,8 @@
         <a href="precios.html">Precios</a>
         <a href="faq.html">FAQ</a>
         <a href="blog.html">Blog</a>
-        <a href="nosotros.html" class="active">Nosotros</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="pago.html">Como pagar</a>
         <a href="index.html#contacto-trabajos" class="btn btn--primary btn--block">Cotizar por WhatsApp</a>
         <div class="mobile-menu__meta">
           <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Buenos Aires, Argentina</span></span>
@@ -196,113 +348,106 @@
   </header>
 
   <main id="contenido">
+
     <!-- HERO -->
-    <section class="about-hero" aria-label="Nosotros">
-      <div class="about-hero__bg" aria-hidden="true"></div>
-      <div class="container about-hero__inner">
-        <h1 data-reveal>El equipo detras de Trabajos Helper</h1>
-        <p class="muted" data-reveal>Somos un equipo de profesionales dedicados a ayudarte con tus trabajos academicos. Calidad, puntualidad y confidencialidad en cada proyecto.</p>
+    <section class="section" style="padding-bottom:6px">
+      <div class="container" style="text-align:center">
+        <span class="pill" data-reveal>
+          <svg class="i" aria-hidden="true"><use href="#i-shield"></use></svg>
+          Realiza tu pago
+        </span>
+        <h1 data-reveal style="margin-top:18px">Como pagar</h1>
+        <p class="muted" data-reveal>Transferi por Mercado Pago con los datos de abajo. Cada campo tiene boton para copiar.</p>
       </div>
     </section>
 
-    <!-- EQUIPO -->
-    <section class="section">
+    <!-- BANK CARD -->
+    <section class="section" style="padding-top:6px;padding-bottom:6px">
       <div class="container">
-        <div class="section__head">
-          <h2 data-reveal>Nuestro equipo</h2>
-          <p class="muted" data-reveal>Especialistas en distintas areas para cubrir cualquier tipo de trabajo.</p>
-        </div>
-
-        <div class="about-team" data-reveal>
-          <article class="about-member">
-            <img class="about-member__photo" src="Imagenes/imagen 17.webp" alt="Joseph Gonzalez - Fundador y Director" loading="lazy" width="200" height="200" decoding="async">
-            <h3>Joseph Gonzalez</h3>
-            <p class="about-member__role">Fundador y Director</p>
-            <p class="muted">Coordinacion general, gestion de proyectos y control de calidad. Asegura que cada trabajo cumpla los estandares academicos.</p>
-            <div class="about-member__tags">
-              <span class="chip">Gestion</span>
-              <span class="chip">Calidad</span>
-              <span class="chip">Coordinacion</span>
+        <div class="bank-wrap">
+          <div class="bank-card" data-reveal>
+            <div class="bank-card__head">
+              <h2>Datos para tu transferencia</h2>
+              <button class="copy-all" type="button" data-copy="Titular: Danae Ines Soto Chang&#10;CUIT: 27-96346956-5&#10;CVU: 0000003100054860804380&#10;Alias: danaesoch&#10;Banco: Mercado Pago">Copiar todo</button>
             </div>
-          </article>
 
-          <article class="about-member">
-            <img class="about-member__photo" src="Imagenes/imagen 18.webp" alt="Especialista Academica" loading="lazy" width="200" height="200" decoding="async">
-            <h3>Especialista Academica</h3>
-            <p class="about-member__role">Redaccion y Metodologia</p>
-            <p class="muted">Metodologia, redaccion academica y normas de citacion APA, Vancouver e IEEE. Experta en estructura de informes.</p>
-            <div class="about-member__tags">
-              <span class="chip">Redaccion</span>
-              <span class="chip">APA</span>
-              <span class="chip">Metodologia</span>
+            <div class="bank-row">
+              <span class="k">Titular</span>
+              <span class="v">
+                <span class="vtext">Danae Ines Soto Chang</span>
+                <button class="copy-btn" type="button" data-copy="Danae Ines Soto Chang" aria-label="Copiar titular">Copiar</button>
+              </span>
             </div>
-          </article>
+            <div class="bank-row">
+              <span class="k">CUIT</span>
+              <span class="v">
+                <span class="vtext">27-96346956-5</span>
+                <button class="copy-btn" type="button" data-copy="27-96346956-5" aria-label="Copiar CUIT">Copiar</button>
+              </span>
+            </div>
+            <div class="bank-row">
+              <span class="k">CVU</span>
+              <span class="v big">
+                <span class="vtext">0000003100054860804380</span>
+                <button class="copy-btn" type="button" data-copy="0000003100054860804380" aria-label="Copiar CVU">Copiar</button>
+              </span>
+            </div>
+            <div class="bank-row">
+              <span class="k">Alias</span>
+              <span class="v big">
+                <span class="vtext">danaesoch</span>
+                <button class="copy-btn" type="button" data-copy="danaesoch" aria-label="Copiar alias">Copiar</button>
+              </span>
+            </div>
+            <div class="bank-row">
+              <span class="k">Banco</span>
+              <span class="v">
+                <span class="vtext">Mercado Pago</span>
+                <button class="copy-btn" type="button" data-copy="Mercado Pago" aria-label="Copiar banco">Copiar</button>
+              </span>
+            </div>
 
-          <article class="about-member">
-            <img class="about-member__photo" src="Imagenes/imagen 19.webp" alt="Especialista Tecnico" loading="lazy" width="200" height="200" decoding="async">
-            <h3>Especialista Tecnico</h3>
-            <p class="about-member__role">Tecnologia y Datos</p>
-            <p class="muted">Power BI, Excel avanzado, programacion y bases de datos. Domina las herramientas tecnicas que piden las instituciones.</p>
-            <div class="about-member__tags">
-              <span class="chip">Power BI</span>
-              <span class="chip">Excel</span>
-              <span class="chip">Python</span>
-              <span class="chip">SQL</span>
+            <div class="pay-note">
+              <strong>Registra tu nombre y apellido como concepto</strong> de la transferencia para que podamos validar tu pago mas rapido.
             </div>
-          </article>
+            <div class="firsttime-note">
+              <strong>Primera vez con nosotros?</strong> Si es un trabajo corto, podemos arrancar sin pago adelantado y pagas al recibir.
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- VALORES -->
-    <section class="section section--alt">
+    <!-- STEPS -->
+    <section class="section section--alt" style="padding-top:6px" data-reveal>
       <div class="container">
-        <div class="section__head">
-          <h2 data-reveal>Nuestros valores</h2>
-          <p class="muted" data-reveal>Lo que nos guia en cada proyecto.</p>
-        </div>
-
-        <div class="about-values" data-reveal>
-          <div class="about-value">
-            <div class="about-value__icon"><svg class="i" aria-hidden="true"><use href="#i-check"></use></svg></div>
-            <h3>Calidad</h3>
-            <p class="muted">Cada trabajo pasa por revision de calidad antes de la entrega. No enviamos nada que no cumpla los estandares.</p>
-          </div>
-          <div class="about-value">
-            <div class="about-value__icon"><svg class="i" aria-hidden="true"><use href="#i-clock"></use></svg></div>
-            <h3>Puntualidad</h3>
-            <p class="muted">Respetamos los plazos. Si decimos una fecha, la cumplimos. Sin excusas.</p>
-          </div>
-          <div class="about-value">
-            <div class="about-value__icon"><svg class="i" aria-hidden="true"><use href="#i-shield"></use></svg></div>
-            <h3>Confidencialidad</h3>
-            <p class="muted">Tu informacion y tus trabajos quedan entre nosotros. Privacidad total garantizada.</p>
-          </div>
-          <div class="about-value">
-            <div class="about-value__icon"><svg class="i" aria-hidden="true"><use href="#i-doc"></use></svg></div>
-            <h3>Compromiso</h3>
-            <p class="muted">No dejamos trabajos a medias. Si aceptamos tu proyecto, lo terminamos bien.</p>
-          </div>
+        <div class="steps-pay">
+          <h2>Pasos para confirmar tu pago</h2>
+          <ol>
+            <li>Realiza la transferencia por el <strong>monto acordado</strong> (anticipo).</li>
+            <li>Envianos el <strong>comprobante</strong> (captura o PDF) por WhatsApp.</li>
+            <li>Apenas validamos, tu <strong>trabajo entra en proceso</strong>.</li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
+    <!-- CTA -->
     <section class="final-cta" aria-label="Cierre">
       <div class="container final-cta__inner" data-reveal>
         <div>
-          <h2>¿Listo para que hagamos tu trabajo?</h2>
-          <p class="muted">Escribinos con los requisitos y te cotizamos al instante.</p>
+          <h2>Ya transferi, y ahora?</h2>
+          <p class="muted">Mandanos el comprobante por WhatsApp y arrancamos con tu trabajo.</p>
         </div>
         <div class="final-cta__actions">
-          <a class="btn btn--primary" data-wa-message="Hola, quiero cotizar un trabajo academico." href="#" rel="noopener">
-            Cotizar ahora
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          <a class="btn btn--primary" data-wa-message="Hola, acabo de realizar la transferencia. Adjunto el comprobante." href="#" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+            Enviar comprobante
           </a>
-          <a class="btn btn--ghost" href="index.html">Ver servicios</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- Onda de transicion al footer -->
@@ -325,14 +470,14 @@
       <div class="footer__cols">
         <div>
           <h4>Secciones</h4>
-          <a href="index.html">Trabajos</a>
-          <a href="precios.html">Precios</a>
-          <a href="procedimiento.html">Como trabajamos</a>
-          <a href="faq.html">Preguntas frecuentes</a>
-          <a href="pago.html">Como pagar</a>
+          <a href="index.html">Inicio</a>
           <a href="tesis.html">Tesis</a>
+          <a href="procedimiento.html">Proceso</a>
+          <a href="precios.html">Precios</a>
+          <a href="faq.html">FAQ</a>
           <a href="blog.html">Blog</a>
           <a href="nosotros.html">Nosotros</a>
+          <a href="pago.html">Como pagar</a>
         </div>
         <div>
           <h4>Legal</h4>
@@ -363,18 +508,6 @@
     </div>
   </footer>
 
-  <!-- Toast promocional -->
-  <div class="promo-toast" id="promoToast" role="status" aria-live="polite">
-    <div class="promo-toast__icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    </div>
-    <div class="promo-toast__text">
-      <strong></strong>
-      <span></span>
-    </div>
-    <button class="promo-toast__close" type="button" aria-label="Cerrar">&times;</button>
-  </div>
-
   <!-- Floating buttons -->
   <button class="to-top" id="toTop" type="button" aria-label="Volver arriba">&#8593;</button>
 
@@ -389,14 +522,19 @@
   <!-- GSAP + ScrollTrigger -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <!-- Typed.js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <!-- Swiper -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <!-- Vanilla Tilt -->
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
   <script src="app.js"></script>
+
+  <!-- Copy functionality -->
+  <script>
+  (function(){
+    function agsCopy(t){
+      if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(t);
+      return new Promise(function(res,rej){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy');res();}catch(e){rej(e);}document.body.removeChild(ta);});
+    }
+    document.querySelectorAll('[data-copy]').forEach(function(b){
+      b.addEventListener('click',function(){agsCopy(b.getAttribute('data-copy')).then(function(){var o=b.textContent;b.textContent=b.classList.contains('copy-all')?'✓ Copiado':'✓';b.classList.add('done');setTimeout(function(){b.textContent=o;b.classList.remove('done');},1500);}).catch(function(){});});
+    });
+  })();
+  </script>
 </body>
 </html>
