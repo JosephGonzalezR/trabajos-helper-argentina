@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Como hacer un Dashboard en Power BI: Guia paso a paso | Trabajos Helper Blog</title>
+  <meta name="description" content="Aprende a crear dashboards interactivos en Power BI desde cero. Conecta datos, crea visualizaciones profesionales y comparti tu trabajo. Tutorial completo en espanol." />
+  <meta name="author" content="Trabajos Helper" />
+  <meta name="theme-color" content="#2B7CB5" />
+  <link rel="canonical" href="https://trabajoshelper.ags-ed.com/blog/power-bi-dashboard/" />
+  <link rel="icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
+  <link rel="apple-touch-icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body data-page="blog">
+  <!-- SVG Icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 22s7-4.5 7-12a7 7 0 0 0-14 0c0 7.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 11.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <!-- SIMPLE HEADER -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="/" aria-label="Ir al inicio">
+        <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="40" height="40" alt="Logo de Trabajos Helper" decoding="async" style="border-radius:10px" />
+        <span class="brand__text">
+          <strong>Trabajos Helper</strong>
+          <small>Soluciones Academicas</small>
+        </span>
+      </a>
+      <nav class="nav__links" aria-label="Navegacion principal">
+        <a href="/#servicios-trabajos">Servicios</a>
+        <a href="/procedimiento/">Proceso</a>
+        <a href="/precios/">Precios</a>
+        <a href="/referencias/">Referencias</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/blog/" class="active">Blog</a>
+        <a href="/nosotros/">Nosotros</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm hide-sm" href="/blog/">
+          <svg class="i" aria-hidden="true" style="width:18px;height:18px"><use href="#i-arrow"></use></svg>
+          Volver al Blog
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ARTICLE HERO -->
+    <section class="article-hero">
+      <div class="article-hero__img">
+        <img src="/Imagenes/imagen 11.webp" alt="Dashboard interactivo de Power BI con graficos de barras y torta" width="1440" height="480" />
+      </div>
+      <div class="article-hero__overlay"></div>
+      <div class="article-hero__content container">
+        <nav class="article-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Inicio</a>
+          <span>/</span>
+          <a href="/blog/">Blog</a>
+          <span>/</span>
+          <span>Power BI Dashboard</span>
+        </nav>
+        <h1>Como hacer un Dashboard en Power BI: Guia paso a paso</h1>
+        <div class="article-meta">
+          <span class="article-meta__badge" style="background:#F7C948;color:#333">Power BI</span>
+          <span class="article-meta__sep"></span>
+          <time datetime="2026-02">Febrero 2026</time>
+          <span class="article-meta__sep"></span>
+          <span>12 min de lectura</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLE LAYOUT -->
+    <div class="container article-layout">
+      <!-- MAIN CONTENT -->
+      <article class="article-content">
+
+        <h2 id="que-es-power-bi">Que es Power BI y por que aprenderlo</h2>
+        <p>Power BI es la herramienta de Business Intelligence de Microsoft que te permite transformar datos crudos en visualizaciones interactivas y reportes profesionales. Si estas cursando una carrera universitaria en Argentina, ya sea Administracion, Economia, Ingenieria Industrial, Sistemas o Marketing, es muy probable que en algun momento te pidan crear un dashboard para una entrega o trabajo practico.</p>
+        <p>Lo mejor de Power BI es que la version Desktop es <strong>completamente gratuita</strong>. Podes descargarte Power BI Desktop desde la tienda de Microsoft o la pagina oficial sin pagar un peso. Ademas, tiene una comunidad enorme y toneladas de recursos en espanol para aprender.</p>
+        <p>En este tutorial vas a aprender a crear un dashboard completo desde cero, paso a paso. Al finalizar, vas a tener un tablero interactivo con graficos, filtros y un diseno profesional que podes presentar en tu facultad.</p>
+
+        <div class="article-tip article-tip--info">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <div class="article-tip__text">
+            <strong>Dato util</strong>
+            Power BI Desktop es gratuito. Solo necesitas una cuenta de Microsoft (la misma del mail de Outlook o Hotmail). La version Pro tiene un costo mensual, pero para trabajos universitarios la version gratuita te alcanza de sobra.
+          </div>
+        </div>
+
+        <h2 id="requisitos-instalacion">Requisitos previos e instalacion</h2>
+        <p>Antes de empezar, asegurate de tener lo siguiente listo en tu computadora. Los requisitos son bastante accesibles, asi que no te preocupes si no tenes una maquina de ultima generacion.</p>
+
+        <h3>Requisitos minimos</h3>
+        <ul>
+          <li>Windows 10 o superior (Power BI Desktop solo corre en Windows)</li>
+          <li>Al menos 4 GB de RAM (8 GB recomendado)</li>
+          <li>1 GB de espacio libre en disco</li>
+          <li>Conexion a internet para la descarga e instalacion</li>
+          <li>Un archivo de datos para practicar (Excel, CSV, etc.)</li>
+        </ul>
+
+        <h3>Pasos para instalar Power BI Desktop</h3>
+        <div class="article-steps">
+          <div class="article-step">
+            <div class="article-step__body">
+              <h4>Descarga Power BI Desktop</h4>
+              <p>Anda a la Microsoft Store en tu Windows y busca "Power BI Desktop". Hacele click en "Obtener" para descargarlo gratis. Tambien podes ir a powerbi.microsoft.com y descargar el instalador directamente.</p>
+            </div>
+          </div>
+          <div class="article-step">
+            <div class="article-step__body">
+              <h4>Instala el programa</h4>
+              <p>Ejecuta el instalador y segui las instrucciones. La instalacion es automatica y tarda unos pocos minutos dependiendo de tu conexion.</p>
+            </div>
+          </div>
+          <div class="article-step">
+            <div class="article-step__body">
+              <h4>Inicia sesion con tu cuenta Microsoft</h4>
+              <p>Al abrir Power BI Desktop por primera vez, te va a pedir que inicies sesion. Usa tu cuenta de Outlook, Hotmail o cualquier cuenta Microsoft que tengas.</p>
+            </div>
+          </div>
+          <div class="article-step">
+            <div class="article-step__body">
+              <h4>Explora la interfaz</h4>
+              <p>Familiarizate con las tres vistas principales: Vista de Informe (donde diseñas), Vista de Datos (donde ves las tablas) y Vista de Modelo (donde ves las relaciones entre tablas).</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="conectar-datos">Conectar tus datos (Excel, CSV, bases de datos)</h2>
+        <p>El primer paso real para armar tu dashboard es traer los datos. Power BI puede conectarse a una cantidad impresionante de fuentes de datos. Para un trabajo universitario, lo mas comun es que trabajes con archivos de Excel o CSV.</p>
+
+        <h3>Importar desde Excel</h3>
+        <p>Para importar un archivo de Excel, segui estos pasos:</p>
+        <ol>
+          <li>Hacele click en <strong>"Obtener datos"</strong> en la pestaña Inicio</li>
+          <li>Selecciona <strong>"Libro de Excel"</strong></li>
+          <li>Busca tu archivo en el explorador y dale a <strong>"Abrir"</strong></li>
+          <li>En la ventana del Navegador, selecciona las hojas o tablas que quieras importar</li>
+          <li>Presiona <strong>"Cargar"</strong> para traer los datos directamente, o <strong>"Transformar datos"</strong> si necesitas limpiarlos primero</li>
+        </ol>
+
+        <div class="article-tip article-tip--warn">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="article-tip__text">
+            <strong>Atencion con el formato de datos</strong>
+            Antes de importar tu Excel, asegurate de que los datos esten en formato de tabla (sin celdas combinadas, sin filas vacias, con encabezados claros). Esto te va a ahorrar muchos problemas despues.
+          </div>
+        </div>
+
+        <h3>Importar desde CSV</h3>
+        <p>El proceso es muy parecido. En "Obtener datos" elegis <strong>"Texto/CSV"</strong>, seleccionas tu archivo y Power BI lo detecta automaticamente. Fijate que el separador sea el correcto (coma, punto y coma, tabulador) y que la codificacion sea UTF-8 si tenes caracteres especiales como la eñe.</p>
+
+        <h3>Transformar datos con Power Query</h3>
+        <p>Power Query es el editor de transformaciones de Power BI. Aca podes limpiar y preparar tus datos antes de usarlos. Algunas operaciones comunes que vas a necesitar:</p>
+        <ul>
+          <li><strong>Eliminar columnas innecesarias:</strong> Click derecho sobre la columna > Quitar</li>
+          <li><strong>Cambiar tipo de dato:</strong> Hacele click en el icono del tipo de columna para cambiarlo</li>
+          <li><strong>Filtrar filas:</strong> Usa el menu desplegable del encabezado para filtrar valores</li>
+          <li><strong>Reemplazar valores:</strong> Click derecho > Reemplazar valores</li>
+          <li><strong>Dividir columnas:</strong> Si tenes datos combinados en una columna (ej: "Nombre Apellido"), podes separarlos</li>
+        </ul>
+
+        <figure class="article-img">
+          <img src="/Imagenes/imagen 24.webp" alt="Editor de Power Query mostrando transformaciones de datos" loading="lazy" width="800" height="450" decoding="async" />
+          <figcaption>El editor de Power Query te permite limpiar y transformar tus datos antes de crear visualizaciones</figcaption>
+        </figure>
+
+        <h2 id="crear-visualizaciones">Crear visualizaciones basicas</h2>
+        <p>Ahora viene la parte mas divertida: crear los graficos. Power BI tiene una gran variedad de visualizaciones listas para usar. Vamos a ver las mas comunes que vas a necesitar para tus trabajos.</p>
+
+        <h3>Grafico de barras</h3>
+        <p>Es el grafico mas clasico y util para comparar categorias. Para crearlo:</p>
+        <ol>
+          <li>Hacele click en el icono de <strong>"Grafico de barras agrupadas"</strong> en el panel de Visualizaciones</li>
+          <li>Arrastra el campo de categoria al eje Y (por ejemplo, "Producto")</li>
+          <li>Arrastra el campo numerico al eje X (por ejemplo, "Ventas")</li>
+          <li>Para agregar color por subcategoria, arrastra otro campo a "Leyenda"</li>
+        </ol>
+
+        <h3>Grafico de torta (circular)</h3>
+        <p>Ideal para mostrar proporciones. Funciona mejor cuando tenes pocas categorias (menos de 6). Arrastra la categoria a "Leyenda" y el valor numerico a "Valores".</p>
+
+        <h3>Grafico de lineas</h3>
+        <p>Perfecto para mostrar tendencias en el tiempo. Arrastra el campo de fecha al eje X y el valor numerico al eje Y. Power BI automaticamente agrupa las fechas por año, trimestre o mes, y vos podes hacer drill-down para ver mas detalle.</p>
+
+        <h3>Tarjetas KPI</h3>
+        <p>Las tarjetas son ideales para mostrar numeros destacados como totales, promedios o porcentajes. Selecciona la visualizacion "Tarjeta" y arrastra una medida. Podes personalizar el formato, el tamaño de fuente y el color.</p>
+
+        <h3>Crear medidas con DAX</h3>
+        <p>DAX (Data Analysis Expressions) es el lenguaje de formulas de Power BI. Te permite crear calculos personalizados que van mas alla de las sumas y promedios basicos. Aca van algunas formulas DAX esenciales:</p>
+
+<pre><code>// Medida: Total de Ventas
+Total Ventas = SUM(Ventas[Monto])
+
+// Medida: Promedio de Ventas por Transaccion
+Promedio Venta = AVERAGE(Ventas[Monto])
+
+// Medida: Cantidad de Clientes Unicos
+Clientes Unicos = DISTINCTCOUNT(Ventas[ClienteID])
+
+// Medida: Ventas del Mes Anterior (para comparaciones)
+Ventas Mes Anterior = CALCULATE(
+    SUM(Ventas[Monto]),
+    DATEADD(Calendario[Fecha], -1, MONTH)
+)
+
+// Medida: Variacion Porcentual
+Variacion % = DIVIDE(
+    [Total Ventas] - [Ventas Mes Anterior],
+    [Ventas Mes Anterior],
+    0
+)</code></pre>
+
+        <div class="article-tip article-tip--info">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <div class="article-tip__text">
+            <strong>Tip sobre DAX</strong>
+            Para crear una nueva medida, anda a la pestaña "Modelado" y hacele click en "Nueva medida". Escribi la formula en la barra de formulas. Siempre es mejor crear medidas explicitas que usar calculos implicitos, porque te da mas control sobre como se comportan en diferentes contextos.
+          </div>
+        </div>
+
+        <h2 id="disenar-layout">Disenar el layout del dashboard</h2>
+        <p>Un buen dashboard no es solo tener graficos correctos: tambien tiene que verse profesional y ser facil de leer. Aca van algunos principios de diseno que te van a ayudar a armar un tablero de primera.</p>
+
+        <h3>Estructura recomendada</h3>
+        <p>La mayoria de los dashboards profesionales siguen un patron parecido:</p>
+        <ul>
+          <li><strong>Parte superior:</strong> Titulo del dashboard, filtros principales y tarjetas KPI con los numeros mas importantes</li>
+          <li><strong>Zona media:</strong> Graficos principales (barras, lineas) que cuentan la historia de los datos</li>
+          <li><strong>Zona inferior:</strong> Tablas de detalle, graficos secundarios o informacion complementaria</li>
+        </ul>
+
+        <h3>Consejos de diseno</h3>
+        <ul>
+          <li><strong>Usa un fondo de color suave:</strong> Anda a Formato > Fondo del lienzo y ponele un color como #F5F5F5 en lugar de blanco puro</li>
+          <li><strong>Agrega un encabezado:</strong> Crea un rectangulo con el titulo y logo usando formas e imagenes</li>
+          <li><strong>Alinea todo:</strong> Usa las herramientas de alineacion (pestaña Formato > Alinear) para que los graficos queden prolijos</li>
+          <li><strong>Limita la paleta de colores:</strong> Usa maximo 3-4 colores que combinen. Podes configurar un tema personalizado</li>
+          <li><strong>Deja espacio en blanco:</strong> No llenes cada pixel del lienzo. El espacio en blanco hace que el dashboard se vea mas profesional</li>
+        </ul>
+
+        <figure class="article-img">
+          <img src="/Imagenes/imagen 25.webp" alt="Dashboard terminado en Power BI con diseño profesional" loading="lazy" width="800" height="450" decoding="async" />
+          <figcaption>Un dashboard bien diseñado combina KPIs, graficos y filtros de forma clara y visualmente atractiva</figcaption>
+        </figure>
+
+        <h2 id="filtros-interactividad">Agregar filtros e interactividad</h2>
+        <p>La interactividad es lo que hace que un dashboard en Power BI sea realmente poderoso. Vamos a ver como agregar filtros y configurar las interacciones entre graficos.</p>
+
+        <h3>Segmentadores (Slicers)</h3>
+        <p>Los segmentadores son filtros visuales que le permiten al usuario filtrar los datos de forma interactiva. Para agregar uno:</p>
+        <ol>
+          <li>Selecciona la visualizacion <strong>"Segmentador"</strong> en el panel de Visualizaciones</li>
+          <li>Arrastra el campo por el que quieras filtrar (por ejemplo, "Region", "Año", "Categoria")</li>
+          <li>Configura el estilo: podes elegir entre lista desplegable, botones, deslizador (para fechas) o lista</li>
+        </ol>
+
+        <h3>Interaccion entre graficos</h3>
+        <p>Por defecto, cuando hacemos click en un elemento de un grafico, los demas graficos se filtran automaticamente. Esto es una de las mejores funciones de Power BI. Pero a veces queres controlar esto:</p>
+        <ol>
+          <li>Selecciona un grafico</li>
+          <li>Anda a <strong>Formato > Editar interacciones</strong></li>
+          <li>Ahora podes elegir para cada grafico si queres que se filtre, resalte o no se vea afectado</li>
+        </ol>
+
+        <h3>Drill-down y Drill-through</h3>
+        <p>El <strong>drill-down</strong> te permite profundizar dentro de una jerarquia (por ejemplo, de Año a Trimestre a Mes). Para habilitarlo, tu campo de fecha ya debe tener una jerarquia creada. Despues, usa los iconos de flecha arriba del grafico para navegar entre niveles.</p>
+        <p>El <strong>drill-through</strong> es diferente: te permite hacer click derecho en un dato y navegar a otra pagina del informe con mas detalle sobre ese dato especifico. Es ideal para dashboards de varias paginas.</p>
+
+        <div class="article-tip article-tip--success">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="article-tip__text">
+            <strong>Pro tip</strong>
+            Si queres impresionar a tu profesor, agrega un boton de "Restablecer filtros" en tu dashboard. Anda a Insertar > Botones > Restablecer. Asi quien lo use puede volver al estado original con un solo click.
+          </div>
+        </div>
+
+        <h2 id="publicar-compartir">Publicar y compartir tu dashboard</h2>
+        <p>Una vez que tu dashboard esta listo, llega el momento de compartirlo. Dependiendo de como te lo pidan en la facultad, tenes varias opciones.</p>
+
+        <h3>Exportar como PDF</h3>
+        <p>La opcion mas simple: anda a <strong>Archivo > Exportar > PDF</strong>. Esto genera un PDF con cada pagina de tu informe. Es ideal si tenes que subir el trabajo a un campus virtual.</p>
+
+        <h3>Publicar en Power BI Service</h3>
+        <p>Si tenes cuenta de organizacion (algunas universidades lo ofrecen), podes publicar tu dashboard online:</p>
+        <ol>
+          <li>Hacele click en <strong>"Publicar"</strong> en la pestaña Inicio</li>
+          <li>Selecciona el area de trabajo donde quieras publicarlo</li>
+          <li>Una vez publicado, podes compartir el link con tu profesor</li>
+        </ol>
+
+        <h3>Guardar como archivo .pbix</h3>
+        <p>El archivo .pbix es el formato nativo de Power BI. Es la forma mas comun de entregar el trabajo porque tu profesor puede abrirlo directamente en su Power BI Desktop y ver toda la interactividad. Asegurate de que los datos esten embebidos (importados) y no vinculados a un archivo externo que tu profesor no tenga.</p>
+
+        <div class="article-tip article-tip--warn">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="article-tip__text">
+            <strong>Cuidado al entregar</strong>
+            Antes de entregar tu archivo .pbix, actualiza los datos una ultima vez (Inicio > Actualizar) y revisa que todos los graficos se vean correctamente. Tambien fijate que no queden filtros aplicados que oculten datos.
+          </div>
+        </div>
+
+        <h2 id="conclusion">Conclusion y proximos pasos</h2>
+        <p>Si llegaste hasta aca, ya tenes todo lo necesario para crear un dashboard profesional en Power BI. Repasemos lo que aprendiste:</p>
+        <ul>
+          <li>Como instalar y configurar Power BI Desktop</li>
+          <li>Como importar datos desde Excel, CSV y otras fuentes</li>
+          <li>Como crear visualizaciones basicas: barras, torta, lineas y tarjetas KPI</li>
+          <li>Como escribir formulas DAX para medidas personalizadas</li>
+          <li>Como disenar un layout profesional y atractivo</li>
+          <li>Como agregar filtros, segmentadores e interactividad</li>
+          <li>Como exportar y compartir tu trabajo terminado</li>
+        </ul>
+
+        <p>Para seguir aprendiendo, te recomendamos explorar temas como <strong>DAX avanzado</strong>, <strong>modelado de datos con relaciones entre tablas</strong>, y la creacion de <strong>informes paginados</strong> para reportes formales. La documentacion oficial de Microsoft es excelente y esta disponible en espanol.</p>
+
+        <div class="article-tip article-tip--success">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="article-tip__text">
+            <strong>Necesitas ayuda personalizada?</strong>
+            Si tenes un trabajo practico de Power BI y no te sale, o simplemente no tenes tiempo, en <strong>Trabajos Helper</strong> te ayudamos. Escribinos por WhatsApp y te cotizamos al instante.
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="article-share">
+          <span>Compartir:</span>
+          <a href="#" aria-label="Compartir en Facebook">
+            <svg style="width:18px;height:18px" aria-hidden="true"><use href="#i-facebook"></use></svg>
+          </a>
+          <a href="#" aria-label="Compartir en WhatsApp">
+            <svg style="width:18px;height:18px" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+        <div class="article-toc">
+          <p class="article-toc__title">En este articulo</p>
+          <ul class="article-toc__list">
+            <li><a href="#que-es-power-bi">Que es Power BI y por que aprenderlo</a></li>
+            <li><a href="#requisitos-instalacion">Requisitos previos e instalacion</a></li>
+            <li><a href="#conectar-datos">Conectar tus datos</a></li>
+            <li><a href="#crear-visualizaciones">Crear visualizaciones basicas</a></li>
+            <li><a href="#disenar-layout">Disenar el layout del dashboard</a></li>
+            <li><a href="#filtros-interactividad">Filtros e interactividad</a></li>
+            <li><a href="#publicar-compartir">Publicar y compartir</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+          </ul>
+        </div>
+        <div class="article-sidebar__cta">
+          <h4>Te hacemos el dashboard</h4>
+          <p>Si necesitas ayuda con tu trabajo practico de Power BI, escribinos y te lo resolvemos.</p>
+          <a class="btn btn--primary btn--sm btn--block" data-wa-message="Hola, necesito una mano con un trabajo de la facu." href="#" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+            WhatsApp
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <section class="article-related">
+      <div class="container">
+        <h2>Articulos relacionados</h2>
+        <div class="blog-grid" style="max-width:900px;margin:0 auto">
+          <article class="blog-card">
+            <div class="blog-card__img">
+              <img src="/Imagenes/imagen 12.webp" alt="Excel tablas dinamicas" loading="lazy" width="400" height="250" decoding="async">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-card__badge" style="--badge-color:#217346">Excel</span>
+              <h3><a href="/blog/excel-tablas-dinamicas/">Tablas Dinamicas en Excel: Tutorial completo</a></h3>
+              <p class="muted">Domina las tablas dinamicas de Excel desde cero hasta nivel avanzado.</p>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__img">
+              <img src="/Imagenes/imagen 14.webp" alt="SQL consultas" loading="lazy" width="400" height="250" decoding="async">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-card__badge" style="--badge-color:#E34C26">SQL</span>
+              <h3><a href="/blog/sql-principiantes/">SQL para principiantes: Consultas basicas</a></h3>
+              <p class="muted">Aprende SQL desde cero con ejemplos practicos para tus trabajos.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" aria-label="CTA">
+      <div class="container final-cta__inner">
+        <div>
+          <h2>Necesitas que hagamos tu trabajo?</h2>
+          <p class="muted">Escribinos con los requisitos y te cotizamos al instante.</p>
+        </div>
+        <div class="final-cta__actions">
+          <a class="btn btn--primary" data-wa-message="Hola, necesito una mano con un trabajo de la facu." href="#" rel="noopener">
+            Cotizar ahora
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
+          <a class="btn btn--ghost" href="/">Ver servicios</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <div class="footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,90 720,0 1080,50 C1260,75 1380,20 1440,30 L1440,90 L0,90 Z" fill="#FAFAFA"/>
+    </svg>
+  </div>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="56" height="56" alt="Logo de Trabajos Helper" loading="lazy" decoding="async" style="border-radius:12px" />
+        <div>
+          <strong>Trabajos Helper</strong>
+          <p class="muted">Soluciones Academicas</p>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Secciones</h4>
+          <a href="/">Trabajos</a>
+          <a href="/precios/">Precios</a>
+        <a href="/referencias/">Referencias</a>
+          <a href="/procedimiento/">Como trabajamos</a>
+          <a href="/faq/">Preguntas frecuentes</a>
+          <a href="/pago/">Como pagar</a>
+          <a href="/blog/">Blog</a>
+          <a href="/nosotros/">Nosotros</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="/privacy/">Privacidad</a>
+          <a href="/terms/">Terminos</a>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <a data-wa-message="Hola, necesito una mano con un trabajo de la facu." href="#" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp
+          </a>
+          <a href="#" target="_blank" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-facebook"></use></svg> Facebook
+          </a>
+          <a href="#" target="_blank" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-instagram"></use></svg> Instagram
+          </a>
+          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> Buenos Aires, Argentina</span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span class="muted">&copy; 2026 Trabajos Helper. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

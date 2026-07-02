@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-AR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,13 +11,15 @@
   <meta name="theme-color" content="#2B7CB5" />
 
   <!-- Favicons -->
-  <link rel="icon" href="NUEVO LOGO TRABAJOS HELPER.jpg" />
-  <link rel="apple-touch-icon" href="NUEVO LOGO TRABAJOS HELPER.jpg" />
+  <link rel="canonical" href="https://trabajoshelper.ags-ed.com/" />
+  <link rel="icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
+  <link rel="apple-touch-icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
 
   <!-- Open Graph -->
+  <meta property="og:url" content="https://trabajoshelper.ags-ed.com/" />
   <meta property="og:title" content="Trabajos Helper | Hacemos tus Trabajos Academicos" />
   <meta property="og:description" content="Hacemos tus trabajos academicos: trabajos practicos, informes, monografias, ensayos, presentaciones, Excel, Power BI, programacion y mas. Escribinos por WhatsApp." />
-  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:image" content="https://trabajoshelper.ags-ed.com/assets/og-image.png" />
   <meta property="og:type" content="website" />
 
   <!-- Fonts -->
@@ -26,7 +28,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body data-page="trabajos">
@@ -141,33 +143,29 @@
 
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a class="brand" href="index.html" aria-label="Ir al inicio">
-        <img src="NUEVO LOGO TRABAJOS HELPER.jpg" width="40" height="40" alt="Logo de Trabajos Helper" decoding="async" style="border-radius:10px" />
+      <a class="brand" href="/" aria-label="Ir al inicio">
+        <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="40" height="40" alt="Logo de Trabajos Helper" decoding="async" style="border-radius:10px" />
         <span class="brand__text">
           <strong data-bind="brand">Trabajos Helper</strong>
           <small>Soluciones Academicas</small>
         </span>
       </a>
 
-      <div class="page-switcher" aria-label="Tipo de servicio">
-        <a class="page-switcher__tab page-switcher__tab--active" href="index.html">Trabajos</a>
-        <a class="page-switcher__tab" href="tesis.html">Tesis</a>
-      </div>
-
       <nav class="nav__links" aria-label="Navegacion principal" id="navLinks">
         <a href="#servicios-trabajos">Servicios</a>
-        <a href="procedimiento.html">Proceso</a>
-        <a href="precios.html">Precios</a>
-        <a href="referencias.html">Referencias</a>
-        <a href="faq.html">FAQ</a>
-        <a href="blog.html">Blog</a>
+        <a href="/procedimiento/">Proceso</a>
+        <a href="/precios/">Precios</a>
+        <a href="/referencias/">Referencias</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a href="/nosotros/">Nosotros</a>
         <a href="#contacto-trabajos" class="nav__cta">Escribinos</a>
       </nav>
 
       <div class="nav__actions">
         <a class="btn btn--ghost btn--sm hide-sm" data-wa-message="Hola, necesito presupuesto para un trabajo de la facu. ¿Me dan una mano?" href="#" rel="noopener">
           <svg class="i" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
-          <span class="btn__hint" data-bind="whatsappDisplay">+54 9 342 413-4914</span>
+          <span class="btn__hint" data-bind="whatsappDisplay">+54 9 342 413 4914</span>
         </a>
 
         <button class="nav__burger" type="button" id="menuBtn" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
@@ -178,16 +176,13 @@
 
     <div class="mobile-menu" id="mobileMenu" hidden>
       <div class="mobile-menu__inner container">
-        <div class="page-switcher page-switcher--mobile" aria-label="Tipo de servicio">
-          <a class="page-switcher__tab page-switcher__tab--active" href="index.html">Trabajos</a>
-          <a class="page-switcher__tab" href="tesis.html">Tesis</a>
-        </div>
         <a href="#servicios-trabajos">Servicios</a>
-        <a href="procedimiento.html">Proceso</a>
-        <a href="precios.html">Precios</a>
-        <a href="referencias.html">Referencias</a>
-        <a href="faq.html">FAQ</a>
-        <a href="blog.html">Blog</a>
+        <a href="/procedimiento/">Proceso</a>
+        <a href="/precios/">Precios</a>
+        <a href="/referencias/">Referencias</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a href="/nosotros/">Nosotros</a>
         <a href="#contacto-trabajos" class="btn btn--primary btn--block">Escribinos por WhatsApp</a>
         <div class="mobile-menu__meta">
           <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Buenos Aires, Argentina</span></span>
@@ -240,10 +235,6 @@
             </a>
             <a class="btn btn--soft" href="#servicios-trabajos">Ver servicios</a>
           </div>
-
-          <p class="hero__crosslink" data-reveal>
-            Si necesitas ayuda con tu tesis, <a href="tesis.html">presiona aca</a>
-          </p>
 
           <div class="hero__trust" data-reveal>
             <div class="trust-badges" aria-label="Compromisos">
@@ -372,7 +363,7 @@
         <div class="cards cards--3">
           <article class="card" data-reveal>
             <div class="card__img">
-              <img src="Imagenes/imagen 20.webp" alt="Documento academico con correcciones" loading="lazy" width="400" height="250" decoding="async">
+              <img src="/Imagenes/imagen 20.webp" alt="Documento academico con correcciones" loading="lazy" width="400" height="250" decoding="async">
             </div>
             <div class="card__icon" aria-hidden="true"><svg class="i"><use href="#i-doc"></use></svg></div>
             <h3>Informes y Ensayos</h3>
@@ -386,7 +377,7 @@
 
           <article class="card" data-reveal>
             <div class="card__img">
-              <img src="Imagenes/imagen 21.webp" alt="Hoja de calculo Excel con graficos y datos" loading="lazy" width="400" height="250" decoding="async">
+              <img src="/Imagenes/imagen 21.webp" alt="Hoja de calculo Excel con graficos y datos" loading="lazy" width="400" height="250" decoding="async">
             </div>
             <div class="card__icon" aria-hidden="true"><svg class="i"><use href="#i-table"></use></svg></div>
             <h3>Excel y Reportes</h3>
@@ -400,7 +391,7 @@
 
           <article class="card" data-reveal>
             <div class="card__img">
-              <img src="Imagenes/imagen 11.webp" alt="Dashboard de Power BI con graficos interactivos" loading="lazy" width="400" height="250" decoding="async">
+              <img src="/Imagenes/imagen 11.webp" alt="Dashboard de Power BI con graficos interactivos" loading="lazy" width="400" height="250" decoding="async">
             </div>
             <div class="card__icon" aria-hidden="true"><svg class="i"><use href="#i-chart"></use></svg></div>
             <h3>Power BI</h3>
@@ -414,7 +405,7 @@
 
           <article class="card" data-reveal>
             <div class="card__img">
-              <img src="Imagenes/imagen 23.webp" alt="Diagrama de base de datos en pizarra" loading="lazy" width="400" height="250" decoding="async">
+              <img src="/Imagenes/imagen 23.webp" alt="Diagrama de base de datos en pizarra" loading="lazy" width="400" height="250" decoding="async">
             </div>
             <div class="card__icon" aria-hidden="true"><svg class="i"><use href="#i-database"></use></svg></div>
             <h3>Bases de Datos</h3>
@@ -428,7 +419,7 @@
 
           <article class="card" data-reveal>
             <div class="card__img">
-              <img src="Imagenes/imagen 22.webp" alt="Doble monitor con codigo de programacion" loading="lazy" width="400" height="250" decoding="async">
+              <img src="/Imagenes/imagen 22.webp" alt="Doble monitor con codigo de programacion" loading="lazy" width="400" height="250" decoding="async">
             </div>
             <div class="card__icon" aria-hidden="true"><svg class="i"><use href="#i-code"></use></svg></div>
             <h3>Programacion</h3>
@@ -543,7 +534,7 @@
             <div class="step__num">1</div>
             <div class="step__body">
               <div class="step__img">
-                <img src="Imagenes/imagen 3.webp" alt="Envio de requisitos por WhatsApp" loading="lazy" decoding="async" width="400" height="400">
+                <img src="/Imagenes/imagen 3.webp" alt="Envio de requisitos por WhatsApp" loading="lazy" decoding="async" width="400" height="400">
               </div>
               <h3>Envia tus requisitos</h3>
               <p class="muted">Mandanos las instrucciones, consigna o guia de tu trabajo por WhatsApp.</p>
@@ -554,7 +545,7 @@
             <div class="step__num">2</div>
             <div class="step__body">
               <div class="step__img">
-                <img src="Imagenes/imagen 4.webp" alt="Acuerdo y plan de trabajo definido" loading="lazy" decoding="async" width="400" height="400">
+                <img src="/Imagenes/imagen 4.webp" alt="Acuerdo y plan de trabajo definido" loading="lazy" decoding="async" width="400" height="400">
               </div>
               <h3>Cotizacion y acuerdo</h3>
               <p class="muted">Te enviamos el precio, plazo y forma de pago. Sin sorpresas.</p>
@@ -565,7 +556,7 @@
             <div class="step__num">3</div>
             <div class="step__body">
               <div class="step__img">
-                <img src="Imagenes/imagen 5.webp" alt="Documento completado con exito en laptop" loading="lazy" decoding="async" width="400" height="400">
+                <img src="/Imagenes/imagen 5.webp" alt="Documento completado con exito en laptop" loading="lazy" decoding="async" width="400" height="400">
               </div>
               <h3>Entrega y revision</h3>
               <p class="muted">Recibis tu trabajo listo. Si necesitas ajustes, los hacemos sin costo adicional.</p>
@@ -600,7 +591,7 @@
         </div>
 
         <div class="section-img-wrap" data-reveal>
-          <img class="section-img" src="Imagenes/imagen 6.webp" alt="Estudiante agobiado estudiando de noche con libros y laptop" width="800" height="450" loading="lazy" decoding="async">
+          <img class="section-img" src="/Imagenes/imagen 6.webp" alt="Estudiante agobiado estudiando de noche con libros y laptop" width="800" height="450" loading="lazy" decoding="async">
         </div>
 
         <div class="panel panel--full" data-reveal>
@@ -676,16 +667,11 @@
         </div>
 
         <div class="section-visual" data-reveal>
-          <img src="Imagenes/imagen 10.webp" alt="Escritorio de trabajo academico con libros, laptop y apuntes" loading="lazy" decoding="async" width="800" height="400">
+          <img src="/Imagenes/imagen 10.webp" alt="Escritorio de trabajo academico con libros, laptop y apuntes" loading="lazy" decoding="async" width="800" height="400">
         </div>
 
         <div class="faq" data-reveal>
           <h3 class="sr-only">FAQ</h3>
-
-          <div class="faq__search" role="search" aria-label="Buscar en FAQ">
-            <input type="text" id="faqSearchInput" placeholder="Buscar pregunta…" autocomplete="off" />
-            <span id="faqSearchHint" class="faq__hint"></span>
-          </div>
           <div class="accordion" id="faqAccordion">
             <div class="accordion__item" data-faq-item>
               <h4 class="accordion__h">
@@ -848,14 +834,14 @@
             </div>
 
             <p class="fineprint">
-              Al enviar, aceptas nuestra <a href="privacy.html">Politica de privacidad</a> y <a href="terms.html">Terminos</a>.
+              Al enviar, aceptas nuestra <a href="/privacy/">Politica de privacidad</a> y <a href="/terms/">Terminos</a>.
             </p>
           </form>
 
           <aside class="contact__side" data-reveal>
             <div class="sidecard">
               <h3>Contacto directo</h3>
-              <p class="muted">WhatsApp: <strong data-bind="whatsappDisplay">+54 9 342 413-4914</strong></p>
+              <p class="muted">WhatsApp: <strong data-bind="whatsappDisplay">+54 9 342 413 4914</strong></p>
               <p class="muted">Ubicacion: <strong data-bind="location">Buenos Aires, Argentina</strong></p>
 
               <div class="sidecard__actions">
@@ -925,7 +911,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <img src="NUEVO LOGO TRABAJOS HELPER.jpg" width="56" height="56" alt="Logo de Trabajos Helper" loading="lazy" decoding="async" style="border-radius:12px" />
+        <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="56" height="56" alt="Logo de Trabajos Helper" loading="lazy" decoding="async" style="border-radius:12px" />
         <div>
           <strong data-bind="brand">Trabajos Helper</strong>
           <p class="muted">Soluciones Academicas</p>
@@ -935,19 +921,19 @@
       <div class="footer__cols">
         <div>
           <h4>Secciones</h4>
-          <a href="index.html">Trabajos</a>
-          <a href="precios.html">Precios</a>
-        <a href="referencias.html">Referencias</a>
-          <a href="procedimiento.html">Como trabajamos</a>
-          <a href="faq.html">Preguntas frecuentes</a>
-          <a href="pago.html">Como pagar</a>
-          <a href="tesis.html">Tesis</a>
-          <a href="blog.html">Blog</a>
+          <a href="/">Trabajos</a>
+          <a href="/precios/">Precios</a>
+        <a href="/referencias/">Referencias</a>
+          <a href="/procedimiento/">Como trabajamos</a>
+          <a href="/faq/">Preguntas frecuentes</a>
+          <a href="/pago/">Como pagar</a>
+          <a href="/blog/">Blog</a>
+          <a href="/nosotros/">Nosotros</a>
         </div>
         <div>
           <h4>Legal</h4>
-          <a href="privacy.html">Privacidad</a>
-          <a href="terms.html">Terminos</a>
+          <a href="/privacy/">Privacidad</a>
+          <a href="/terms/">Terminos</a>
         </div>
         <div>
           <h4>Contacto</h4>
@@ -1042,6 +1028,6 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <!-- Vanilla Tilt -->
   <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
-  <script src="app.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>

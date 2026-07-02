@@ -1,7 +1,631 @@
-﻿<!doctype html>
-<html lang="es"><head><meta charset="utf-8">
-<title>Redireccionando…</title>
-<link rel="canonical" href="/precios.html">
-<meta http-equiv="refresh" content="0; url=/precios.html">
-<script>location.replace('/precios.html'+location.search+location.hash);</script>
-</head><body>Si no eres redirigido, <a href="/precios.html">haz clic aquí</a>.</body></html>
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+
+  <title>Precios | Trabajos Helper - Precios orientativos de trabajos academicos</title>
+  <meta name="description" content="Precios orientativos de trabajos academicos: TPs, informes, Excel, Power BI, programacion, bases de datos y mas. Cada trabajo se cotiza individualmente por WhatsApp." />
+  <meta name="author" content="Trabajos Helper" />
+  <meta name="theme-color" content="#2B7CB5" />
+
+  <!-- Favicons -->
+  <link rel="canonical" href="https://trabajoshelper.ags-ed.com/precios/" />
+  <link rel="icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
+  <link rel="apple-touch-icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
+
+  <!-- Open Graph -->
+  <meta property="og:url" content="https://trabajoshelper.ags-ed.com/precios/" />
+  <meta property="og:title" content="Precios | Trabajos Helper - Precios orientativos" />
+  <meta property="og:description" content="Precios orientativos de trabajos academicos: TPs, informes, Excel, Power BI, programacion, bases de datos y mas. Pedinos presupuesto por WhatsApp." />
+  <meta property="og:image" content="https://trabajoshelper.ags-ed.com/assets/og-image.png" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    /* ── Precios hero ── */
+    .precios-hero{
+      position: relative;
+      padding: clamp(100px, 12vw, 140px) 0 clamp(30px, 4vw, 50px);
+      text-align: center;
+    }
+    .precios-hero__bg{
+      position: absolute;
+      inset: 0;
+      background: var(--grad);
+      z-index: -1;
+    }
+    .precios-hero h1{
+      font-size: var(--h1);
+      letter-spacing: -.03em;
+      margin: 0 0 14px;
+    }
+    .precios-hero p{
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 58ch;
+      margin: 0 auto;
+    }
+    .precios-hero .pill{
+      margin-bottom: 14px;
+    }
+
+    /* ── Grid de precios ── */
+    .precio-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .precio-card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(20px, 2.5vw, 28px);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform .22s, box-shadow .22s;
+      position: relative;
+      overflow: hidden;
+    }
+    .precio-card::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(43,124,181,.18), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .precio-card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .precio-card__icon{
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(43,124,181,.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand);
+    }
+    .precio-card__icon .i{
+      width: 22px;
+      height: 22px;
+    }
+    .precio-card h3{
+      margin: 0;
+      font-size: var(--h3);
+    }
+    .precio-card__rango{
+      font-size: clamp(22px, 2.8vw, 28px);
+      font-weight: 800;
+      color: var(--brand);
+      letter-spacing: -.02em;
+    }
+    .precio-card__consultar{
+      font-size: clamp(18px, 2.2vw, 22px);
+      font-weight: 700;
+      color: var(--brand);
+      font-style: italic;
+    }
+    .precio-card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ── Nota explicativa ── */
+    .nota-precios{
+      background: var(--brand3);
+      border: 1px solid rgba(43,124,181,.15);
+      border-radius: var(--radius);
+      padding: clamp(20px, 3vw, 32px);
+    }
+    .nota-precios h3{
+      margin: 0 0 12px;
+      font-size: var(--h3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nota-precios ul{
+      margin: 0;
+      padding: 0 0 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .nota-precios li{
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Pagos ── */
+    .pago-info{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(22px, 3vw, 34px);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .pago-info h3{
+      margin: 0;
+      font-size: var(--h3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pago-info p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .pago-info .btn{
+      align-self: flex-start;
+    }
+
+    /* ── CTA final ── */
+    .cta-precios{
+      text-align: center;
+      padding: clamp(30px, 5vw, 60px) 0;
+    }
+    .cta-precios h2{
+      font-size: var(--h2);
+      margin: 0 0 10px;
+    }
+    .cta-precios p{
+      color: var(--muted);
+      margin: 0 0 22px;
+      max-width: 50ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+
+<body data-page="trabajos">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollProgress"></div>
+  </div>
+
+  <!-- Iconos SVG -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M9 12l2 2 4-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24">
+      <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M14.8 9.2l-2 6-6 2 2-6 6-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24">
+      <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24">
+      <path d="M4 19V5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M8 15v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M12 15V7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M16 15v-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24">
+      <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7l-5-5z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M14 2v5h5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M8 13h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M8 17h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24">
+      <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M19 11a7 7 0 0 1-14 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M12 19v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M8 22h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 22s7-4.5 7-12a7 7 0 0 0-14 0c0 7.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 11.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+    </symbol>
+    <!-- Iconos extra para trabajos -->
+    <symbol id="i-code" viewBox="0 0 24 24">
+      <path d="M16 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-database" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="5" rx="9" ry="3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-table" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M3 9h18" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M3 15h18" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M9 3v18" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <!-- Icono dinero -->
+    <symbol id="i-dollar" viewBox="0 0 24 24">
+      <path d="M12 1v22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Icono pregunta -->
+    <symbol id="i-help" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="12" cy="17" r=".5" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+    </symbol>
+    <!-- Icono presentacion -->
+    <symbol id="i-presentation" viewBox="0 0 24 24">
+      <rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 17v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M8 21h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M7 10l3 3 4-4 3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Icono examen -->
+    <symbol id="i-exam" viewBox="0 0 24 24">
+      <path d="M9 11l3 3L22 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <div class="topbar__left">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="topbar__text">Atencion por WhatsApp • <span data-bind="location">Buenos Aires, Argentina</span></span>
+      </div>
+      <div class="topbar__right">
+        <div class="social-links">
+          <a class="social-link" data-href="facebookUrl" href="#" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-facebook"></use></svg>
+          </a>
+          <a class="social-link" data-href="tiktokUrl" href="#" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-tiktok"></use></svg>
+          </a>
+          <a class="social-link" data-href="instagramUrl" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-instagram"></use></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="/" aria-label="Ir al inicio">
+        <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="40" height="40" alt="Logo de Trabajos Helper" decoding="async" style="border-radius:10px" />
+        <span class="brand__text">
+          <strong data-bind="brand">Trabajos Helper</strong>
+          <small>Soluciones Academicas</small>
+        </span>
+      </a>
+
+      <nav class="nav__links" aria-label="Navegacion principal" id="navLinks">
+        <a href="/#servicios-trabajos">Servicios</a>
+        <a href="/procedimiento/">Proceso</a>
+        <a href="/precios/" class="active">Precios</a>
+        <a href="/referencias/">Referencias</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a href="/nosotros/">Nosotros</a>
+        <a href="/#contacto-trabajos" class="nav__cta">Escribinos</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm hide-sm" data-wa-message="Hola, necesito presupuesto para un trabajo de la facu. ¿Me dan una mano?" href="#" rel="noopener">
+          <svg class="i" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+          <span class="btn__hint" data-bind="whatsappDisplay">+54 9 342 413 4914</span>
+        </a>
+
+        <button class="nav__burger" type="button" id="menuBtn" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <div class="mobile-menu__inner container">
+        <a href="/#servicios-trabajos">Servicios</a>
+        <a href="/procedimiento/">Proceso</a>
+        <a href="/precios/" class="active">Precios</a>
+        <a href="/referencias/">Referencias</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a href="/nosotros/">Nosotros</a>
+        <a href="/#contacto-trabajos" class="btn btn--primary btn--block">Escribinos por WhatsApp</a>
+        <div class="mobile-menu__meta">
+          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Buenos Aires, Argentina</span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- HERO -->
+    <section class="precios-hero" aria-label="Precios orientativos">
+      <div class="precios-hero__bg" aria-hidden="true"></div>
+      <div class="container">
+        <span class="pill" data-reveal>
+          <svg class="i" aria-hidden="true"><use href="#i-dollar"></use></svg>
+          Precios 2026
+        </span>
+        <h1 data-reveal>Precios orientativos</h1>
+        <p data-reveal>Cada trabajo se cotiza de forma individual segun sus caracteristicas. Estos son rangos de referencia para que tengas una idea antes de escribirnos. <strong>Precios referenciales; se confirman con un asesor.</strong></p>
+      </div>
+    </section>
+
+    <!-- TARJETAS DE PRECIOS -->
+    <section class="section" aria-label="Tabla de precios">
+      <div class="container">
+        <div class="precio-grid">
+
+          <!-- TP simple -->
+          <div class="precio-card" data-reveal>
+            <div class="precio-card__icon">
+              <svg class="i" aria-hidden="true"><use href="#i-doc"></use></svg>
+            </div>
+            <h3>Trabajo practico / TP simple</h3>
+            <div class="precio-card__rango">$5.000 - $15.000</div>
+            <p>TPs, guias de ejercicios, actividades de cursada, trabajos cortos.</p>
+          </div>
+
+          <!-- Informe / Monografia -->
+          <div class="precio-card" data-reveal>
+            <div class="precio-card__icon">
+              <svg class="i" aria-hidden="true"><use href="#i-pen"></use></svg>
+            </div>
+            <h3>Informe / Monografia / Ensayo</h3>
+            <div class="precio-card__rango">$8.000 - $25.000</div>
+            <p>Informes tecnicos, monografias, ensayos argumentativos, casos de estudio.</p>
+          </div>
+
+          <!-- Excel / VBA -->
+          <div class="precio-card" data-reveal>
+            <div class="precio-card__icon">
+              <svg class="i" aria-hidden="true"><use href="#i-table"></use></svg>
+            </div>
+            <h3>Excel avanzado / VBA / Macros</h3>
+            <div class="precio-card__rango">$10.000 - $30.000</div>
+            <p>Planillas con formulas avanzadas, tablas dinamicas, macros y automatizaciones en VBA.</p>
+          </div>
+
+          <!-- Power BI -->
+          <div class="precio-card" data-reveal>
+            <div class="precio-card__icon">
+              <svg class="i" aria-hidden="true"><use href="#i-chart"></use></svg>
+            </div>
+            <h3>Power BI / Dashboard</h3>
+            <div class="precio-card__rango">$15.000 - $40.000</div>
+            <p>Dashboards interactivos, visualizaciones de datos, reportes en Power BI.</p>
+          </div>
+
+          <!-- Base de datos -->
+          <div class="precio-card" data-reveal>
+            <div class="precio-card__icon">
+              <svg class="i" aria-hidden="true"><use href="#i-database"></use></svg>
+            </div>
+            <h3>Base de datos / SQL</h3>
+            <div class="precio-card__rango">$12.000 - $35.000</div>
+            <p>Diseno de bases de datos, consultas SQL, diagramas ER, normalizacion.</p>
+          </div>
+
+          <!-- Programacion -->
+          <div class="precio-card" data-reveal>
+            <div class="precio-card__icon">
+              <svg class="i" aria-hidden="true"><use href="#i-code"></use></svg>
+            </div>
+            <h3>Programacion (Python, Java, etc.)</h3>
+            <div class="precio-card__rango">$10.000 - $50.000</div>
+            <p>Ejercicios de programacion, aplicaciones, scripts, algoritmos en cualquier lenguaje.</p>
+          </div>
+
+          <!-- PPT -->
+          <div class="precio-card" data-reveal>
+            <div class="precio-card__icon">
+              <svg class="i" aria-hidden="true"><use href="#i-presentation"></use></svg>
+            </div>
+            <h3>Presentacion / PPT</h3>
+            <div class="precio-card__rango">$5.000 - $15.000</div>
+            <p>Presentaciones en PowerPoint o Google Slides, con diseno profesional.</p>
+          </div>
+
+          <!-- Parcial / Final -->
+          <div class="precio-card" data-reveal>
+            <div class="precio-card__icon">
+              <svg class="i" aria-hidden="true"><use href="#i-exam"></use></svg>
+            </div>
+            <h3>Parcial / Final</h3>
+            <div class="precio-card__consultar">Consultar</div>
+            <p>El precio depende de la materia, la complejidad y el tiempo disponible. Escribinos para cotizar.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- POR QUE VARIAN -->
+    <section class="section section--alt" aria-label="Por que varian los precios">
+      <div class="container" style="max-width:780px">
+        <div class="nota-precios" data-reveal>
+          <h3>
+            <svg class="i" aria-hidden="true" style="color:var(--brand)"><use href="#i-help"></use></svg>
+            Por que varian los precios?
+          </h3>
+          <ul>
+            <li><strong>Complejidad:</strong> no es lo mismo un TP de 3 preguntas que un proyecto integrador de toda la cursada.</li>
+            <li><strong>Urgencia:</strong> si lo necesitas para manana, el precio es mayor que si tenes una semana de plazo.</li>
+            <li><strong>Extension:</strong> la cantidad de paginas, ejercicios o funcionalidades impacta directamente.</li>
+            <li><strong>Requisitos especificos:</strong> normas de citacion, formatos institucionales, tecnologias puntuales o rúbricas detalladas pueden sumar al costo.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMA DE PAGO -->
+    <section class="section" aria-label="Forma de pago">
+      <div class="container" style="max-width:780px">
+        <div class="pago-info" data-reveal>
+          <h3>
+            <svg class="i" aria-hidden="true" style="color:var(--brand)"><use href="#i-shield"></use></svg>
+            Forma de pago
+          </h3>
+          <p>
+            <strong>Anticipo del 50%</strong> al confirmar el trabajo, y el <strong>saldo restante al momento de la entrega</strong>.
+            Asi te aseguras de que todo este listo antes de pagar el total.
+          </p>
+          <p>
+            Pagos por <strong>Mercado Pago</strong> (transferencia, CVU o link de pago). Rapido, seguro y sin complicaciones.
+          </p>
+          <a class="btn btn--soft" href="/pago/">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            Ver como pagar
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--alt cta-precios" aria-label="Pedinos presupuesto">
+      <div class="container">
+        <h2 data-reveal>Pedinos presupuesto</h2>
+        <p data-reveal>Mandanos los detalles de lo que necesitas y te respondemos con el precio exacto, sin compromiso.</p>
+        <a class="btn btn--primary" data-wa-message="Hola, quiero presupuesto para un trabajo. Les paso los datos:" href="#" rel="noopener" data-reveal>
+          <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+          Escribinos por WhatsApp
+          <svg class="i i--sm" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="56" height="56" alt="Logo de Trabajos Helper" loading="lazy" decoding="async" style="border-radius:12px" />
+        <div>
+          <strong data-bind="brand">Trabajos Helper</strong>
+          <p class="muted">Soluciones Academicas</p>
+        </div>
+      </div>
+
+      <div class="footer__cols">
+        <div>
+          <h4>Secciones</h4>
+          <a href="/">Inicio</a>
+          <a href="/procedimiento/">Proceso</a>
+          <a href="/precios/">Precios</a>
+        <a href="/referencias/">Referencias</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/blog/">Blog</a>
+          <a href="/nosotros/">Nosotros</a>
+          <a href="/#contacto-trabajos">Contacto</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="/privacy/">Privacidad</a>
+          <a href="/terms/">Terminos</a>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <a data-wa-message="Hola, quiero info sobre trabajos de la facu. ¿Me dan una mano?" href="#" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp
+          </a>
+          <a data-href="facebookUrl" href="#" target="_blank" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-facebook"></use></svg> Facebook
+          </a>
+          <a data-href="tiktokUrl" href="#" target="_blank" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-tiktok"></use></svg> TikTok
+          </a>
+          <a data-href="instagramUrl" href="#" target="_blank" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-instagram"></use></svg> Instagram
+          </a>
+          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Buenos Aires, Argentina</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <span class="muted">&copy; <span id="year"></span> <span data-bind="brand">Trabajos Helper</span>. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <!-- Toast promocional -->
+  <div class="promo-toast" id="promoToast" role="status" aria-live="polite">
+    <div class="promo-toast__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <div class="promo-toast__text">
+      <strong></strong>
+      <span></span>
+    </div>
+    <button class="promo-toast__close" type="button" aria-label="Cerrar">&times;</button>
+  </div>
+
+  <!-- Floating buttons -->
+  <button class="to-top" id="toTop" type="button" aria-label="Volver arriba">&#8593;</button>
+
+  <div class="bottom-bar" id="bottomBar" aria-label="Acciones rapidas">
+    <a class="btn btn--primary btn--block" data-wa-message="Hola, necesito presupuesto para un trabajo de la facu. ¿Me dan una mano?" href="#" rel="noopener">
+      <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+      WhatsApp
+    </a>
+    <a class="btn btn--soft btn--block" href="/#contacto-trabajos">Formulario</a>
+  </div>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Typed.js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Vanilla Tilt -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

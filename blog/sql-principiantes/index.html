@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>SQL para principiantes: Consultas basicas para Bases de Datos | Trabajos Helper Blog</title>
+  <meta name="description" content="Aprende SQL desde cero. SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE y DELETE. Tutorial completo con ejemplos practicos para estudiantes universitarios." />
+  <meta name="author" content="Trabajos Helper" />
+  <meta name="theme-color" content="#2B7CB5" />
+  <link rel="canonical" href="https://trabajoshelper.ags-ed.com/blog/sql-principiantes/" />
+  <link rel="icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
+  <link rel="apple-touch-icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body data-page="blog">
+  <!-- SVG Icons -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 22s7-4.5 7-12a7 7 0 0 0-14 0c0 7.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 11.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <!-- SIMPLE HEADER -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="/" aria-label="Ir al inicio">
+        <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="40" height="40" alt="Logo de Trabajos Helper" decoding="async" style="border-radius:10px" />
+        <span class="brand__text">
+          <strong>Trabajos Helper</strong>
+          <small>Soluciones Academicas</small>
+        </span>
+      </a>
+      <nav class="nav__links" aria-label="Navegacion principal">
+        <a href="/#servicios-trabajos">Servicios</a>
+        <a href="/procedimiento/">Proceso</a>
+        <a href="/precios/">Precios</a>
+        <a href="/referencias/">Referencias</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/blog/" class="active">Blog</a>
+        <a href="/nosotros/">Nosotros</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--ghost btn--sm hide-sm" href="/blog/">
+          <svg class="i" aria-hidden="true" style="width:18px;height:18px"><use href="#i-arrow"></use></svg>
+          Volver al Blog
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ARTICLE HERO -->
+    <section class="article-hero">
+      <div class="article-hero__img">
+        <img src="/Imagenes/imagen 14.webp" alt="Monitor con codigo SQL y consultas de bases de datos" width="1440" height="480" />
+      </div>
+      <div class="article-hero__overlay"></div>
+      <div class="article-hero__content container">
+        <nav class="article-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Inicio</a>
+          <span>/</span>
+          <a href="/blog/">Blog</a>
+          <span>/</span>
+          <span>SQL para principiantes</span>
+        </nav>
+        <h1>SQL para principiantes: Consultas basicas para Bases de Datos</h1>
+        <div class="article-meta">
+          <span class="article-meta__badge" style="background:#E34C26;color:#fff">SQL</span>
+          <span class="article-meta__sep"></span>
+          <time datetime="2026-02">Febrero 2026</time>
+          <span class="article-meta__sep"></span>
+          <span>14 min de lectura</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLE LAYOUT -->
+    <div class="container article-layout">
+      <!-- MAIN CONTENT -->
+      <article class="article-content">
+
+        <h2 id="que-es-sql">Que es SQL y por que es importante</h2>
+        <p>SQL (Structured Query Language) es el lenguaje estandar para comunicarte con bases de datos relacionales. Si cursas Sistemas, Ingenieria, Administracion o cualquier carrera que tenga materias como "Bases de Datos" o "Gestion de Datos", SQL es una herramienta que si o si vas a tener que aprender.</p>
+        <p>A diferencia de otros lenguajes de programacion, SQL es <strong>declarativo</strong>: le decis a la base de datos QUE queres obtener, no COMO obtenerlo. Esto lo hace bastante intuitivo una vez que entendes la logica basica.</p>
+        <p>En este tutorial vas a aprender las consultas fundamentales de SQL con ejemplos practicos usando una base de datos de ejemplo. Al terminar, vas a poder hacer consultas SELECT, filtrar datos, ordenarlos, agruparlos y hasta hacer JOINs entre tablas.</p>
+
+        <div class="article-tip article-tip--info">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <div class="article-tip__text">
+            <strong>SQL es universal</strong>
+            Lo que aprendas de SQL te sirve para cualquier motor de base de datos: MySQL, PostgreSQL, SQL Server, Oracle, SQLite. La sintaxis basica es la misma en todos. Las diferencias aparecen solo en funciones avanzadas.
+          </div>
+        </div>
+
+        <h2 id="configurar-entorno">Configurar tu entorno de practica</h2>
+        <p>Antes de escribir tu primera consulta, necesitas un lugar donde practicar. Te recomendamos estas opciones, de la mas simple a la mas completa:</p>
+
+        <h3>Opcion 1: Online (sin instalar nada)</h3>
+        <ul>
+          <li><strong>SQLite Online (sqliteonline.com):</strong> Abris el navegador y ya podes escribir consultas. Ideal para empezar rapido.</li>
+          <li><strong>DB Fiddle (db-fiddle.com):</strong> Te permite elegir entre MySQL, PostgreSQL y SQLite. Podes compartir tus consultas con un link.</li>
+        </ul>
+
+        <h3>Opcion 2: Instalar MySQL + MySQL Workbench</h3>
+        <div class="article-steps">
+          <div class="article-step">
+            <div class="article-step__body">
+              <h4>Descarga MySQL Community Server</h4>
+              <p>Anda a dev.mysql.com/downloads y descarga el instalador de MySQL Community Server. Es gratuito.</p>
+            </div>
+          </div>
+          <div class="article-step">
+            <div class="article-step__body">
+              <h4>Instala MySQL</h4>
+              <p>Segui el asistente de instalacion. Cuando te pida una contraseña para root, elegí una que te acuerdes y anotala.</p>
+            </div>
+          </div>
+          <div class="article-step">
+            <div class="article-step__body">
+              <h4>Descarga MySQL Workbench</h4>
+              <p>Es la interfaz grafica para administrar MySQL. Se descarga por separado desde la misma pagina de MySQL.</p>
+            </div>
+          </div>
+          <div class="article-step">
+            <div class="article-step__body">
+              <h4>Conectate al servidor</h4>
+              <p>Abrí MySQL Workbench, hacele click en la conexion local y escribí la contraseña de root. Ya estas listo para practicar.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Crear la base de datos de ejemplo</h3>
+        <p>Para este tutorial vamos a usar una base de datos simple de una tienda. Copia y ejecuta este SQL para crearla:</p>
+
+<pre><code>-- Crear la base de datos
+CREATE DATABASE tienda;
+USE tienda;
+
+-- Tabla de clientes
+CREATE TABLE clientes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    ciudad VARCHAR(50),
+    fecha_registro DATE
+);
+
+-- Tabla de productos
+CREATE TABLE productos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10,2),
+    categoria VARCHAR(50),
+    stock INT DEFAULT 0
+);
+
+-- Tabla de ventas
+CREATE TABLE ventas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    cliente_id INT,
+    producto_id INT,
+    cantidad INT,
+    fecha DATE,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
+);
+
+-- Insertar datos de ejemplo
+INSERT INTO clientes (nombre, email, ciudad, fecha_registro) VALUES
+('Maria Garcia', 'maria@email.com', 'Buenos Aires', '2025-01-15'),
+('Juan Lopez', 'juan@email.com', 'Cordoba', '2025-02-20'),
+('Ana Martinez', 'ana@email.com', 'Rosario', '2025-03-10'),
+('Carlos Rodriguez', 'carlos@email.com', 'Buenos Aires', '2025-04-05'),
+('Laura Fernandez', 'laura@email.com', 'Mendoza', '2025-05-12');
+
+INSERT INTO productos (nombre, precio, categoria, stock) VALUES
+('Notebook HP', 450000.00, 'Tecnologia', 15),
+('Mouse Logitech', 25000.00, 'Accesorios', 50),
+('Teclado Mecanico', 45000.00, 'Accesorios', 30),
+('Monitor Samsung', 280000.00, 'Tecnologia', 8),
+('Auriculares Sony', 65000.00, 'Audio', 25);
+
+INSERT INTO ventas (cliente_id, producto_id, cantidad, fecha) VALUES
+(1, 1, 1, '2025-06-01'),
+(1, 2, 2, '2025-06-01'),
+(2, 3, 1, '2025-06-15'),
+(3, 1, 1, '2025-07-01'),
+(4, 4, 1, '2025-07-10'),
+(5, 5, 3, '2025-07-20'),
+(2, 2, 1, '2025-08-01'),
+(3, 3, 2, '2025-08-15');</code></pre>
+
+        <h2 id="select-basico">SELECT: Tu primera consulta</h2>
+        <p>La instruccion <code>SELECT</code> es el corazon de SQL. Se usa para consultar (leer) datos de una o mas tablas. La estructura basica es:</p>
+
+<pre><code>-- Seleccionar TODAS las columnas de una tabla
+SELECT * FROM clientes;
+
+-- Seleccionar columnas especificas
+SELECT nombre, email FROM clientes;
+
+-- Darle un alias a las columnas
+SELECT nombre AS "Nombre Completo", email AS "Correo"
+FROM clientes;</code></pre>
+
+        <div class="article-tip article-tip--warn">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="article-tip__text">
+            <strong>Buena practica</strong>
+            Evita usar <code>SELECT *</code> en produccion o en trabajos avanzados. Selecciona solo las columnas que necesites. Esto mejora el rendimiento y deja mas claro que datos estas consultando.
+          </div>
+        </div>
+
+        <h2 id="where">WHERE: Filtrar datos</h2>
+        <p>La clausula <code>WHERE</code> te permite filtrar los resultados segun una condicion. Es como ponerle un filtro a tu consulta:</p>
+
+<pre><code>-- Clientes de Buenos Aires
+SELECT * FROM clientes
+WHERE ciudad = 'Buenos Aires';
+
+-- Productos con precio mayor a 50000
+SELECT nombre, precio FROM productos
+WHERE precio > 50000;
+
+-- Productos de la categoria Tecnologia con stock mayor a 10
+SELECT * FROM productos
+WHERE categoria = 'Tecnologia' AND stock > 10;
+
+-- Clientes de Buenos Aires O Cordoba
+SELECT * FROM clientes
+WHERE ciudad = 'Buenos Aires' OR ciudad = 'Cordoba';
+
+-- Clientes registrados en 2025 (usando BETWEEN)
+SELECT * FROM clientes
+WHERE fecha_registro BETWEEN '2025-01-01' AND '2025-12-31';
+
+-- Buscar por patron de texto (LIKE)
+SELECT * FROM clientes
+WHERE nombre LIKE 'M%';  -- Nombres que empiezan con M
+
+SELECT * FROM clientes
+WHERE email LIKE '%@email.com';  -- Emails de email.com
+
+-- Verificar si un valor esta en una lista (IN)
+SELECT * FROM clientes
+WHERE ciudad IN ('Buenos Aires', 'Rosario', 'Mendoza');</code></pre>
+
+        <h2 id="order-limit">ORDER BY y LIMIT: Ordenar y limitar resultados</h2>
+        <p>Estas clausulas te permiten controlar el orden y la cantidad de resultados:</p>
+
+<pre><code>-- Ordenar productos por precio (menor a mayor)
+SELECT * FROM productos
+ORDER BY precio ASC;
+
+-- Ordenar por precio de mayor a menor
+SELECT * FROM productos
+ORDER BY precio DESC;
+
+-- Ordenar por categoria y dentro de cada categoria por precio
+SELECT * FROM productos
+ORDER BY categoria, precio DESC;
+
+-- Los 3 productos mas caros
+SELECT * FROM productos
+ORDER BY precio DESC
+LIMIT 3;
+
+-- Saltear los primeros 2 y mostrar los siguientes 3 (paginacion)
+SELECT * FROM productos
+ORDER BY precio DESC
+LIMIT 3 OFFSET 2;</code></pre>
+
+        <figure class="article-img">
+          <img src="/Imagenes/imagen 23.webp" alt="Resultado de una consulta SQL mostrando datos filtrados y ordenados" loading="lazy" width="800" height="450" decoding="async" />
+          <figcaption>Las consultas SQL te permiten filtrar, ordenar y agrupar datos de forma precisa y eficiente</figcaption>
+        </figure>
+
+        <h2 id="funciones-agregacion">Funciones de agregacion: COUNT, SUM, AVG, MAX, MIN</h2>
+        <p>Las funciones de agregacion resumen datos de multiples filas en un solo valor. Son esenciales para cualquier analisis de datos:</p>
+
+<pre><code>-- Contar cuantos clientes hay
+SELECT COUNT(*) AS total_clientes FROM clientes;
+
+-- Contar clientes por ciudad
+SELECT ciudad, COUNT(*) AS cantidad
+FROM clientes
+GROUP BY ciudad;
+
+-- Sumar el stock total de productos
+SELECT SUM(stock) AS stock_total FROM productos;
+
+-- Precio promedio de los productos
+SELECT AVG(precio) AS precio_promedio FROM productos;
+
+-- Producto mas caro y mas barato
+SELECT MAX(precio) AS mas_caro, MIN(precio) AS mas_barato
+FROM productos;
+
+-- Precio promedio por categoria
+SELECT categoria, AVG(precio) AS precio_promedio, COUNT(*) AS cantidad
+FROM productos
+GROUP BY categoria;
+
+-- Categorias con precio promedio mayor a 100000
+SELECT categoria, AVG(precio) AS precio_promedio
+FROM productos
+GROUP BY categoria
+HAVING AVG(precio) > 100000;</code></pre>
+
+        <div class="article-tip article-tip--info">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <div class="article-tip__text">
+            <strong>WHERE vs HAVING</strong>
+            <code>WHERE</code> filtra filas individuales ANTES de agrupar. <code>HAVING</code> filtra grupos DESPUES de agrupar. Si queres filtrar por una funcion de agregacion (como AVG o SUM), tenes que usar HAVING.
+          </div>
+        </div>
+
+        <h2 id="join">JOIN: Combinar tablas</h2>
+        <p>El <code>JOIN</code> es probablemente el concepto mas importante de SQL. Te permite combinar datos de dos o mas tablas usando una columna en comun. Hay varios tipos:</p>
+
+        <h3>INNER JOIN</h3>
+        <p>Devuelve solo las filas que tienen coincidencia en ambas tablas:</p>
+
+<pre><code>-- Ventas con nombre del cliente y nombre del producto
+SELECT
+    v.id AS venta_id,
+    c.nombre AS cliente,
+    p.nombre AS producto,
+    v.cantidad,
+    v.fecha
+FROM ventas v
+INNER JOIN clientes c ON v.cliente_id = c.id
+INNER JOIN productos p ON v.producto_id = p.id;
+
+-- Total gastado por cada cliente
+SELECT
+    c.nombre AS cliente,
+    SUM(p.precio * v.cantidad) AS total_gastado
+FROM ventas v
+INNER JOIN clientes c ON v.cliente_id = c.id
+INNER JOIN productos p ON v.producto_id = p.id
+GROUP BY c.nombre
+ORDER BY total_gastado DESC;</code></pre>
+
+        <h3>LEFT JOIN</h3>
+        <p>Devuelve todas las filas de la tabla izquierda, aunque no tengan coincidencia en la derecha:</p>
+
+<pre><code>-- Todos los clientes, incluso los que no compraron nada
+SELECT
+    c.nombre AS cliente,
+    COUNT(v.id) AS total_compras
+FROM clientes c
+LEFT JOIN ventas v ON c.id = v.cliente_id
+GROUP BY c.nombre;</code></pre>
+
+        <h3>RIGHT JOIN</h3>
+        <p>Es lo mismo pero al reves: devuelve todas las filas de la tabla derecha. En la practica se usa menos porque siempre podes reordenar las tablas y usar LEFT JOIN.</p>
+
+        <h2 id="insert-update-delete">INSERT, UPDATE y DELETE: Modificar datos</h2>
+        <p>Ademas de consultar, SQL te permite agregar, modificar y eliminar datos:</p>
+
+        <h3>INSERT: Agregar registros</h3>
+<pre><code>-- Insertar un nuevo cliente
+INSERT INTO clientes (nombre, email, ciudad, fecha_registro)
+VALUES ('Pedro Gomez', 'pedro@email.com', 'Tucuman', '2025-09-01');
+
+-- Insertar multiples registros de una vez
+INSERT INTO clientes (nombre, email, ciudad, fecha_registro) VALUES
+('Sofia Diaz', 'sofia@email.com', 'Salta', '2025-09-15'),
+('Lucas Ruiz', 'lucas@email.com', 'Buenos Aires', '2025-10-01');</code></pre>
+
+        <h3>UPDATE: Modificar registros</h3>
+<pre><code>-- Actualizar el email de un cliente
+UPDATE clientes
+SET email = 'maria.garcia@email.com'
+WHERE id = 1;
+
+-- Aumentar el precio de todos los productos de Tecnologia un 10%
+UPDATE productos
+SET precio = precio * 1.10
+WHERE categoria = 'Tecnologia';</code></pre>
+
+        <h3>DELETE: Eliminar registros</h3>
+<pre><code>-- Eliminar un cliente especifico
+DELETE FROM clientes
+WHERE id = 7;
+
+-- Eliminar todos los productos sin stock
+DELETE FROM productos
+WHERE stock = 0;</code></pre>
+
+        <div class="article-tip article-tip--warn">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="article-tip__text">
+            <strong>Cuidado con UPDATE y DELETE</strong>
+            SIEMPRE incluí la clausula <code>WHERE</code> cuando uses UPDATE o DELETE. Si la olvidas, vas a modificar o borrar TODOS los registros de la tabla. Antes de ejecutar un DELETE, probá la condicion con un SELECT para verificar que afecta las filas correctas.
+          </div>
+        </div>
+
+        <h2 id="subconsultas">Subconsultas</h2>
+        <p>Una subconsulta es una consulta dentro de otra consulta. Son muy utiles para resolver problemas complejos paso a paso:</p>
+
+<pre><code>-- Clientes que compraron el producto mas caro
+SELECT c.nombre
+FROM clientes c
+INNER JOIN ventas v ON c.id = v.cliente_id
+WHERE v.producto_id = (
+    SELECT id FROM productos
+    ORDER BY precio DESC
+    LIMIT 1
+);
+
+-- Productos con precio mayor al promedio
+SELECT nombre, precio
+FROM productos
+WHERE precio > (SELECT AVG(precio) FROM productos);
+
+-- Clientes que hicieron al menos una compra
+SELECT nombre FROM clientes
+WHERE id IN (SELECT DISTINCT cliente_id FROM ventas);</code></pre>
+
+        <h2 id="ejercicios">Ejercicios para practicar</h2>
+        <p>La mejor forma de aprender SQL es practicando. Aca tenes algunos ejercicios para resolver con la base de datos que creamos. Intenta resolverlos antes de mirar la solucion:</p>
+
+        <ol>
+          <li><strong>Listado de productos:</strong> Mostra el nombre y precio de todos los productos ordenados de mas barato a mas caro.</li>
+          <li><strong>Clientes de Buenos Aires:</strong> Lista los nombres y emails de los clientes que viven en Buenos Aires.</li>
+          <li><strong>Ventas de junio 2025:</strong> Mostra todas las ventas realizadas en junio de 2025 con el nombre del cliente y del producto.</li>
+          <li><strong>Total por categoria:</strong> Calcula el valor total del inventario (precio x stock) de cada categoria de producto.</li>
+          <li><strong>Cliente estrella:</strong> Encontra al cliente que gasto mas dinero en total.</li>
+        </ol>
+
+        <div class="article-tip article-tip--success">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="article-tip__text">
+            <strong>Para seguir practicando</strong>
+            Registrate en plataformas como <strong>HackerRank SQL</strong>, <strong>LeetCode SQL</strong> o <strong>SQLZoo</strong>. Tienen ejercicios progresivos desde basicos hasta avanzados, con solucion automatica.
+          </div>
+        </div>
+
+        <h2 id="conclusion">Conclusion</h2>
+        <p>Si llegaste hasta aca, ya tenes las bases solidas de SQL que necesitas para tus trabajos universitarios. Repasemos lo que aprendiste:</p>
+        <ul>
+          <li><strong>SELECT</strong> para consultar datos de una tabla</li>
+          <li><strong>WHERE</strong> para filtrar con condiciones</li>
+          <li><strong>ORDER BY</strong> y <strong>LIMIT</strong> para ordenar y paginar</li>
+          <li><strong>Funciones de agregacion</strong> (COUNT, SUM, AVG, MAX, MIN) con GROUP BY</li>
+          <li><strong>JOIN</strong> para combinar datos de multiples tablas</li>
+          <li><strong>INSERT, UPDATE, DELETE</strong> para modificar datos</li>
+          <li><strong>Subconsultas</strong> para resolver problemas complejos</li>
+        </ul>
+        <p>SQL es un lenguaje que se aprende practicando. Cuantas mas consultas escribas, mas natural te va a resultar. No tengas miedo de experimentar y romper cosas en tu base de datos de practica, para eso esta.</p>
+
+        <div class="article-tip article-tip--success">
+          <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="article-tip__text">
+            <strong>Te trabaste con un TP de SQL?</strong>
+            Si tenes un trabajo practico de bases de datos y las consultas no te salen, en <strong>Trabajos Helper</strong> te ayudamos. Escribinos por WhatsApp con la consigna y te lo resolvemos.
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="article-share">
+          <span>Compartir:</span>
+          <a href="#" aria-label="Compartir en Facebook">
+            <svg style="width:18px;height:18px" aria-hidden="true"><use href="#i-facebook"></use></svg>
+          </a>
+          <a href="#" aria-label="Compartir en WhatsApp">
+            <svg style="width:18px;height:18px" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+        <div class="article-toc">
+          <p class="article-toc__title">En este articulo</p>
+          <ul class="article-toc__list">
+            <li><a href="#que-es-sql">Que es SQL</a></li>
+            <li><a href="#configurar-entorno">Configurar tu entorno</a></li>
+            <li><a href="#select-basico">SELECT: Tu primera consulta</a></li>
+            <li><a href="#where">WHERE: Filtrar datos</a></li>
+            <li><a href="#order-limit">ORDER BY y LIMIT</a></li>
+            <li><a href="#funciones-agregacion">Funciones de agregacion</a></li>
+            <li><a href="#join">JOIN: Combinar tablas</a></li>
+            <li><a href="#insert-update-delete">INSERT, UPDATE, DELETE</a></li>
+            <li><a href="#subconsultas">Subconsultas</a></li>
+            <li><a href="#ejercicios">Ejercicios</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+          </ul>
+        </div>
+        <div class="article-sidebar__cta">
+          <h4>Te resolvemos las consultas</h4>
+          <p>Si necesitas ayuda con tu trabajo de bases de datos o SQL, escribinos.</p>
+          <a class="btn btn--primary btn--sm btn--block" data-wa-message="Hola, necesito una mano con un trabajo de la facu." href="#" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+            WhatsApp
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <section class="article-related">
+      <div class="container">
+        <h2>Articulos relacionados</h2>
+        <div class="blog-grid" style="max-width:900px;margin:0 auto">
+          <article class="blog-card">
+            <div class="blog-card__img">
+              <img src="/Imagenes/imagen 15.webp" alt="Python programacion" loading="lazy" width="400" height="250" decoding="async">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-card__badge" style="--badge-color:#3776AB">Programacion</span>
+              <h3><a href="/blog/python-universitarios/">Python para universitarios: Tu primer programa</a></h3>
+              <p class="muted">Guia de inicio en Python con ejemplos para la facultad.</p>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-card__img">
+              <img src="/Imagenes/imagen 11.webp" alt="Power BI dashboard" loading="lazy" width="400" height="250" decoding="async">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-card__badge" style="--badge-color:#F7C948">Power BI</span>
+              <h3><a href="/blog/power-bi-dashboard/">Como hacer un Dashboard en Power BI</a></h3>
+              <p class="muted">Crea dashboards interactivos desde cero paso a paso.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" aria-label="CTA">
+      <div class="container final-cta__inner">
+        <div>
+          <h2>Necesitas que hagamos tu trabajo?</h2>
+          <p class="muted">Escribinos con los requisitos y te cotizamos al instante.</p>
+        </div>
+        <div class="final-cta__actions">
+          <a class="btn btn--primary" data-wa-message="Hola, necesito una mano con un trabajo de la facu." href="#" rel="noopener">
+            Cotizar ahora
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
+          <a class="btn btn--ghost" href="/">Ver servicios</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <div class="footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,90 720,0 1080,50 C1260,75 1380,20 1440,30 L1440,90 L0,90 Z" fill="#FAFAFA"/>
+    </svg>
+  </div>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="56" height="56" alt="Logo de Trabajos Helper" loading="lazy" decoding="async" style="border-radius:12px" />
+        <div>
+          <strong>Trabajos Helper</strong>
+          <p class="muted">Soluciones Academicas</p>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Secciones</h4>
+          <a href="/">Trabajos</a>
+          <a href="/precios/">Precios</a>
+        <a href="/referencias/">Referencias</a>
+          <a href="/procedimiento/">Como trabajamos</a>
+          <a href="/faq/">Preguntas frecuentes</a>
+          <a href="/pago/">Como pagar</a>
+          <a href="/blog/">Blog</a>
+          <a href="/nosotros/">Nosotros</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="/privacy/">Privacidad</a>
+          <a href="/terms/">Terminos</a>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <a data-wa-message="Hola, necesito una mano con un trabajo de la facu." href="#" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp
+          </a>
+          <a href="#" target="_blank" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-facebook"></use></svg> Facebook
+          </a>
+          <a href="#" target="_blank" rel="noopener">
+            <svg class="i i--sm" aria-hidden="true"><use href="#i-instagram"></use></svg> Instagram
+          </a>
+          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> Buenos Aires, Argentina</span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span class="muted">&copy; 2026 Trabajos Helper. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

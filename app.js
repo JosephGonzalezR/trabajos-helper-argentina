@@ -5,7 +5,7 @@
 const CONFIG = {
   brand: "Trabajos Helper",
   whatsappNumber: "5493424134914",
-  whatsappDisplay: "+54 9 342 413-4914",
+  whatsappDisplay: "+54 9 342 413 4914",
   location: "Buenos Aires, Argentina",
   facebookUrl: "https://www.facebook.com/people/Trabajos-Helper/61565498995023/",
   tiktokUrl: "https://www.tiktok.com/@trabajos_helper",
@@ -127,6 +127,13 @@ function setupReveal() {
   );
 
   els.forEach((el) => obs.observe(el));
+
+  // RED DE SEGURIDAD (2026-07-02): si el observador no dispara (iframes,
+  // navegadores raros, scroll programático), NADA puede quedar invisible.
+  // A los 1.5s todo lo aún no revelado se muestra sí o sí.
+  setTimeout(() => {
+    document.querySelectorAll("[data-reveal]:not(.revealed)").forEach((el) => el.classList.add("revealed"));
+  }, 1500);
 }
 
 function setupAccordions() {
@@ -435,6 +442,19 @@ function setupGSAP() {
       scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1.2 },
     });
   }
+
+  // RED DE SEGURIDAD (2026-07-02, ruta GSAP): si ScrollTrigger no dispara o un
+  // tween queda a medias (iframes, capturas, navegadores raros), NADA puede
+  // quedar invisible. A los 2s, todo lo que siga translúcido se muestra sí o sí.
+  setTimeout(() => {
+    const sel = '[data-reveal], .cards--3 .card, .step, .deliverable, .team-card, .inst-card';
+    document.querySelectorAll(sel).forEach((el) => {
+      const op = parseFloat(getComputedStyle(el).opacity || "1");
+      if (op < 0.95) {
+        gsap.to(el, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.4, overwrite: "auto" });
+      }
+    });
+  }, 2000);
 }
 
 function setupTyped() {
