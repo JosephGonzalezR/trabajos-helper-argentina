@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light" />
 
   <title>Referencias | Trabajos Helper - Opiniones reales de clientes</title>
-  <meta name="description" content="Trabajos entregados y experiencias reales de estudiantes que ya confiaron en Trabajos Helper. Mira las referencias de nuestros clientes." />
+  <meta name="description" content="Trabajos entregados y experiencias reales de estudiantes que ya confiaron en Trabajos Helper. Mirá las referencias de nuestros clientes en Argentina." />
   <meta name="author" content="Trabajos Helper" />
   <meta name="theme-color" content="#2B7CB5" />
 
@@ -17,7 +17,6 @@
   <meta property="og:url" content="https://trabajoshelper.ags-ed.com/referencias/" />
   <meta property="og:title" content="Referencias | Trabajos Helper" />
   <meta property="og:description" content="Trabajos entregados y experiencias reales de estudiantes que ya confiaron en Trabajos Helper." />
-  <meta property="og:image" content="https://trabajoshelper.ags-ed.com/assets/og-image.png" />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,33 +26,39 @@
   <link rel="stylesheet" href="/styles.css" />
 
   <style>
-    /* Galeria de evidencias (estandar AGS) */
-    .ev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:6px}
-    .ev-item{border:0;padding:0;background:none;cursor:zoom-in;border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.08);aspect-ratio:1/1;transition:transform .2s ease,box-shadow .2s ease}
-    .ev-item:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.16)}
-    .ev-item img{width:100%;height:100%;object-fit:cover;display:block}
-    .ev-lightbox{position:fixed;inset:0;background:rgba(10,15,25,.93);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
-    .ev-lightbox.open{display:flex}
-    .ev-lightbox img{max-width:min(92vw,900px);max-height:88vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-    .ev-lb-btn{position:absolute;background:rgba(255,255,255,.14);border:0;color:#fff;width:48px;height:48px;border-radius:50%;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
-    .ev-lb-btn:hover{background:rgba(255,255,255,.3)}
-    .ev-lb-close{top:18px;right:18px}
-    .ev-lb-prev{left:18px;top:50%;transform:translateY(-50%)}
-    .ev-lb-next{right:18px;top:50%;transform:translateY(-50%)}
-    @media(max-width:520px){.ev-lb-prev{left:6px}.ev-lb-next{right:6px}.ev-lb-btn{width:42px;height:42px}}
+    .ref-hero { text-align: center; padding: var(--pad-lg) 0 clamp(20px,3vw,30px); }
+    .ref-hero .badge { display:inline-block; font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--brand-ink); background:var(--brand3); border:1px solid rgba(90,150,204,0.25); padding:8px 20px; border-radius:100px; margin-bottom:20px; }
+    .ref-hero h1 { font-family:'Playfair Display',serif; font-size:var(--h1); font-weight:800; line-height:1.1; margin-bottom:14px; color:var(--text); }
+    .ref-hero p { color:#242424; font-size:17px; max-width:620px; margin:0 auto; line-height:1.6; }
+
+    .ev-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px; max-width:980px; margin:6px auto clamp(40px,6vw,64px); }
+    .ev-item { border:0; padding:0; background:none; cursor:zoom-in; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); aspect-ratio:1/1; transition:transform .2s ease, box-shadow .2s ease; }
+    .ev-item:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+    .ev-item img { width:100%; height:100%; object-fit:cover; display:block; }
+
+    .ref-cta { max-width:760px; margin:0 auto clamp(40px,6vw,72px); text-align:center; background:linear-gradient(180deg, var(--brand3) 0%, var(--card) 60%); border:1px solid rgba(90,150,204,0.25); border-radius:var(--radius); padding:40px 32px; box-shadow:var(--shadow-sm); }
+    .ref-cta h2 { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--text); margin-bottom:10px; }
+    .ref-cta p { color:var(--muted); font-size:15px; margin-bottom:22px; }
+
+    .ev-lightbox { position:fixed; inset:0; background:rgba(10,15,25,.93); display:none; align-items:center; justify-content:center; z-index:9999; padding:24px; }
+    .ev-lightbox.open { display:flex; }
+    .ev-lightbox img { max-width:min(92vw,900px); max-height:88vh; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.5); }
+    .ev-lb-btn { position:absolute; background:rgba(255,255,255,.14); border:0; color:#fff; width:48px; height:48px; border-radius:50%; font-size:26px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+    .ev-lb-btn:hover { background:rgba(255,255,255,.3); }
+    .ev-lb-close { top:18px; right:18px; }
+    .ev-lb-prev { left:18px; top:50%; transform:translateY(-50%); }
+    .ev-lb-next { right:18px; top:50%; transform:translateY(-50%); }
+    @media(max-width:520px){ .ev-lb-prev{left:6px} .ev-lb-next{right:6px} .ev-lb-btn{width:42px;height:42px} }
   </style>
 </head>
 
 <body data-page="trabajos">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <div class="scroll-progress" aria-hidden="true">
-    <div class="scroll-progress__bar" id="scrollProgress"></div>
-  </div>
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar" id="scrollProgress"></div></div>
 
   <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-4.5 7-12a7 7 0 0 0-14 0c0 7.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></symbol>
@@ -66,7 +71,7 @@
     <div class="container topbar__inner">
       <div class="topbar__left">
         <span class="dot" aria-hidden="true"></span>
-        <span class="topbar__text">Atencion por WhatsApp • <span data-bind="location">Buenos Aires, Argentina</span></span>
+        <span class="topbar__text">Atención por WhatsApp • <span data-bind="location">Santa Fe, Argentina</span></span>
       </div>
       <div class="topbar__right">
         <div class="social-links">
@@ -82,13 +87,9 @@
     <div class="container nav__inner">
       <a class="brand" href="/" aria-label="Ir al inicio">
         <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="40" height="40" alt="Logo de Trabajos Helper" decoding="async" style="border-radius:10px" />
-        <span class="brand__text">
-          <strong data-bind="brand">Trabajos Helper</strong>
-          <small>Soluciones Academicas</small>
-        </span>
+        <span class="brand__text"><strong data-bind="brand">Trabajos Helper</strong><small>Soluciones Académicas</small></span>
       </a>
-
-      <nav class="nav__links" aria-label="Navegacion principal" id="navLinks">
+      <nav class="nav__links" aria-label="Navegación principal" id="navLinks">
         <a href="/#servicios-trabajos">Servicios</a>
         <a href="/procedimiento/">Proceso</a>
         <a href="/precios-trabajos/">Precios Trabajos</a>
@@ -97,21 +98,16 @@
         <a href="/pago/">Pago</a>
         <a href="/blog/">Blog</a>
         <a href="/nosotros/">Nosotros</a>
-        <a href="/#contacto-trabajos" class="nav__cta">Escribinos</a>
+        <a data-wa-message="Hola, tengo una consulta. ¿Me dan una mano?" href="#" class="nav__cta">Escribinos</a>
       </nav>
-
       <div class="nav__actions">
-        <a class="btn btn--ghost btn--sm hide-sm" data-wa-message="Hola, tengo una consulta sobre un trabajo de la facu." href="#" rel="noopener">
+        <a class="btn btn--ghost btn--sm hide-sm" data-wa-message="Hola, quiero hacer una consulta. ¿Me dan una mano?" href="#" rel="noopener">
           <svg class="i" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
           <span class="btn__hint" data-bind="whatsappDisplay">+54 9 342 413 4914</span>
         </a>
-
-        <button class="nav__burger" type="button" id="menuBtn" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="nav__burger" type="button" id="menuBtn" aria-label="Abrir menú" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
-
     <div class="mobile-menu" id="mobileMenu" hidden>
       <div class="mobile-menu__inner container">
         <a href="/#servicios-trabajos">Servicios</a>
@@ -122,114 +118,83 @@
         <a href="/pago/">Pago</a>
         <a href="/blog/">Blog</a>
         <a href="/nosotros/">Nosotros</a>
-        <a href="/#contacto-trabajos" class="btn btn--primary btn--block">Escribinos por WhatsApp</a>
-        <div class="mobile-menu__meta">
-          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Buenos Aires, Argentina</span></span>
-        </div>
+        <a data-wa-message="Hola, tengo una consulta. ¿Me dan una mano?" href="#" class="btn btn--primary btn--block">Escribinos por WhatsApp</a>
+        <div class="mobile-menu__meta"><span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Santa Fe, Argentina</span></span></div>
       </div>
     </div>
   </header>
 
   <main id="contenido">
-    <section class="page-head" aria-label="Referencias">
-      <div class="container">
-        <div class="hero__pill" data-reveal>
-          <span class="pill"><svg class="i" aria-hidden="true"><use href="#i-shield"></use></svg> Referencias reales</span>
-        </div>
-        <h1 data-reveal>Lo que dicen quienes ya confiaron en nosotros</h1>
-        <p class="muted" data-reveal>Trabajos entregados y experiencias reales de estudiantes de Trabajos Helper. Tocá cualquier imagen para verla en grande.</p>
+    <div class="container">
+      <div class="ref-hero">
+        <div class="badge">Referencias</div>
+        <h1>Lo que dicen quienes ya confiaron en nosotros</h1>
+        <p>Trabajos entregados y experiencias reales de estudiantes de Trabajos Helper. Tocá cualquier imagen para verla en grande.</p>
       </div>
-    </section>
 
-    <section class="section" id="evidencias">
-      <div class="container">
-        <div class="ev-grid">
-          <button class="ev-item" type="button" aria-label="Ver referencia 1"><img src="/assets/referencias/ref-1.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
-          <button class="ev-item" type="button" aria-label="Ver referencia 2"><img src="/assets/referencias/ref-2.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
-          <button class="ev-item" type="button" aria-label="Ver referencia 3"><img src="/assets/referencias/ref-3.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
-          <button class="ev-item" type="button" aria-label="Ver referencia 4"><img src="/assets/referencias/ref-4.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
-          <button class="ev-item" type="button" aria-label="Ver referencia 5"><img src="/assets/referencias/ref-5.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
-        </div>
+      <div class="ev-grid">
+        <button class="ev-item" type="button" aria-label="Ver referencia 1"><img src="/assets/referencias/ref-1.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
+        <button class="ev-item" type="button" aria-label="Ver referencia 2"><img src="/assets/referencias/ref-2.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
+        <button class="ev-item" type="button" aria-label="Ver referencia 3"><img src="/assets/referencias/ref-3.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
+        <button class="ev-item" type="button" aria-label="Ver referencia 4"><img src="/assets/referencias/ref-4.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
+        <button class="ev-item" type="button" aria-label="Ver referencia 5"><img src="/assets/referencias/ref-5.webp" loading="lazy" decoding="async" width="1200" height="1200" alt="Referencia de cliente de Trabajos Helper" /></button>
       </div>
-    </section>
 
-    <section class="final-cta" aria-label="Cierre">
-      <div class="container final-cta__inner" data-reveal>
-        <div>
-          <h2>Querés ser el proximo?</h2>
-          <p class="muted">Mandanos los requisitos de tu trabajo y te cotizamos al instante.</p>
-        </div>
-        <div class="final-cta__actions">
-          <a class="btn btn--primary" data-wa-message="Hola, quiero presupuesto para un trabajo. Estudio en: _____." href="#" rel="noopener">
-            Cotizar ahora
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-arrow"></use></svg>
-          </a>
-          <a class="btn btn--ghost" href="/">Ver servicios</a>
-        </div>
+      <div class="ref-cta">
+        <h2>¿Querés ser el próximo?</h2>
+        <p>Escribinos por WhatsApp y avancemos con tu trabajo hoy.</p>
+        <a class="btn btn--primary" data-wa-message="Hola, vi las referencias y quiero cotizar un trabajo." href="#" rel="noopener">
+          <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+          Cotizar por WhatsApp
+        </a>
       </div>
-    </section>
+    </div>
   </main>
 
   <div class="footer-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,30 C360,90 720,0 1080,50 C1260,75 1380,20 1440,30 L1440,90 L0,90 Z" fill="#FAFAFA"/>
-    </svg>
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C360,90 720,0 1080,50 C1260,75 1380,20 1440,30 L1440,90 L0,90 Z" fill="#FAFAFA"/></svg>
   </div>
 
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
         <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="56" height="56" alt="Logo de Trabajos Helper" loading="lazy" decoding="async" style="border-radius:12px" />
-        <div>
-          <strong data-bind="brand">Trabajos Helper</strong>
-          <p class="muted">Soluciones Academicas</p>
-        </div>
+        <div><strong data-bind="brand">Trabajos Helper</strong><p class="muted">Soluciones Académicas</p></div>
       </div>
-
       <div class="footer__cols">
         <div>
           <h4>Secciones</h4>
           <a href="/">Trabajos</a>
-          <a href="/precios/">Precios</a>
-          <a href="/procedimiento/">Como trabajamos</a>
+          <a href="/precios-trabajos/">Precios</a>
+          <a href="/procedimiento/">Cómo trabajamos</a>
           <a href="/referencias/">Referencias</a>
           <a href="/faq/">Preguntas frecuentes</a>
-          <a href="/pago/">Como pagar</a>
+          <a href="/pago/">Cómo pagar</a>
           <a href="/blog/">Blog</a>
           <a href="/nosotros/">Nosotros</a>
         </div>
         <div>
           <h4>Legal</h4>
           <a href="/privacy/">Privacidad</a>
-          <a href="/terms/">Terminos</a>
+          <a href="/terms/">Términos</a>
         </div>
         <div>
           <h4>Contacto</h4>
-          <a data-wa-message="Hola, quiero info sobre trabajos de la facu. ¿Me dan una mano?" href="#" rel="noopener"><svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp</a>
+          <a data-wa-message="Hola, quiero información. ¿Me dan una mano?" href="#" rel="noopener"><svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp</a>
           <a data-href="facebookUrl" href="#" target="_blank" rel="noopener"><svg class="i i--sm" aria-hidden="true"><use href="#i-facebook"></use></svg> Facebook</a>
           <a data-href="tiktokUrl" href="#" target="_blank" rel="noopener"><svg class="i i--sm" aria-hidden="true"><use href="#i-tiktok"></use></svg> TikTok</a>
           <a data-href="instagramUrl" href="#" target="_blank" rel="noopener"><svg class="i i--sm" aria-hidden="true"><use href="#i-instagram"></use></svg> Instagram</a>
-          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Buenos Aires, Argentina</span></span>
+          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Santa Fe, Argentina</span></span>
         </div>
       </div>
     </div>
-
     <div class="container footer__bottom">
-      <span class="muted">&copy; <span id="year"></span> <span data-bind="brand">Trabajos Helper</span>. Todos los derechos reservados.</span>
+      <span class="muted">© <span id="year"></span> <span data-bind="brand">Trabajos Helper</span>. Todos los derechos reservados.</span>
     </div>
   </footer>
 
-  <button class="to-top" id="toTop" type="button" aria-label="Volver arriba">&#8593;</button>
+  <button class="to-top" id="toTop" type="button" aria-label="Volver arriba">↑</button>
 
-  <div class="bottom-bar" id="bottomBar" aria-label="Acciones rapidas">
-    <a class="btn btn--primary btn--block" data-wa-message="Hola, tengo una consulta sobre un trabajo de la facu." href="#" rel="noopener">
-      <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
-      WhatsApp
-    </a>
-    <a class="btn btn--soft btn--block" href="/#contacto-trabajos">Formulario</a>
-  </div>
-
-  <!-- Lightbox de evidencias -->
   <div class="ev-lightbox" id="evLightbox" aria-hidden="true">
     <button class="ev-lb-btn ev-lb-close" id="evLbClose" type="button" aria-label="Cerrar">&times;</button>
     <button class="ev-lb-btn ev-lb-prev" id="evLbPrev" type="button" aria-label="Anterior">&#8249;</button>
@@ -237,8 +202,6 @@
     <button class="ev-lb-btn ev-lb-next" id="evLbNext" type="button" aria-label="Siguiente">&#8250;</button>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="/app.js"></script>
   <script>
     (function(){

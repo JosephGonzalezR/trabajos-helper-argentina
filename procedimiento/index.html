@@ -5,24 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
 
-  <title>Como trabajamos | Trabajos Helper - Proceso paso a paso</title>
-  <meta name="description" content="Conoce nuestro proceso de trabajo: desde que nos escribis por WhatsApp hasta la entrega final. 6 pasos simples, sin sorpresas. Trabajos Helper Argentina." />
+  <title>Cómo trabajamos | Trabajos Helper</title>
+  <meta name="description" content="Nuestro proceso paso a paso: nos contás qué necesitás, te cotizamos con precio cerrado, lo confirmamos, elaboramos y entregamos en la fecha pactada con ajustes sin costo." />
   <meta name="author" content="Trabajos Helper" />
   <meta name="theme-color" content="#2B7CB5" />
 
-  <!-- Favicons -->
   <link rel="canonical" href="https://trabajoshelper.ags-ed.com/procedimiento/" />
   <link rel="icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
   <link rel="apple-touch-icon" href="/NUEVO LOGO TRABAJOS HELPER.jpg" />
 
-  <!-- Open Graph -->
   <meta property="og:url" content="https://trabajoshelper.ags-ed.com/procedimiento/" />
-  <meta property="og:title" content="Como trabajamos | Trabajos Helper" />
-  <meta property="og:description" content="Proceso paso a paso: escribinos, te cotizamos, y recibis tu trabajo listo. Sin sorpresas, precio cerrado." />
-  <meta property="og:image" content="https://trabajoshelper.ags-ed.com/assets/og-image.png" />
+  <meta property="og:title" content="Cómo trabajamos | Trabajos Helper" />
+  <meta property="og:description" content="Un proceso claro, sin sorpresas: cotización con precio cerrado, entregas en 24 h, servicio express y ajustes sin costo." />
   <meta property="og:type" content="website" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -30,251 +26,106 @@
   <link rel="stylesheet" href="/styles.css" />
 
   <style>
-    /* ── Procedimiento: page-specific styles ── */
+    /* Mejor contraste de lectura (override local, no afecta al resto del sitio). */
+    main { --muted: #242424; }
+    main .proc-hero p { color: #242424; font-size: 17px; }
+    .step__body h3 { color: #141414; }
+    .step__body p { color: #242424; font-size: 15px; line-height: 1.66; }
+    .proc-diffs-head { text-align: center; margin: 8px auto 18px; }
+    .proc-diffs-head h2 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: var(--text); }
+    .proc-diffs-head p { color: #3a3a3a; font-size: 15px; margin-top: 6px; }
+    .proc-diffs { max-width: 900px; margin: 0 auto clamp(36px,5vw,56px); display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    @media (max-width: 760px){ .proc-diffs { grid-template-columns: 1fr; max-width: 460px; } }
+    .diff-card { text-align: center; background: linear-gradient(180deg, var(--brand3) 0%, var(--card) 60%); border: 1px solid rgba(90,150,204,0.45); border-top: 4px solid var(--brand2); border-radius: 16px; padding: 28px 22px; box-shadow: 0 14px 36px -16px rgba(90,150,204,0.55); transition: transform .25s ease, box-shadow .25s ease; }
+    .diff-card:hover { transform: translateY(-4px); box-shadow: 0 22px 50px -18px rgba(90,150,204,0.65); }
+    .diff-card .ic { font-size: 38px; margin-bottom: 10px; }
+    .diff-card h3 { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+    .diff-card p { font-size: 14px; color: #242424; line-height: 1.6; }
+    .diff-card p strong { color: #14527E; }
+    .proc-hero { text-align: center; padding: var(--pad-lg) 0 clamp(20px,3vw,36px); }
+    .proc-hero .badge {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--brand-ink); background: var(--brand3);
+      border: 1px solid rgba(90,150,204,0.25); padding: 8px 20px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .proc-hero h1 { font-family: 'Playfair Display', serif; font-size: var(--h1); font-weight: 800; line-height: 1.1; margin-bottom: 16px; color: var(--text); }
+    .proc-hero p { color: var(--muted); font-size: 17px; max-width: 640px; margin: 0 auto; line-height: 1.6; }
 
-    .proc-hero {
-      position: relative;
-      padding: clamp(48px, 6vw, 80px) 0 clamp(32px, 4vw, 56px);
-      background: linear-gradient(155deg, #FFFFFF 0%, #F0F7FC 55%, #E8F4FD 100%);
-      overflow: hidden;
+    .steps { max-width: 780px; margin: 8px auto clamp(40px,6vw,72px); position: relative; }
+    .steps::before { content: ''; position: absolute; left: 27px; top: 12px; bottom: 12px; width: 2px; background: linear-gradient(180deg, var(--brand2), rgba(90,150,204,0.1)); }
+    @media (max-width: 560px) { .steps::before { left: 21px; } }
+    .step { position: relative; display: flex; gap: 22px; padding: 14px 0; }
+    .step__num {
+      flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: var(--card);
+      border: 2px solid var(--brand2); color: var(--brand-ink); font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-sm); z-index: 1;
     }
-    .proc-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(600px 400px at 10% 20%, rgba(116,172,223,.12), transparent 60%),
-        radial-gradient(500px 350px at 85% 10%, rgba(116,172,223,.08), transparent 55%);
-      pointer-events: none;
+    @media (max-width: 560px) { .step__num { width: 44px; height: 44px; font-size: 18px; } }
+    .step__body {
+      flex: 1; background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+      padding: 20px 24px; box-shadow: var(--shadow-sm); transition: transform .25s ease, box-shadow .25s ease;
     }
-    .proc-hero__inner {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .proc-hero__pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: rgba(116,172,223,.12);
-      border: 1px solid rgba(116,172,223,.25);
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--celeste-d);
-      margin-bottom: 18px;
-    }
-    .proc-hero__title {
-      font-size: var(--h1);
-      line-height: 1.1;
-      letter-spacing: -.03em;
-      margin: 0 0 16px;
-      background: linear-gradient(135deg, #2D2D2D 0%, #3D3D3D 55%, var(--celeste-d) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .proc-hero__sub {
-      color: var(--muted);
-      font-size: 17px;
-      margin: 0;
-      max-width: 58ch;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    .step:hover .step__body { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .step__body h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .step__body p { color: var(--muted); font-size: 14.5px; line-height: 1.65; }
+    .step__body p strong { color: var(--text); }
 
-    /* ── 6-step timeline ── */
-    .proc-steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      max-width: 780px;
-      margin: 0 auto;
-      position: relative;
+    .proc-note {
+      max-width: 780px; margin: 0 auto clamp(40px,6vw,72px); text-align: center;
+      background: linear-gradient(180deg, var(--brand3) 0%, var(--card) 60%);
+      border: 1px solid rgba(90,150,204,0.25); border-radius: var(--radius); padding: 40px 32px; box-shadow: var(--shadow-sm);
     }
-    /* Vertical line */
-    .proc-steps::before {
-      content: '';
-      position: absolute;
-      left: 27px;
-      top: 36px;
-      bottom: 36px;
-      width: 2px;
-      background: linear-gradient(180deg, var(--celeste), rgba(116,172,223,.15));
-      border-radius: 2px;
-    }
-    @media (max-width: 600px) {
-      .proc-steps::before { left: 22px; }
-    }
+    .proc-note h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .proc-note p { color: var(--muted); font-size: 15px; margin-bottom: 22px; }
+    .wa-icon { width: 18px; height: 18px; }
 
-    .proc-step {
-      display: flex;
-      gap: 20px;
-      padding: 24px 0;
-      position: relative;
-    }
-    .proc-step__num {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: 900;
-      color: #2D2D2D;
-      background: var(--celeste);
-      box-shadow: 0 6px 20px rgba(116,172,223,.35);
-      flex-shrink: 0;
-      position: relative;
-      z-index: 2;
-    }
-    .proc-step__body {
-      flex: 1;
-      padding-top: 8px;
-    }
-    .proc-step__body h3 {
-      margin: 0 0 8px;
-      font-size: var(--h3);
-      color: var(--text);
-    }
-    .proc-step__body p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
-    }
-    @media (max-width: 600px) {
-      .proc-step { gap: 16px; padding: 18px 0; }
-      .proc-step__num { width: 46px; height: 46px; font-size: 17px; }
-    }
-
-    /* ── "Por que elegirnos" cards ── */
-    .why-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 980px) { .why-cards { grid-template-columns: 1fr; } }
-
-    .why-card {
-      padding: 24px 20px;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-top: 3px solid var(--celeste);
-      box-shadow: var(--shadow-sm);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .why-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-    }
-    .why-card__icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: rgba(116,172,223,.12);
-      border: 1px solid rgba(116,172,223,.25);
-      color: var(--celeste-d);
-      margin-bottom: 14px;
-    }
-    .why-card h3 {
-      margin: 0 0 8px;
-      font-size: var(--h3);
-    }
-    .why-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .step { animation: fadeUp .5s ease both; }
+    .step:nth-child(2){animation-delay:.05s}.step:nth-child(3){animation-delay:.1s}.step:nth-child(4){animation-delay:.15s}.step:nth-child(5){animation-delay:.2s}.step:nth-child(6){animation-delay:.25s}
   </style>
 </head>
 
 <body data-page="trabajos">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- Scroll progress -->
-  <div class="scroll-progress" aria-hidden="true">
-    <div class="scroll-progress__bar" id="scrollProgress"></div>
-  </div>
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar" id="scrollProgress"></div></div>
 
-  <!-- Iconos SVG -->
   <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
-    <symbol id="i-check" viewBox="0 0 24 24">
-      <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24">
-      <path d="M12 22s7-4.5 7-12a7 7 0 0 0-14 0c0 7.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M12 11.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z" fill="none" stroke="currentColor" stroke-width="2"/>
-    </symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24">
-      <path d="M5 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      <path d="M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-    <symbol id="i-whatsapp" viewBox="0 0 24 24">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/>
-    </symbol>
-    <symbol id="i-facebook" viewBox="0 0 24 24">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor"/>
-    </symbol>
-    <symbol id="i-tiktok" viewBox="0 0 24 24">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z" fill="currentColor"/>
-    </symbol>
-    <symbol id="i-instagram" viewBox="0 0 24 24">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
-      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-    </symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24">
-      <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z" fill="none" stroke="currentColor" stroke-width="2"/>
-      <path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24">
-      <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M9 12l2 2 4-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-4.5 7-12a7 7 0 0 0-14 0c0 7.5 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor"/></symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z" fill="currentColor"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></symbol>
   </svg>
 
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="container topbar__inner">
       <div class="topbar__left">
         <span class="dot" aria-hidden="true"></span>
-        <span class="topbar__text">Atencion por WhatsApp • <span data-bind="location">Buenos Aires, Argentina</span></span>
+        <span class="topbar__text">Atención por WhatsApp • <span data-bind="location">Santa Fe, Argentina</span></span>
       </div>
       <div class="topbar__right">
         <div class="social-links">
-          <a class="social-link" data-href="facebookUrl" href="#" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-facebook"></use></svg>
-          </a>
-          <a class="social-link" data-href="tiktokUrl" href="#" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-tiktok"></use></svg>
-          </a>
-          <a class="social-link" data-href="instagramUrl" href="#" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-instagram"></use></svg>
-          </a>
+          <a class="social-link" data-href="facebookUrl" href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i i--sm" aria-hidden="true"><use href="#i-facebook"></use></svg></a>
+          <a class="social-link" data-href="tiktokUrl" href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg class="i i--sm" aria-hidden="true"><use href="#i-tiktok"></use></svg></a>
+          <a class="social-link" data-href="instagramUrl" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i i--sm" aria-hidden="true"><use href="#i-instagram"></use></svg></a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- NAVBAR -->
   <header class="nav" id="top">
     <div class="container nav__inner">
       <a class="brand" href="/" aria-label="Ir al inicio">
         <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="40" height="40" alt="Logo de Trabajos Helper" decoding="async" style="border-radius:10px" />
-        <span class="brand__text">
-          <strong data-bind="brand">Trabajos Helper</strong>
-          <small>Soluciones Academicas</small>
-        </span>
+        <span class="brand__text"><strong data-bind="brand">Trabajos Helper</strong><small>Soluciones Académicas</small></span>
       </a>
-
-      <nav class="nav__links" aria-label="Navegacion principal" id="navLinks">
+      <nav class="nav__links" aria-label="Navegación principal" id="navLinks">
         <a href="/#servicios-trabajos">Servicios</a>
         <a href="/procedimiento/">Proceso</a>
         <a href="/precios-trabajos/">Precios Trabajos</a>
@@ -283,21 +134,16 @@
         <a href="/pago/">Pago</a>
         <a href="/blog/">Blog</a>
         <a href="/nosotros/">Nosotros</a>
-        <a href="/#contacto-trabajos" class="nav__cta">Escribinos</a>
+        <a data-wa-message="Hola, tengo una consulta. ¿Me dan una mano?" href="#" class="nav__cta">Escribinos</a>
       </nav>
-
       <div class="nav__actions">
-        <a class="btn btn--ghost btn--sm hide-sm" data-wa-message="Hola, necesito presupuesto para un trabajo de la facu. ¿Me dan una mano?" href="#" rel="noopener">
+        <a class="btn btn--ghost btn--sm hide-sm" data-wa-message="Hola, quiero hacer una consulta. ¿Me dan una mano?" href="#" rel="noopener">
           <svg class="i" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
           <span class="btn__hint" data-bind="whatsappDisplay">+54 9 342 413 4914</span>
         </a>
-
-        <button class="nav__burger" type="button" id="menuBtn" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="nav__burger" type="button" id="menuBtn" aria-label="Abrir menú" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
-
     <div class="mobile-menu" id="mobileMenu" hidden>
       <div class="mobile-menu__inner container">
         <a href="/#servicios-trabajos">Servicios</a>
@@ -308,280 +154,143 @@
         <a href="/pago/">Pago</a>
         <a href="/blog/">Blog</a>
         <a href="/nosotros/">Nosotros</a>
-        <a href="/#contacto-trabajos" class="btn btn--primary btn--block">Escribinos por WhatsApp</a>
-        <div class="mobile-menu__meta">
-          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Buenos Aires, Argentina</span></span>
-        </div>
+        <a data-wa-message="Hola, tengo una consulta. ¿Me dan una mano?" href="#" class="btn btn--primary btn--block">Escribinos por WhatsApp</a>
+        <div class="mobile-menu__meta"><span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Santa Fe, Argentina</span></span></div>
       </div>
     </div>
   </header>
 
+  <!-- MAIN -->
   <main id="contenido">
-    <!-- HERO -->
-    <section class="proc-hero" aria-label="Como trabajamos">
-      <div class="container proc-hero__inner" data-reveal>
-        <div class="proc-hero__pill">
-          <svg class="i" aria-hidden="true"><use href="#i-check"></use></svg>
-          Proceso transparente
-        </div>
-        <h1 class="proc-hero__title">Como trabajamos</h1>
-        <p class="proc-hero__sub">
-          Desde que nos escribis hasta que recibis tu trabajo listo. 6 pasos simples, precio cerrado y sin sorpresas.
-        </p>
+    <div class="container">
+      <div class="proc-hero">
+        <div class="badge">Cómo trabajamos</div>
+        <h1>Tu trabajo, paso a paso</h1>
+        <p>Un proceso claro y sin sorpresas. Precio cerrado antes de empezar y ajustes hasta que tu trabajo calce con la consigna.</p>
       </div>
-    </section>
 
-    <!-- 6 PASOS -->
-    <section class="section" id="proceso">
-      <div class="container">
-        <div class="section__head">
-          <h2 data-reveal>Nuestro proceso paso a paso</h2>
-          <p class="muted" data-reveal>
-            Asi trabajamos con cada cliente. Claro, rapido y sin vueltas.
-          </p>
-        </div>
-
-        <div class="proc-steps" data-reveal>
-          <div class="proc-step">
-            <div class="proc-step__num">1</div>
-            <div class="proc-step__body">
-              <h3>Contanos que necesitas</h3>
-              <p>Escribinos por WhatsApp y mandanos la consigna, rubrica o instrucciones del trabajo. Cuanto mas detalle nos des, mejor va a quedar.</p>
-            </div>
-          </div>
-
-          <div class="proc-step">
-            <div class="proc-step__num">2</div>
-            <div class="proc-step__body">
-              <h3>Cotizacion y plazo</h3>
-              <p>Te enviamos el precio y la fecha de entrega. Precio cerrado: sin sorpresas. Sabemos que necesitas saber cuanto vas a pagar antes de arrancar.</p>
-            </div>
-          </div>
-
-          <div class="proc-step">
-            <div class="proc-step__num">3</div>
-            <div class="proc-step__body">
-              <h3>Confirmas y empezamos</h3>
-              <p>Dejas un anticipo por Mercado Pago o transferencia. Si es tu primera vez y es un trabajo corto, podemos arrancar sin pago adelantado.</p>
-            </div>
-          </div>
-
-          <div class="proc-step">
-            <div class="proc-step__num">4</div>
-            <div class="proc-step__body">
-              <h3>Elaboracion</h3>
-              <p>Un especialista desarrolla tu trabajo siguiendo tus indicaciones y la rubrica. Trabajamos con profesionales de cada area para garantizar la calidad.</p>
-            </div>
-          </div>
-
-          <div class="proc-step">
-            <div class="proc-step__num">5</div>
-            <div class="proc-step__body">
-              <h3>Entrega</h3>
-              <p>Recibis tu trabajo en la fecha pactada. Si necesita ajustes segun tu rubrica, los hacemos sin costo. Tu satisfaccion es nuestra prioridad.</p>
-            </div>
-          </div>
-
-          <div class="proc-step">
-            <div class="proc-step__num">6</div>
-            <div class="proc-step__body">
-              <h3>Pago final y cierre</h3>
-              <p>Cancelas el saldo y listo. Asi de simple. Sin letras chicas ni costos ocultos.</p>
-            </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">1</div>
+          <div class="step__body">
+            <h3>Contanos qué necesitás</h3>
+            <p>Escribinos por WhatsApp y mandanos la <strong>consigna, las instrucciones o el archivo</strong> del trabajo. Mientras más claro nos lo dejes, mejor cotizamos.</p>
           </div>
         </div>
-
-        <div class="cta-band" data-reveal>
-          <div class="cta-band__copy">
-            <h3>¿Tenes un trabajo pendiente?</h3>
-            <p class="muted">Escribinos con los requisitos y te cotizamos al instante.</p>
+        <div class="step">
+          <div class="step__num">2</div>
+          <div class="step__body">
+            <h3>Cotización y plazo</h3>
+            <p>Te enviamos el <strong>valor y la fecha de entrega</strong>. Precio cerrado antes de empezar: sin sorpresas ni letra chica. <strong>Preguntá siempre por tu fecha de entrega</strong>: hacemos trabajos estándar en 24 horas y servicio express el mismo día (previa coordinación).</p>
           </div>
-          <div class="cta-band__actions">
-            <a class="btn btn--primary" data-wa-message="Hola, quiero presupuesto para un trabajo. ¿Como es el proceso?" href="#" rel="noopener">
-              Escribinos por WhatsApp
-              <svg class="i i--sm" aria-hidden="true"><use href="#i-arrow"></use></svg>
-            </a>
+        </div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <div class="step__body">
+            <h3>Confirmás y empezamos</h3>
+            <p>Para empezar dejás un <strong>anticipo</strong>. Y si es tu <strong>primera vez con nosotros y es un trabajo corto</strong>, podemos comenzar <strong>sin pago por adelantado</strong>: pagás al recibir (no aplica para trabajos largos). Revisá <a href="/pago/" style="color:var(--brand-ink);font-weight:600">los métodos de pago</a>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">4</div>
+          <div class="step__body">
+            <h3>Elaboración</h3>
+            <p>Un <strong>especialista del área</strong> desarrolla tu trabajo siguiendo tu consigna e indicaciones.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">5</div>
+          <div class="step__body">
+            <h3>Entrega</h3>
+            <p>Recibís tu trabajo en la fecha pactada. Es una entrega; si necesita <strong>ajustes según tu consigna, los hacemos sin costo adicional</strong>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">6</div>
+          <div class="step__body">
+            <h3>Pago final y cierre</h3>
+            <p>Pagás el saldo y queda todo listo para que entregues con confianza. ¿Dudas? Mirá las <a href="/faq/" style="color:var(--brand-ink);font-weight:600">preguntas frecuentes</a>.</p>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- POR QUE ELEGIRNOS -->
-    <section class="section section--alt" id="por-que-elegirnos">
-      <div class="container">
-        <div class="section__head">
-          <h2 data-reveal>Por que elegirnos</h2>
-          <p class="muted" data-reveal>
-            Tres razones concretas para confiar en nosotros.
-          </p>
+      <div class="proc-diffs-head">
+        <h2>Por qué elegirnos</h2>
+        <p>Lo que nos diferencia.</p>
+      </div>
+      <div class="proc-diffs">
+        <div class="diff-card">
+          <div class="ic">⚡</div>
+          <h3>Rápidos cuando lo necesitás</h3>
+          <p>Trabajos estándar en <strong>24 horas</strong> y <strong>servicio express el mismo día</strong> (previa coordinación).</p>
         </div>
-
-        <div class="why-cards">
-          <div class="why-card" data-reveal>
-            <div class="why-card__icon" aria-hidden="true">
-              <svg class="i"><use href="#i-clock"></use></svg>
-            </div>
-            <h3>Rapidos cuando lo necesitas</h3>
-            <p>Trabajos en 24 horas y servicio express el mismo dia. Si tenes poco tiempo, nosotros nos encargamos.</p>
-          </div>
-
-          <div class="why-card" data-reveal>
-            <div class="why-card__icon" aria-hidden="true">
-              <svg class="i"><use href="#i-check"></use></svg>
-            </div>
-            <h3>Primera vez sin pago adelantado</h3>
-            <p>Si es tu primer trabajo corto, arrancamos y pagas al recibir. Queremos que pruebes como trabajamos antes de comprometerte.</p>
-          </div>
-
-          <div class="why-card" data-reveal>
-            <div class="why-card__icon" aria-hidden="true">
-              <svg class="i"><use href="#i-shield"></use></svg>
-            </div>
-            <h3>Calidad garantizada</h3>
-            <p>Garantizamos la calidad cuando nos mandas la rubrica e indicaciones completas. Si algo no cumple, lo corregimos sin costo.</p>
-          </div>
+        <div class="diff-card">
+          <div class="ic">🎁</div>
+          <h3>Primera vez sin pago por adelantado</h3>
+          <p>Si es tu <strong>primera vez</strong> y es un <strong>trabajo corto</strong>, <strong>empezamos sin pago por adelantado</strong>. Pagás al recibir (no aplica para trabajos largos).</p>
+        </div>
+        <div class="diff-card">
+          <div class="ic">✅</div>
+          <h3>Calidad garantizada</h3>
+          <p>Garantizamos <strong>notas entre 8 y 10</strong> cuando nos mandás la consigna, la rúbrica y las indicaciones completas.</p>
         </div>
       </div>
-    </section>
 
-    <!-- FINAL CTA -->
-    <section class="final-cta" aria-label="Cierre">
-      <div class="container final-cta__inner" data-reveal>
-        <div>
-          <h2>¿Listo para empezar?</h2>
-          <p class="muted">Escribinos por WhatsApp y cotiza tu trabajo sin compromiso.</p>
-        </div>
-        <div class="final-cta__actions">
-          <a class="btn btn--primary" data-wa-message="Hola, quiero presupuesto para un trabajo de la facu. ¿Me dan una mano?" href="#" rel="noopener">
-            Cotizar por WhatsApp
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-arrow"></use></svg>
-          </a>
-          <a class="btn btn--ghost" href="/#servicios-trabajos">Ver servicios</a>
-        </div>
+      <div class="proc-note">
+        <h2>¿Listo para empezar?</h2>
+        <p>Escribinos por WhatsApp con tu consigna y te cotizamos rápido.</p>
+        <a class="btn btn--primary" href="https://wa.me/5493424134914?text=Hola,%20quiero%20cotizar%20un%20trabajo." target="_blank" rel="noopener">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+          Cotizar por WhatsApp
+        </a>
       </div>
-    </section>
+    </div>
   </main>
 
-  <!-- Onda de transicion al footer -->
   <div class="footer-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,30 C360,90 720,0 1080,50 C1260,75 1380,20 1440,30 L1440,90 L0,90 Z" fill="#FAFAFA"/>
-    </svg>
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C360,90 720,0 1080,50 C1260,75 1380,20 1440,30 L1440,90 L0,90 Z" fill="#FAFAFA"/></svg>
   </div>
 
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
         <img src="/NUEVO LOGO TRABAJOS HELPER.jpg" width="56" height="56" alt="Logo de Trabajos Helper" loading="lazy" decoding="async" style="border-radius:12px" />
-        <div>
-          <strong data-bind="brand">Trabajos Helper</strong>
-          <p class="muted">Soluciones Academicas</p>
-        </div>
+        <div><strong data-bind="brand">Trabajos Helper</strong><p class="muted">Soluciones Académicas</p></div>
       </div>
-
       <div class="footer__cols">
         <div>
           <h4>Secciones</h4>
           <a href="/">Trabajos</a>
-          <a href="/precios/">Precios</a>
-        <a href="/referencias/">Referencias</a>
-          <a href="/procedimiento/">Proceso</a>
-          <a href="/faq/">FAQ</a>
-          <a href="/#contacto-trabajos">Pago</a>
+          <a href="/precios-trabajos/">Precios</a>
+          <a href="/referencias/">Referencias</a>
+          <a href="/procedimiento/">Cómo trabajamos</a>
+          <a href="/faq/">Preguntas frecuentes</a>
+          <a href="/pago/">Cómo pagar</a>
           <a href="/blog/">Blog</a>
           <a href="/nosotros/">Nosotros</a>
         </div>
         <div>
           <h4>Legal</h4>
           <a href="/privacy/">Privacidad</a>
-          <a href="/terms/">Terminos</a>
+          <a href="/terms/">Términos</a>
         </div>
         <div>
           <h4>Contacto</h4>
-          <a data-wa-message="Hola, quiero info sobre trabajos de la facu. ¿Me dan una mano?" href="#" rel="noopener">
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp
-          </a>
-          <a data-href="facebookUrl" href="#" target="_blank" rel="noopener">
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-facebook"></use></svg> Facebook
-          </a>
-          <a data-href="tiktokUrl" href="#" target="_blank" rel="noopener">
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-tiktok"></use></svg> TikTok
-          </a>
-          <a data-href="instagramUrl" href="#" target="_blank" rel="noopener">
-            <svg class="i i--sm" aria-hidden="true"><use href="#i-instagram"></use></svg> Instagram
-          </a>
-          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Buenos Aires, Argentina</span></span>
+          <a data-wa-message="Hola, quiero información. ¿Me dan una mano?" href="#" rel="noopener"><svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp</a>
+          <a data-href="facebookUrl" href="#" target="_blank" rel="noopener"><svg class="i i--sm" aria-hidden="true"><use href="#i-facebook"></use></svg> Facebook</a>
+          <a data-href="tiktokUrl" href="#" target="_blank" rel="noopener"><svg class="i i--sm" aria-hidden="true"><use href="#i-tiktok"></use></svg> TikTok</a>
+          <a data-href="instagramUrl" href="#" target="_blank" rel="noopener"><svg class="i i--sm" aria-hidden="true"><use href="#i-instagram"></use></svg> Instagram</a>
+          <span class="muted"><svg class="i i--sm" aria-hidden="true"><use href="#i-pin"></use></svg> <span data-bind="location">Santa Fe, Argentina</span></span>
         </div>
       </div>
     </div>
-
     <div class="container footer__bottom">
-      <span class="muted">&copy; <span id="year"></span> <span data-bind="brand">Trabajos Helper</span>. Todos los derechos reservados.</span>
+      <span class="muted">© <span id="year"></span> <span data-bind="brand">Trabajos Helper</span>. Todos los derechos reservados.</span>
     </div>
   </footer>
 
-  <!-- Floating buttons -->
-  <button class="to-top" id="toTop" type="button" aria-label="Volver arriba">&#8593;</button>
+  <button class="to-top" id="toTop" type="button" aria-label="Volver arriba">↑</button>
 
-  <div class="bottom-bar" id="bottomBar" aria-label="Acciones rapidas">
-    <a class="btn btn--primary btn--block" data-wa-message="Hola, necesito presupuesto para un trabajo de la facu. ¿Me dan una mano?" href="#" rel="noopener">
-      <svg class="i i--sm" aria-hidden="true"><use href="#i-whatsapp"></use></svg>
-      WhatsApp
-    </a>
-    <a class="btn btn--soft btn--block" href="/#contacto-trabajos">Formulario</a>
-  </div>
-
-  <!-- HowTo Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "Como trabajamos en Trabajos Helper",
-    "description": "Proceso paso a paso para contratar un trabajo academico con Trabajos Helper Argentina.",
-    "step": [
-      {
-        "@type": "HowToStep",
-        "position": 1,
-        "name": "Contanos que necesitas",
-        "text": "Escribinos por WhatsApp y mandanos la consigna, rubrica o instrucciones del trabajo."
-      },
-      {
-        "@type": "HowToStep",
-        "position": 2,
-        "name": "Cotizacion y plazo",
-        "text": "Te enviamos el precio y la fecha de entrega. Precio cerrado: sin sorpresas."
-      },
-      {
-        "@type": "HowToStep",
-        "position": 3,
-        "name": "Confirmas y empezamos",
-        "text": "Dejas un anticipo por Mercado Pago o transferencia. Si es tu primera vez y es un trabajo corto, podemos arrancar sin pago adelantado."
-      },
-      {
-        "@type": "HowToStep",
-        "position": 4,
-        "name": "Elaboracion",
-        "text": "Un especialista desarrolla tu trabajo siguiendo tus indicaciones y la rubrica."
-      },
-      {
-        "@type": "HowToStep",
-        "position": 5,
-        "name": "Entrega",
-        "text": "Recibis tu trabajo en la fecha pactada. Si necesita ajustes segun tu rubrica, los hacemos sin costo."
-      },
-      {
-        "@type": "HowToStep",
-        "position": 6,
-        "name": "Pago final y cierre",
-        "text": "Cancelas el saldo y listo."
-      }
-    ]
-  }
-  </script>
-
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="/app.js"></script>
 </body>
 </html>
