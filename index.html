@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
 
+  <script>
+    /* Campaña Tesis 2026-07: la entrada EXTERNA a la raíz aterriza en /tesis/.
+       La navegación interna (menú "Trabajos") y /?trabajos muestran esta home. */
+    (function () {
+      try {
+        var interna = document.referrer && new URL(document.referrer).host === location.host;
+        var explicito = location.search.indexOf('trabajos') !== -1 || location.hash === '#trabajos';
+        if (!interna && !explicito) location.replace('/tesis/');
+      } catch (e) { location.replace('/tesis/'); }
+    })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=/tesis/" /></noscript>
+
   <title>Trabajos Helper | Hacemos tus trabajos academicos</title>
   <meta name="description" content="Hacemos tus trabajos academicos: trabajos practicos, informes, monografias, ensayos, presentaciones, Excel, Power BI, programacion y mas. Todas las universidades argentinas. Atencion por WhatsApp." />
   <meta name="author" content="Trabajos Helper" />

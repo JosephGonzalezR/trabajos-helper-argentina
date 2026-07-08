@@ -1104,5 +1104,33 @@
   <!-- Vanilla Tilt -->
   <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
   <script src="/app.js"></script>
+
+  <!-- Modal selector Tesis / Trabajos (campaña Tesis 2026-07). Se muestra 1 vez por sesión. -->
+  <div id="thSelector" role="dialog" aria-modal="true" aria-label="Elegí qué estás buscando"
+       style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(13,24,34,.62);backdrop-filter:blur(3px);padding:18px">
+    <div style="background:#fff;border-radius:18px;max-width:440px;width:100%;padding:28px 22px;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.35);font-family:'Plus Jakarta Sans',system-ui,sans-serif">
+      <div style="font-size:28px;line-height:1">👋</div>
+      <h2 style="margin:10px 0 4px;font-size:21px;color:#12283a">¿Qué estás buscando?</h2>
+      <p style="margin:0 0 18px;font-size:14px;color:#5b6c7a">Elegí una opción y te llevamos directo.</p>
+      <a href="#" onclick="thCerrarSelector();return false"
+         style="display:block;background:#2B7CB5;color:#fff;border-radius:12px;padding:15px;font-weight:700;text-decoration:none;font-size:16px;margin-bottom:10px">🎓 Tesis y tesinas — estás acá</a>
+      <a href="/?trabajos"
+         style="display:block;background:#eef4f9;color:#12283a;border-radius:12px;padding:15px;font-weight:700;text-decoration:none;font-size:16px">📝 Trabajos prácticos, parciales e informes</a>
+      <button onclick="thCerrarSelector()"
+         style="margin-top:14px;background:none;border:0;color:#8595a3;font-size:13px;cursor:pointer;text-decoration:underline">Cerrar y seguir en Tesis</button>
+    </div>
+  </div>
+  <script>
+    function thCerrarSelector() {
+      document.getElementById('thSelector').style.display = 'none';
+      try { sessionStorage.setItem('th_modal_visto', '1'); } catch (e) {}
+    }
+    (function () {
+      try { if (sessionStorage.getItem('th_modal_visto')) document.getElementById('thSelector').style.display = 'none'; } catch (e) {}
+      document.getElementById('thSelector').addEventListener('click', function (ev) {
+        if (ev.target === this) thCerrarSelector();
+      });
+    })();
+  </script>
 </body>
 </html>
