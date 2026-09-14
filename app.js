@@ -549,14 +549,14 @@ function setupNavScroll() {
 
 function setupPromoToasts() {
   const messages = [
-    { title: "¡No lo dudes!", text: "Aca te ayudamos con tu trabajo. Escribinos." },
-    { title: "¿Llegas justo?", text: "Hacemos trabajos urgentes. Cotiza en 1 hora." },
-    { title: "Alguien acaba de cotizar", text: "Vos tambien podes. Es gratis y sin compromiso." },
+    { title: "¡No lo dudes!", text: "Acá te ayudamos con tu trabajo. Escribinos." },
+    { title: "¿Llegás justo?", text: "Hacemos trabajos urgentes. Cotizá en 1 hora." },
+    { title: "Alguien acaba de cotizar", text: "Vos tambien podés. Es gratis y sin compromiso." },
     { title: "¿TP para mañana?", text: "Tranqui, lo resolvemos. Mandanos la consigna." },
     { title: "+500 trabajos entregados", text: "Estudiantes de UBA, UTN, UADE y mas confian en nosotros." },
     { title: "Parcial o final?", text: "Te ayudamos a prepararlo. Escribinos por WhatsApp." },
     { title: "Cotizacion gratuita", text: "Mandanos los requisitos y te respondemos al toque." },
-    { title: "Excel, Power BI, SQL...", text: "Lo que necesites, lo hacemos. Consulta sin cargo." },
+    { title: "Excel, Power BI, SQL...", text: "Lo que necesites, lo hacemos. Consultá sin cargo." },
   ];
 
   const toast = document.getElementById("promoToast");

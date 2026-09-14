@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
   <title>SQL para principiantes: Consultas basicas para Bases de Datos | Trabajos Helper Blog</title>
-  <meta name="description" content="Aprende SQL desde cero. SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE y DELETE. Tutorial completo con ejemplos practicos para estudiantes universitarios." />
+  <meta name="description" content="Aprendé SQL desde cero. SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE y DELETE. Tutorial completo con ejemplos practicos para estudiantes universitarios." />
   <meta name="author" content="Trabajos Helper" />
   <meta name="theme-color" content="#2B7CB5" />
   <link rel="canonical" href="https://trabajoshelper.ags-ed.com/blog/sql-principiantes/" />
@@ -55,7 +55,7 @@
       "@id": "https://trabajoshelper.ags-ed.com/blog/sql-principiantes/#pagina",
       "url": "https://trabajoshelper.ags-ed.com/blog/sql-principiantes/",
       "name": "SQL para principiantes: Consultas basicas para Bases de Datos | Trabajos Helper Blog",
-      "description": "Aprende SQL desde cero. SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE y DELETE. Tutorial completo con ejemplos practicos para estudiantes universitarios.",
+      "description": "Aprendé SQL desde cero. SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE y DELETE. Tutorial completo con ejemplos practicos para estudiantes universitarios.",
       "inLanguage": "es",
       "isPartOf": { "@id": "https://trabajoshelper.ags-ed.com/#web" },
       "about": { "@id": "https://trabajoshelper.ags-ed.com/#organizacion" }
@@ -73,7 +73,7 @@
       "@type": "BlogPosting",
       "@id": "https://trabajoshelper.ags-ed.com/blog/sql-principiantes/#articulo",
       "headline": "SQL para principiantes: Consultas basicas para Bases de Datos | Trabajos Helper Blog",
-      "description": "Aprende SQL desde cero. SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE y DELETE. Tutorial completo con ejemplos practicos para estudiantes universitarios.",
+      "description": "Aprendé SQL desde cero. SELECT, WHERE, JOIN, GROUP BY, INSERT, UPDATE y DELETE. Tutorial completo con ejemplos practicos para estudiantes universitarios.",
       "inLanguage": "es",
       "mainEntityOfPage": { "@id": "https://trabajoshelper.ags-ed.com/blog/sql-principiantes/#pagina" },
       "author": { "@id": "https://trabajoshelper.ags-ed.com/#organizacion" },
@@ -179,8 +179,8 @@
       <article class="article-content">
 
         <h2 id="que-es-sql">Que es SQL y por que es importante</h2>
-        <p>SQL (Structured Query Language) es el lenguaje estandar para comunicarte con bases de datos relacionales. Si cursas Sistemas, Ingenieria, Administracion o cualquier carrera que tenga materias como "Bases de Datos" o "Gestion de Datos", SQL es una herramienta que si o si vas a tener que aprender.</p>
-        <p>A diferencia de otros lenguajes de programacion, SQL es <strong>declarativo</strong>: le decis a la base de datos QUE queres obtener, no COMO obtenerlo. Esto lo hace bastante intuitivo una vez que entendes la logica basica.</p>
+        <p>SQL (Structured Query Language) es el lenguaje estandar para comunicarte con bases de datos relacionales. Si cursás Sistemas, Ingenieria, Administracion o cualquier carrera que tenga materias como "Bases de Datos" o "Gestion de Datos", SQL es una herramienta que si o si vas a tener que aprender.</p>
+        <p>A diferencia de otros lenguajes de programacion, SQL es <strong>declarativo</strong>: le decís a la base de datos QUE querés obtener, no COMO obtenerlo. Esto lo hace bastante intuitivo una vez que entendés la logica basica.</p>
         <p>En este tutorial vas a aprender las consultas fundamentales de SQL con ejemplos practicos usando una base de datos de ejemplo. Al terminar, vas a poder hacer consultas SELECT, filtrar datos, ordenarlos, agruparlos y hasta hacer JOINs entre tablas.</p>
 
         <div class="article-tip article-tip--info">
@@ -196,27 +196,27 @@
 
         <h3>Opcion 1: Online (sin instalar nada)</h3>
         <ul>
-          <li><strong>SQLite Online (sqliteonline.com):</strong> Abris el navegador y ya podes escribir consultas. Ideal para empezar rapido.</li>
-          <li><strong>DB Fiddle (db-fiddle.com):</strong> Te permite elegir entre MySQL, PostgreSQL y SQLite. Podes compartir tus consultas con un link.</li>
+          <li><strong>SQLite Online (sqliteonline.com):</strong> Abrís el navegador y ya podés escribir consultas. Ideal para empezar rapido.</li>
+          <li><strong>DB Fiddle (db-fiddle.com):</strong> Te permite elegir entre MySQL, PostgreSQL y SQLite. Podés compartir tus consultas con un link.</li>
         </ul>
 
         <h3>Opcion 2: Instalar MySQL + MySQL Workbench</h3>
         <div class="article-steps">
           <div class="article-step">
             <div class="article-step__body">
-              <h4>Descarga MySQL Community Server</h4>
-              <p>Anda a dev.mysql.com/downloads y descarga el instalador de MySQL Community Server. Es gratuito.</p>
+              <h4>Descargá MySQL Community Server</h4>
+              <p>Andá a dev.mysql.com/downloads y descargá el instalador de MySQL Community Server. Es gratuito.</p>
             </div>
           </div>
           <div class="article-step">
             <div class="article-step__body">
-              <h4>Instala MySQL</h4>
-              <p>Segui el asistente de instalacion. Cuando te pida una contraseña para root, elegí una que te acuerdes y anotala.</p>
+              <h4>Instalá MySQL</h4>
+              <p>Seguí el asistente de instalacion. Cuando te pida una contraseña para root, elegí una que te acuerdes y anotala.</p>
             </div>
           </div>
           <div class="article-step">
             <div class="article-step__body">
-              <h4>Descarga MySQL Workbench</h4>
+              <h4>Descargá MySQL Workbench</h4>
               <p>Es la interfaz grafica para administrar MySQL. Se descarga por separado desde la misma pagina de MySQL.</p>
             </div>
           </div>
@@ -229,7 +229,7 @@
         </div>
 
         <h3>Crear la base de datos de ejemplo</h3>
-        <p>Para este tutorial vamos a usar una base de datos simple de una tienda. Copia y ejecuta este SQL para crearla:</p>
+        <p>Para este tutorial vamos a usar una base de datos simple de una tienda. Copiá y ejecutá este SQL para crearla:</p>
 
 <pre><code>-- Crear la base de datos
 CREATE DATABASE tienda;
@@ -306,7 +306,7 @@ FROM clientes;</code></pre>
           <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           <div class="article-tip__text">
             <strong>Buena practica</strong>
-            Evita usar <code>SELECT *</code> en produccion o en trabajos avanzados. Selecciona solo las columnas que necesites. Esto mejora el rendimiento y deja mas claro que datos estas consultando.
+            Evitá usar <code>SELECT *</code> en produccion o en trabajos avanzados. Seleccioná solo las columnas que necesites. Esto mejora el rendimiento y deja mas claro que datos estas consultando.
           </div>
         </div>
 
@@ -405,7 +405,7 @@ HAVING AVG(precio) > 100000;</code></pre>
           <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
           <div class="article-tip__text">
             <strong>WHERE vs HAVING</strong>
-            <code>WHERE</code> filtra filas individuales ANTES de agrupar. <code>HAVING</code> filtra grupos DESPUES de agrupar. Si queres filtrar por una funcion de agregacion (como AVG o SUM), tenes que usar HAVING.
+            <code>WHERE</code> filtra filas individuales ANTES de agrupar. <code>HAVING</code> filtra grupos DESPUES de agrupar. Si querés filtrar por una funcion de agregacion (como AVG o SUM), tenés que usar HAVING.
           </div>
         </div>
 
@@ -448,7 +448,7 @@ LEFT JOIN ventas v ON c.id = v.cliente_id
 GROUP BY c.nombre;</code></pre>
 
         <h3>RIGHT JOIN</h3>
-        <p>Es lo mismo pero al reves: devuelve todas las filas de la tabla derecha. En la practica se usa menos porque siempre podes reordenar las tablas y usar LEFT JOIN.</p>
+        <p>Es lo mismo pero al reves: devuelve todas las filas de la tabla derecha. En la practica se usa menos porque siempre podés reordenar las tablas y usar LEFT JOIN.</p>
 
         <h2 id="insert-update-delete">INSERT, UPDATE y DELETE: Modificar datos</h2>
         <p>Ademas de consultar, SQL te permite agregar, modificar y eliminar datos:</p>
@@ -487,7 +487,7 @@ WHERE stock = 0;</code></pre>
           <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           <div class="article-tip__text">
             <strong>Cuidado con UPDATE y DELETE</strong>
-            SIEMPRE incluí la clausula <code>WHERE</code> cuando uses UPDATE o DELETE. Si la olvidas, vas a modificar o borrar TODOS los registros de la tabla. Antes de ejecutar un DELETE, probá la condicion con un SELECT para verificar que afecta las filas correctas.
+            SIEMPRE incluí la clausula <code>WHERE</code> cuando uses UPDATE o DELETE. Si la olvidás, vas a modificar o borrar TODOS los registros de la tabla. Antes de ejecutar un DELETE, probá la condicion con un SELECT para verificar que afecta las filas correctas.
           </div>
         </div>
 
@@ -514,13 +514,13 @@ SELECT nombre FROM clientes
 WHERE id IN (SELECT DISTINCT cliente_id FROM ventas);</code></pre>
 
         <h2 id="ejercicios">Ejercicios para practicar</h2>
-        <p>La mejor forma de aprender SQL es practicando. Aca tenes algunos ejercicios para resolver con la base de datos que creamos. Intenta resolverlos antes de mirar la solucion:</p>
+        <p>La mejor forma de aprender SQL es practicando. Acá tenés algunos ejercicios para resolver con la base de datos que creamos. Intentá resolverlos antes de mirar la solucion:</p>
 
         <ol>
           <li><strong>Listado de productos:</strong> Mostra el nombre y precio de todos los productos ordenados de mas barato a mas caro.</li>
           <li><strong>Clientes de Buenos Aires:</strong> Lista los nombres y emails de los clientes que viven en Buenos Aires.</li>
           <li><strong>Ventas de junio 2025:</strong> Mostra todas las ventas realizadas en junio de 2025 con el nombre del cliente y del producto.</li>
-          <li><strong>Total por categoria:</strong> Calcula el valor total del inventario (precio x stock) de cada categoria de producto.</li>
+          <li><strong>Total por categoria:</strong> Calculá el valor total del inventario (precio x stock) de cada categoria de producto.</li>
           <li><strong>Cliente estrella:</strong> Encontra al cliente que gasto mas dinero en total.</li>
         </ol>
 
@@ -533,7 +533,7 @@ WHERE id IN (SELECT DISTINCT cliente_id FROM ventas);</code></pre>
         </div>
 
         <h2 id="conclusion">Conclusion</h2>
-        <p>Si llegaste hasta aca, ya tenes las bases solidas de SQL que necesitás para tus trabajos universitarios. Repasemos lo que aprendiste:</p>
+        <p>Si llegaste hasta acá, ya tenés las bases solidas de SQL que necesitás para tus trabajos universitarios. Repasemos lo que aprendiste:</p>
         <ul>
           <li><strong>SELECT</strong> para consultar datos de una tabla</li>
           <li><strong>WHERE</strong> para filtrar con condiciones</li>
@@ -549,7 +549,7 @@ WHERE id IN (SELECT DISTINCT cliente_id FROM ventas);</code></pre>
           <svg class="article-tip__icon" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           <div class="article-tip__text">
             <strong>Te trabaste con un TP de SQL?</strong>
-            Si tenes un trabajo practico de bases de datos y las consultas no te salen, en <strong>Trabajos Helper</strong> te ayudamos. Escribinos por WhatsApp con la consigna y te lo resolvemos.
+            Si tenés un trabajo practico de bases de datos y las consultas no te salen, en <strong>Trabajos Helper</strong> te ayudamos. Escribinos por WhatsApp con la consigna y te lo resolvemos.
           </div>
         </div>
 
@@ -616,7 +616,7 @@ WHERE id IN (SELECT DISTINCT cliente_id FROM ventas);</code></pre>
             <div class="blog-card__body">
               <span class="blog-card__badge" style="--badge-color:#F7C948">Power BI</span>
               <h3><a href="/blog/power-bi-dashboard/">Como hacer un Dashboard en Power BI</a></h3>
-              <p class="muted">Crea dashboards interactivos desde cero paso a paso.</p>
+              <p class="muted">Creá dashboards interactivos desde cero paso a paso.</p>
             </div>
           </article>
         </div>
