@@ -8,8 +8,8 @@ const CONFIG = {
   whatsappDisplay: "+54 9 342 413 4914",
   location: "Buenos Aires, Argentina",
   facebookUrl: "https://www.facebook.com/people/Trabajos-Helper/61565498995023/",
-  tiktokUrl: "https://www.tiktok.com/@trabajos_helper",
-  instagramUrl: "https://www.instagram.com/trabajos_helper/",
+  tiktokUrl: "https://www.tiktok.com/@tareapp_ar",
+  instagramUrl: "https://www.instagram.com/tareapp_ar/",
 
   // Indicadores (opcional). Si no deseas números, deja en "—".
   stat1Value: "300+",
