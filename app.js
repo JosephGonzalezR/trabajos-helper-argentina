@@ -4,8 +4,8 @@
  */
 const CONFIG = {
   brand: "Trabajos Helper",
-  whatsappNumber: "5493424134914",
-  whatsappDisplay: "+54 9 342 413 4914",
+  whatsappNumber: "5491159843818",
+  whatsappDisplay: "+54 9 11 5984-3818",
   location: "Buenos Aires, Argentina",
   facebookUrl: "https://www.facebook.com/people/Trabajos-Helper/61565498995023/",
   tiktokUrl: "https://www.tiktok.com/@tareapp_ar",
