@@ -239,7 +239,8 @@
       '#ags-ck .ck-titulo{display:none}#ags-ck.ags-ck-config .ck-titulo{display:block}',
       '#ags-ck .ck-dos{flex:1 1 100%}',
       '#ags-ck button{font:inherit;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}',
-      '#ags-ck .ck-si{flex:1 1 auto;min-height:48px;padding:0 24px;font-size:16px;font-weight:800;letter-spacing:.02em}',
+      // v6: 16 px de margen (no 24): «ACEPTAR COOKIES» cabe al lado de la galleta también en un celular de 320 px
+      '#ags-ck .ck-si{flex:1 1 auto;min-height:48px;padding:0 16px;font-size:16px;font-weight:800;letter-spacing:.02em}',
       '#ags-ck .ck-no{flex:0 0 auto;min-height:48px;padding:0 12px;font-size:14px;font-weight:600;background:transparent}',
       '#ags-ck .ck-panel{display:none;margin-top:12px}',
       '#ags-ck.ags-ck-config .ck-panel{display:block}',
