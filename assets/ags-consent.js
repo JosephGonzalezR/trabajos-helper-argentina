@@ -5,6 +5,8 @@
  *
  * v2 (28-nov-2026, Joseph: «solo seria .. aceptar cockies nada mas no? ... y btener todo lo que podamos toda la informacion
  * psoible»): UNA línea y UN botón, «Aceptar cookies». Cambiar la elección: «Cookies» al pie y la página de privacidad.
+ * v3 (28-nov-2026, Joseph: «mas corto el anuncio ... el texto corto la gente se asusta con eso»): «Usamos cookies.» (la
+ * palabra «cookies» lleva a la privacidad) y «Aceptar», en UNA fila también en el celular.
  * Nada se pone ANTES de su clic.
  *   ags_ck   (la elección, 1 año; 6 meses si no aceptó nada)  «1.<medición>.<publicidad>.<AAAAMMDD>»
  *   ags_id   (solo con Medición: el mismo navegador cuando vuelve; 395 días, se renueva en cada visita)
@@ -177,9 +179,9 @@
   // ── Textos ────────────────────────────────────────────────────────────────
   var TX = {
     titulo: 'Cookies',
-    texto: 'Usamos cookies para atenderte mejor' + ((T.meta || T.tiktok) ? ', aquí y en tus redes.' : '.'),
-    vermas: 'Ver más',
-    aceptar: 'Aceptar cookies',
+    // «Usamos cookies.»: la palabra «cookies» es el enlace a la privacidad (v3, «el texto corto»)
+    antes: 'Usamos ', palabra: 'cookies', despues: (T.meta || T.tiktok) ? ', aquí y en tus redes.' : '.',
+    aceptar: 'Aceptar',
     rechazar: 'Rechazar',
     nec: 'Necesarias', necT: 'Hacen que el sitio funcione y guardan esta elección.', siempre: 'Siempre activas',
     med: 'Medición', medT: vos ? 'Reconocer tu visita cuando volvés y saber desde qué equipo y enlace llegás.'
@@ -203,15 +205,16 @@
       'transform:translateY(calc(100% + 40px));opacity:0;transition:transform .55s cubic-bezier(.23,1,.32,1),opacity .3s ease}',
       '#ags-ck.ags-ck-ve{transform:none;opacity:1}',
       '#ags-ck *{box-sizing:border-box}',
-      '#ags-ck .ck-caja{position:relative;padding:14px;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch}',
-      // una fila: galleta + la línea + el botón; en el celular el botón baja y ocupa todo el ancho
+      '#ags-ck .ck-caja{position:relative;padding:12px 14px;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch}',
+      // v3: UNA fila, también en el celular: galleta + «Usamos cookies.» + Aceptar (con «Rechazar», los botones bajan)
       '#ags-ck .ck-fila{display:flex;flex-wrap:wrap;gap:12px;align-items:center}',
       '#ags-ck .ck-galleta{flex:0 0 auto;width:38px;height:38px}',
-      '#ags-ck .ck-txt{flex:1 1 180px;min-width:0;margin:0;font-size:15px;line-height:1.35}',
+      '#ags-ck .ck-txt{flex:1 1 60px;min-width:0;margin:0;font-size:16px;line-height:1.3}',
       '#ags-ck .ck-txt a{color:inherit;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}',
-      '#ags-ck .ck-bots1{flex:1 1 100%;display:flex;gap:10px;align-items:center}',
+      '#ags-ck .ck-bots1{flex:0 0 auto;display:flex;gap:10px;align-items:center}',
+      '#ags-ck .ck-dos{flex:1 1 100%}',
       '#ags-ck button{font:inherit;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}',
-      '#ags-ck .ck-si{flex:1 1 auto;min-height:48px;padding:0 20px;font-size:16px;font-weight:800;letter-spacing:.02em}',
+      '#ags-ck .ck-si{flex:1 1 auto;min-height:48px;padding:0 24px;font-size:16px;font-weight:800;letter-spacing:.02em}',
       '#ags-ck .ck-no{flex:0 0 auto;min-height:48px;padding:0 12px;font-size:14px;font-weight:600;background:transparent}',
       '#ags-ck .ck-panel{display:none;margin-top:12px}',
       '#ags-ck.ags-ck-config .ck-panel{display:block}',
@@ -227,8 +230,9 @@
       '#ags-ck .ck-bots2{display:flex;gap:10px;margin-top:10px}',
       '#ags-ck .ck-bots2 button{flex:1 1 50%;min-height:44px;font-size:14.5px;font-weight:800;padding:0 10px}',
       '#ags-ck button:focus-visible{outline:3px solid #2B3CFF;outline-offset:2px}',
-      '@media (min-width:760px){#ags-ck{left:calc(24px + var(--ags-ck-vvl,0px));right:auto;bottom:calc(24px + var(--ags-ck-vvb,0px));width:540px}',
-      '#ags-ck .ck-bots1{flex:0 0 auto}#ags-ck .ck-si,#ags-ck .ck-no{min-height:44px}#ags-ck .ck-bots2 button{min-height:40px}}',
+      '@media (min-width:760px){#ags-ck{left:calc(24px + var(--ags-ck-vvl,0px));right:auto;bottom:calc(24px + var(--ags-ck-vvb,0px));',
+      'width:auto;max-width:440px}#ags-ck.ags-ck-config{width:440px}',
+      '#ags-ck .ck-bots1,#ags-ck .ck-dos{flex:0 0 auto}#ags-ck .ck-si,#ags-ck .ck-no{min-height:44px}#ags-ck .ck-bots2 button{min-height:40px}}',
       '@media (prefers-reduced-motion:reduce){#ags-ck{transition:opacity .2s ease;transform:none}}',
       // la burbuja de WhatsApp sube mientras el aviso está abierto: nunca queda tapada
       '@media (max-width:759px){html.ags-ck-abierto .wa-flotante{bottom:calc(var(--ags-ck-alto,0px) + 14px) !important;',
@@ -316,8 +320,8 @@
     caja.innerHTML =
       '<div class="ck-caja">' +
         '<div class="ck-fila">' + GALLETA +
-          '<p class="ck-txt">' + TX.texto + ' <a href="' + priv + '">' + TX.vermas + '</a></p>' +
-          '<div class="ck-bots ck-bots1">' +
+          '<p class="ck-txt">' + TX.antes + '<a href="' + priv + '">' + TX.palabra + '</a>' + TX.despues + '</p>' +
+          '<div class="ck-bots ck-bots1' + (RECHAZO_VISIBLE[host] ? ' ck-dos' : '') + '">' +
             '<button type="button" class="ck-si" data-ck-accion="si">' + TX.aceptar + '</button>' +
             (RECHAZO_VISIBLE[host] ? '<button type="button" class="ck-no" data-ck-accion="no">' + TX.rechazar + '</button>' : '') +
           '</div>' +
