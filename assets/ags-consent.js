@@ -7,12 +7,14 @@
  * psoible»): UNA línea y UN botón, «Aceptar cookies». Cambiar la elección: «Cookies» al pie y la página de privacidad.
  * v3 (28-nov-2026, Joseph: «mas corto el anuncio ... el texto corto la gente se asusta con eso»): «Usamos cookies.» (la
  * palabra «cookies» lleva a la privacidad) y «Aceptar», en UNA fila también en el celular.
+ * v4 (28-nov-2026, Joseph: «si todo sumalo»): con el «Aceptar» se cargan también Google Analytics 4, Microsoft Clarity y el
+ * píxel de Meta (TERCEROS, abajo); el texto del aviso sigue siendo «Usamos cookies.».
  * Nada se pone ANTES de su clic.
  *   ags_ck   (la elección, 1 año; 6 meses si no aceptó nada)  «1.<medición>.<publicidad>.<AAAAMMDD>»
  *   ags_id   (solo con Medición: el mismo navegador cuando vuelve; 395 días, se renueva en cada visita)
  *   ags_rp   (localStorage, solo con Medición: el código del chat que trajo el enlace de WhatsApp, para sus próximas visitas)
  * Lo de terceros (Google Analytics, Clarity, píxel de Meta, píxel de TikTok) SOLO se carga si su id está puesto abajo
- * (vacío = no existe) Y la persona aceptó esa parte. Hoy (28-nov) no hay ninguno puesto: ESPERAN la orden de Joseph.
+ * (vacío = no existe) Y la persona aceptó esa parte. Desde la v4 (28-nov) van Google Analytics, Clarity y Meta; TikTok, no.
  * Lo carga /assets/ags-analytics.js en todas las páginas que lo tienen, salvo los puentes a WhatsApp.
  */
 (function () {
@@ -21,8 +23,20 @@
   window.__agsConsent = 1;
 
   // ── Qué hay en cada web (vacío = no se usa) ─────────────────────────────────
+  // v4 (28-nov-2026, Joseph: «si todo sumalo»): Google Analytics 4 (cuenta de las consolas; UN id para las 9), Clarity
+  // (un proyecto por marca) y el píxel de Meta con el conjunto de datos de cada marca (el mismo que ya usa el Central por
+  // la API de conversiones; nunca en EC, PA ni MX). Se cargan SOLO después del «Aceptar».
+  var GA4 = 'G-J8ZY79JD70';
   var TERCEROS = {
-    // 'tareapp.ags-ed.com': { ga4: '', clarity: '', meta: '', tiktok: '' }
+    'tareapp.ags-ed.com':           { ga4: GA4, clarity: 'zktitnumdc', meta: '2270004307260998' },
+    'tareapp.colombia.ags-ed.com':  { ga4: GA4, clarity: 'zktitnumdc', meta: '2270004307260998' },
+    'tareapp.argentina.ags-ed.com': { ga4: GA4, clarity: 'zktitnumdc', meta: '3425645191068086' },
+    'tareapp.peru.ags-ed.com':      { ga4: GA4, clarity: 'zktitnumdc', meta: '3425645191068086' },
+    'tareapp.ecuador.ags-ed.com':   { ga4: GA4, clarity: 'zktitnumdc' },
+    'tareapp.mexico.ags-ed.com':    { ga4: GA4, clarity: 'zktitnumdc' },
+    'tareapp.panama.ags-ed.com':    { ga4: GA4, clarity: 'zktitnumdc' },
+    'educaproject.ags-ed.com':      { ga4: GA4, clarity: 'zktj52j9x2', meta: '1749035459434762' },
+    'trabajoshelper.ags-ed.com':    { ga4: GA4, clarity: 'zktjem7vnz', meta: '1064402362732554' }
   };
   var VOS = { 'tareapp.argentina.ags-ed.com': 1, 'trabajoshelper.ags-ed.com': 1 };
   // Botón «Rechazar» a la vista en la primera capa (si una ley lo pide en un país); hoy en ninguna.
@@ -93,8 +107,12 @@
     if (T.ga4 && /^G-[A-Z0-9]{4,14}$/.test(T.ga4) && !cargado.ga4) {
       window.dataLayer = window.dataLayer || [];
       window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      // la publicidad ya va en el primer aviso a Google: con «denied» y el update después, la primera visita (page_view)
+      // le llegaba como publicidad NO aceptada (gcs=G101; prueba del 28-nov)
+      var stp = estado();
+      var ads = stp && stp.publicidad ? 'granted' : 'denied';
       window.gtag('consent', 'default', {
-        analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+        analytics_storage: 'granted', ad_storage: ads, ad_user_data: ads, ad_personalization: ads
       });
       window.gtag('js', new Date());
       window.gtag('config', T.ga4);
@@ -180,13 +198,16 @@
   var TX = {
     titulo: 'Cookies',
     // «Usamos cookies.»: la palabra «cookies» es el enlace a la privacidad (v3, «el texto corto»)
-    antes: 'Usamos ', palabra: 'cookies', despues: (T.meta || T.tiktok) ? ', aquí y en tus redes.' : '.',
+    antes: 'Usamos ', palabra: 'cookies', despues: '.',   // v4: igual con Meta («el texto corto»); el detalle, en la privacidad
     aceptar: 'Aceptar',
     rechazar: 'Rechazar',
     nec: 'Necesarias', necT: 'Hacen que el sitio funcione y guardan esta elección.', siempre: 'Siempre activas',
-    med: 'Medición', medT: vos ? 'Reconocer tu visita cuando volvés y saber desde qué equipo y enlace llegás.'
-      : 'Reconocer tu visita cuando vuelves y saber desde qué equipo y enlace llegas.',
-    pub: 'Publicidad', pubT: 'Mostrarte nuestros avisos en tus redes.',
+    // v4: la elección (solo desde «Cookies» del pie o la privacidad) nombra a los terceros que de verdad carga esta web
+    med: 'Medición', medT: (vos ? 'Reconocer tu visita cuando volvés y saber desde qué equipo y enlace llegás'
+      : 'Reconocer tu visita cuando vuelves y saber desde qué equipo y enlace llegas') +
+      ((T.ga4 || T.clarity) ? ' (' + [T.ga4 && 'Google Analytics', T.clarity && 'Microsoft Clarity'].filter(Boolean).join(' y ') + ')' : '') + '.',
+    pub: 'Publicidad', pubT: T.meta ? 'Mostrarte nuestros avisos en Facebook e Instagram (Meta)' + (T.ga4 ? ' y saber edad e intereses en grupo (Google).' : '.')
+      : (T.ga4 ? 'Saber edad e intereses en grupo (Google).' : 'Mostrarte nuestros avisos en tus redes.'),
     todo: 'Aceptar todo', guardarT: 'Guardar mi elección',
     pie: 'Cookies'
   };
