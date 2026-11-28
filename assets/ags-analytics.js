@@ -13,6 +13,9 @@
  * Cookies (28-nov-2026): carga el aviso de cookies (/assets/ags-consent.js). SOLO si la persona acepta
  *            «Medicion», la visita lleva el id propio de su navegador y el codigo del chat de una visita
  *            anterior, para unir sus visitas de distintos dias. Sin aceptar, todo sigue como antes.
+ * Cookies v2 (28-nov-2026): con «Medicion» aceptada manda ademas datos del equipo y de como llego (navegador,
+ *            sistema, modelo, idioma, zona horaria, pantalla, conexion, pagina de entrada, campana y codigos de
+ *            clic de Google, Meta, TikTok o Microsoft). Sin aceptar, nada de esto sale del navegador.
  *
  * Dev Central — 2026-08-02.
  */
@@ -39,7 +42,7 @@
     if (!/^\/(tiktok|instagram|facebook|whatsapp)(\/|$)/.test(location.pathname) &&
         !document.getElementById('ags-consent-js')) {
       var cjs = document.createElement('script');
-      cjs.id = 'ags-consent-js'; cjs.defer = true; cjs.src = '/assets/ags-consent.js?v=20261128';
+      cjs.id = 'ags-consent-js'; cjs.defer = true; cjs.src = '/assets/ags-consent.js?v=20261128b';
       (document.head || document.documentElement).appendChild(cjs);
     }
   } catch (e) { /* nada */ }
@@ -88,6 +91,14 @@
     var rr = sessionStorage.getItem('ags_r');
     if (rr && !utm) utm = ('wa/' + rr).slice(0, 60);
   } catch (e) { /* nada */ }
+  // Cookies v2 (28-nov-2026): la pagina de entrada de esta pestana y desde donde llego. Queda en la pestana y se
+  // manda SOLO con «Medicion» aceptada (ckDx).
+  try {
+    if (!sessionStorage.getItem('ags_lp')) {
+      sessionStorage.setItem('ags_lp', String(location.pathname + location.search).slice(0, 400));
+      sessionStorage.setItem('ags_lr', String(document.referrer || '').slice(0, 300));
+    }
+  } catch (e) { /* nada */ }
 
   // Cookies (28-nov-2026): SOLO con «Medicion» aceptada en el aviso. ags_id = el mismo navegador cuando vuelve;
   // ags_rp = el codigo del chat que trajo un enlace de WhatsApp en una visita anterior.
@@ -104,6 +115,44 @@
     try { var v = localStorage.getItem('ags_rp') || ''; return /^[0-9a-z]{2,9}$/.test(v) ? v : ''; }
     catch (e) { return ''; }
   }
+  // Cookies v2 (28-nov-2026, Joseph: «obtener todo lo que podamos toda la informacion posible»): SOLO con «Medicion»
+  // aceptada, datos del equipo y de como llego. El modelo del equipo lo da Chrome aparte (dxHints).
+  var dxModelo = '', dxPlat = '', dxNav = '';
+  function dxHints() {
+    try {
+      var uad = navigator.userAgentData;
+      if (dxModelo || dxPlat || !uad || !uad.getHighEntropyValues) return;
+      uad.getHighEntropyValues(['model', 'platformVersion', 'fullVersionList']).then(function (h) {
+        dxModelo = String((h && h.model) || '').slice(0, 60);
+        dxPlat = (String((h && h.platform) || '') + ' ' + String((h && h.platformVersion) || '')).replace(/^\s+|\s+$/g, '').slice(0, 40);
+        var l = (h && h.fullVersionList) || [], nv = [];
+        for (var i = 0; i < l.length; i++) {
+          if (!/not.?a.?brand|chromium/i.test(String(l[i].brand || ''))) nv.push(String(l[i].brand) + ' ' + String(l[i].version || '').split('.')[0]);
+        }
+        dxNav = nv.join(', ').slice(0, 80);
+      })['catch'](function () { /* nada */ });
+    } catch (e) { /* nada */ }
+  }
+  function ckDx() {
+    if (!ckMedicion()) return null;
+    var n = navigator || {}, s = window.screen || {}, cn = n.connection || {}, q = null, tz = '', lp = '', lr = '';
+    try { q = new URLSearchParams(location.search); } catch (e) { q = null; }
+    function g(k) { try { return String((q && q.get(k)) || '').slice(0, 300); } catch (e) { return ''; } }
+    try { tz = String(Intl.DateTimeFormat().resolvedOptions().timeZone || '').slice(0, 60); } catch (e) { tz = ''; }
+    try { lp = sessionStorage.getItem('ags_lp') || ''; lr = sessionStorage.getItem('ags_lr') || ''; } catch (e) { /* nada */ }
+    return {
+      ua: String(n.userAgent || '').slice(0, 400), mo: dxModelo, pf: dxPlat, nv: dxNav,
+      lg: String((n.languages && n.languages.join(',')) || n.language || '').slice(0, 80),
+      tz: tz, to: new Date().getTimezoneOffset(),
+      sw: s.width || 0, sh: s.height || 0, dpr: Math.round((window.devicePixelRatio || 1) * 100) / 100,
+      vh: window.innerHeight || 0, mem: n.deviceMemory || 0, cpu: n.hardwareConcurrency || 0,
+      net: String(cn.effectiveType || '').slice(0, 10), sd: cn.saveData ? 1 : 0, tp: n.maxTouchPoints || 0,
+      us: g('utm_source'), um: g('utm_medium'), uc: g('utm_campaign'), ux: g('utm_content'), ut: g('utm_term'),
+      fb: g('fbclid'), gc: g('gclid') || g('gbraid') || g('wbraid'), tt: g('ttclid'), ms: g('msclkid'),
+      rf: String(document.referrer || '').slice(0, 300), lp: String(lp).slice(0, 400), lr: String(lr).slice(0, 300)
+    };
+  }
+  if (ckMedicion()) dxHints();
 
   var path = location.pathname.replace(/\/index\.html$/, '/') || '/';
 
@@ -237,7 +286,7 @@
       t: tipo, v: pvid, sid: sid, s: sitio, p: path, r: ref, u: utm,
       d: disp, w: W, sm: smax, dur: Math.round(durTotal),
       last: ultima, fin: smax >= 90 ? 1 : 0, loc: local,
-      sec: lista, ev: evs.slice(0, 25), c: ckId(), rp: ckRp()
+      sec: lista, ev: evs.slice(0, 25), c: ckId(), rp: ckRp(), dx: ckDx()
     };
   }
 
@@ -282,7 +331,7 @@
 
   // Cookies (28-nov-2026): al aceptar «Medicion», la visita de ahora queda con su id sin esperar el refresco.
   window.addEventListener('ags:consent', function (e) {
-    try { if (e && e.detail && e.detail.medicion) setTimeout(function () { enviar('upd'); }, 300); }
+    try { if (e && e.detail && e.detail.medicion) { dxHints(); setTimeout(function () { enviar('upd'); }, 400); } }
     catch (err) { /* nada */ }
   });
 })();

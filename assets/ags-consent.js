@@ -3,7 +3,9 @@
  * Joseph, 28-nov-2026 (consola de AGS Remoto), con la web de Adidas Perú a la vista: «es muy facil de aceptar y no te hace
  * leer mucho me gustaria algo asi para nuestra pagina y recabar la mayor cantidad de informacion posible de clientes».
  *
- * Como el de Adidas: dos líneas, un botón grande «Aceptar» y «Configurar» al lado. Nada se pone ANTES de su clic.
+ * v2 (28-nov-2026, Joseph: «solo seria .. aceptar cockies nada mas no? ... y btener todo lo que podamos toda la informacion
+ * psoible»): UNA línea y UN botón, «Aceptar cookies». Cambiar la elección: «Cookies» al pie y la página de privacidad.
+ * Nada se pone ANTES de su clic.
  *   ags_ck   (la elección, 1 año; 6 meses si no aceptó nada)  «1.<medición>.<publicidad>.<AAAAMMDD>»
  *   ags_id   (solo con Medición: el mismo navegador cuando vuelve; 395 días, se renueva en cada visita)
  *   ags_rp   (localStorage, solo con Medición: el código del chat que trajo el enlace de WhatsApp, para sus próximas visitas)
@@ -174,17 +176,14 @@
 
   // ── Textos ────────────────────────────────────────────────────────────────
   var TX = {
-    titulo: 'Cookies para atenderte mejor',
-    texto: 'Las usamos para recordar tu visita y saber qué te sirve' +
-      ((T.meta || T.tiktok) ? ', aquí y en tus redes.' : '.'),
+    titulo: 'Cookies',
+    texto: 'Usamos cookies para atenderte mejor' + ((T.meta || T.tiktok) ? ', aquí y en tus redes.' : '.'),
     vermas: 'Ver más',
-    aceptar: 'Aceptar',
-    configurar: 'Configurar',
+    aceptar: 'Aceptar cookies',
     rechazar: 'Rechazar',
-    t2: 'Tus cookies',
     nec: 'Necesarias', necT: 'Hacen que el sitio funcione y guardan esta elección.', siempre: 'Siempre activas',
-    med: 'Medición', medT: vos ? 'Reconocer tu visita cuando volvés y ver qué partes del sitio sirven.'
-      : 'Reconocer tu visita cuando vuelves y ver qué partes del sitio sirven.',
+    med: 'Medición', medT: vos ? 'Reconocer tu visita cuando volvés y saber desde qué equipo y enlace llegás.'
+      : 'Reconocer tu visita cuando vuelves y saber desde qué equipo y enlace llegas.',
     pub: 'Publicidad', pubT: 'Mostrarte nuestros avisos en tus redes.',
     todo: 'Aceptar todo', guardarT: 'Guardar mi elección',
     pie: 'Cookies'
@@ -200,21 +199,20 @@
       'bottom:calc(12px + var(--ags-ck-base,0px) + var(--ags-ck-vvb,0px));',
       'bottom:calc(12px + var(--ags-ck-base,0px) + var(--ags-ck-vvb,0px) + env(safe-area-inset-bottom));z-index:90;display:flex;flex-direction:column;',
       'max-height:calc(100% - 24px - var(--ags-ck-base,0px));',
-      'max-width:440px;margin:0;box-sizing:border-box;-webkit-text-size-adjust:100%;',
+      'max-width:540px;margin:0;box-sizing:border-box;-webkit-text-size-adjust:100%;',
       'transform:translateY(calc(100% + 40px));opacity:0;transition:transform .55s cubic-bezier(.23,1,.32,1),opacity .3s ease}',
       '#ags-ck.ags-ck-ve{transform:none;opacity:1}',
       '#ags-ck *{box-sizing:border-box}',
-      '#ags-ck .ck-caja{position:relative;padding:16px 16px 14px;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch}',
-      '#ags-ck .ck-fila{display:flex;gap:12px;align-items:flex-start}',
-      '#ags-ck .ck-galleta{flex:0 0 auto;width:42px;height:42px;margin-top:2px}',
-      '#ags-ck .ck-tit{margin:0 0 4px;font-size:17px;line-height:1.15;letter-spacing:.01em}',
-      '#ags-ck .ck-txt{margin:0;font-size:14px;line-height:1.4}',
+      '#ags-ck .ck-caja{position:relative;padding:14px;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch}',
+      // una fila: galleta + la línea + el botón; en el celular el botón baja y ocupa todo el ancho
+      '#ags-ck .ck-fila{display:flex;flex-wrap:wrap;gap:12px;align-items:center}',
+      '#ags-ck .ck-galleta{flex:0 0 auto;width:38px;height:38px}',
+      '#ags-ck .ck-txt{flex:1 1 180px;min-width:0;margin:0;font-size:15px;line-height:1.35}',
       '#ags-ck .ck-txt a{color:inherit;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}',
-      '#ags-ck .ck-bots{display:flex;gap:10px;align-items:center;margin-top:12px}',
+      '#ags-ck .ck-bots1{flex:1 1 100%;display:flex;gap:10px;align-items:center}',
       '#ags-ck button{font:inherit;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}',
-      '#ags-ck .ck-si{flex:1 1 auto;min-height:44px;padding:0 18px;font-size:16px;font-weight:800;letter-spacing:.02em}',
-      '#ags-ck .ck-mas{flex:0 0 auto;min-height:44px;padding:0 14px;font-size:14px;font-weight:600;background:transparent}',
-      '#ags-ck .ck-no{flex:0 0 auto;min-height:44px;padding:0 12px;font-size:14px;font-weight:600;background:transparent}',
+      '#ags-ck .ck-si{flex:1 1 auto;min-height:48px;padding:0 20px;font-size:16px;font-weight:800;letter-spacing:.02em}',
+      '#ags-ck .ck-no{flex:0 0 auto;min-height:48px;padding:0 12px;font-size:14px;font-weight:600;background:transparent}',
       '#ags-ck .ck-panel{display:none;margin-top:12px}',
       '#ags-ck.ags-ck-config .ck-panel{display:block}',
       '#ags-ck.ags-ck-config .ck-bots1{display:none}',
@@ -229,8 +227,8 @@
       '#ags-ck .ck-bots2{display:flex;gap:10px;margin-top:10px}',
       '#ags-ck .ck-bots2 button{flex:1 1 50%;min-height:44px;font-size:14.5px;font-weight:800;padding:0 10px}',
       '#ags-ck button:focus-visible{outline:3px solid #2B3CFF;outline-offset:2px}',
-      '@media (min-width:760px){#ags-ck{left:calc(24px + var(--ags-ck-vvl,0px));right:auto;bottom:calc(24px + var(--ags-ck-vvb,0px));width:440px}',
-      '#ags-ck .ck-si,#ags-ck .ck-mas,#ags-ck .ck-no,#ags-ck .ck-bots2 button{min-height:40px}}',
+      '@media (min-width:760px){#ags-ck{left:calc(24px + var(--ags-ck-vvl,0px));right:auto;bottom:calc(24px + var(--ags-ck-vvb,0px));width:540px}',
+      '#ags-ck .ck-bots1{flex:0 0 auto}#ags-ck .ck-si,#ags-ck .ck-no{min-height:44px}#ags-ck .ck-bots2 button{min-height:40px}}',
       '@media (prefers-reduced-motion:reduce){#ags-ck{transition:opacity .2s ease;transform:none}}',
       // la burbuja de WhatsApp sube mientras el aviso está abierto: nunca queda tapada
       '@media (max-width:759px){html.ags-ck-abierto .wa-flotante{bottom:calc(var(--ags-ck-alto,0px) + 14px) !important;',
@@ -241,12 +239,12 @@
       s.push(
         '#ags-ck .ck-caja{background:var(--papel,#FFFAF0);color:var(--tinta,#16120E);border:var(--borde,2.5px solid #16120E);',
         'border-radius:var(--radio,22px);box-shadow:var(--sombra,5px 5px 0 #16120E);font-family:var(--f-disp,system-ui,sans-serif)}',
-        '#ags-ck .ck-tit{font-family:var(--f-disp);font-weight:900;text-transform:uppercase;font-size:18px;letter-spacing:.005em}',
+        '#ags-ck .ck-txt{font-weight:600}',
         '#ags-ck .ck-si,#ags-ck .ck-bots2 .ck-todo{background:var(--amarillo,#F7C948);color:var(--tinta,#16120E);',
         'border:var(--borde,2.5px solid #16120E);border-radius:14px;box-shadow:3px 3px 0 var(--tinta,#16120E);text-transform:uppercase;',
         'transition:transform .15s ease,box-shadow .15s ease}',
         '#ags-ck .ck-si:active,#ags-ck .ck-bots2 .ck-todo:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--tinta,#16120E)}',
-        '#ags-ck .ck-mas,#ags-ck .ck-no,#ags-ck .ck-bots2 .ck-guardar{color:var(--tinta,#16120E);border:2px solid var(--tinta,#16120E);border-radius:14px}',
+        '#ags-ck .ck-no,#ags-ck .ck-bots2 .ck-guardar{color:var(--tinta,#16120E);border:2px solid var(--tinta,#16120E);border-radius:14px}',
         '#ags-ck .ck-bots2 .ck-guardar{background:var(--crema,#FFF3D6)}',
         '#ags-ck .ck-op{border-top:2px dashed rgba(22,18,14,.25)}',
         '#ags-ck .ck-sw{border:2px solid var(--tinta,#16120E);background:var(--crema,#FFF3D6)}',
@@ -257,10 +255,9 @@
       s.push(
         '#ags-ck .ck-caja{background:#fff;color:var(--text,#1F1F1F);border:1px solid var(--line,rgba(0,0,0,.14));',
         'border-radius:var(--radius,18px);box-shadow:0 18px 50px rgba(0,0,0,.18);font-family:var(--font,system-ui,sans-serif)}',
-        '#ags-ck .ck-tit{font-weight:800}',
         '#ags-ck .ck-si,#ags-ck .ck-bots2 .ck-todo{background:' + brand + ';color:#fff;border:0;border-radius:var(--radius-sm,14px);',
         'box-shadow:0 8px 20px rgba(0,0,0,.14)}',
-        '#ags-ck .ck-mas,#ags-ck .ck-no,#ags-ck .ck-bots2 .ck-guardar{color:var(--brand-ink,#1F3A78);border:1px solid var(--line,rgba(0,0,0,.18));',
+        '#ags-ck .ck-no,#ags-ck .ck-bots2 .ck-guardar{color:var(--brand-ink,#1F3A78);border:1px solid var(--line,rgba(0,0,0,.18));',
         'border-radius:var(--radius-sm,14px)}',
         '#ags-ck .ck-bots2 .ck-guardar{background:var(--brand3,#E7EDFB)}',
         '#ags-ck .ck-sw{border:1px solid rgba(0,0,0,.22)}',
@@ -319,13 +316,11 @@
     caja.innerHTML =
       '<div class="ck-caja">' +
         '<div class="ck-fila">' + GALLETA +
-          '<div><p class="ck-tit">' + TX.titulo + '</p>' +
-          '<p class="ck-txt">' + TX.texto + ' <a href="' + priv + '">' + TX.vermas + '</a></p></div>' +
-        '</div>' +
-        '<div class="ck-bots ck-bots1">' +
-          '<button type="button" class="ck-si" data-ck-accion="si">' + TX.aceptar + '</button>' +
-          '<button type="button" class="ck-mas" data-ck-accion="config">' + TX.configurar + '</button>' +
-          (RECHAZO_VISIBLE[host] ? '<button type="button" class="ck-no" data-ck-accion="no">' + TX.rechazar + '</button>' : '') +
+          '<p class="ck-txt">' + TX.texto + ' <a href="' + priv + '">' + TX.vermas + '</a></p>' +
+          '<div class="ck-bots ck-bots1">' +
+            '<button type="button" class="ck-si" data-ck-accion="si">' + TX.aceptar + '</button>' +
+            (RECHAZO_VISIBLE[host] ? '<button type="button" class="ck-no" data-ck-accion="no">' + TX.rechazar + '</button>' : '') +
+          '</div>' +
         '</div>' +
         '<div class="ck-panel">' +
           '<div class="ck-op"><div><b>' + TX.nec + '</b><span>' + TX.necT + '</span></div><em class="ck-fijo">' + TX.siempre + '</em></div>' +
