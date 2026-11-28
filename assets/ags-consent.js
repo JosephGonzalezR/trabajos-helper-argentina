@@ -9,6 +9,8 @@
  * palabra «cookies» lleva a la privacidad) y «Aceptar», en UNA fila también en el celular.
  * v4 (28-nov-2026, Joseph: «si todo sumalo»): con el «Aceptar» se cargan también Google Analytics 4, Microsoft Clarity y el
  * píxel de Meta (TERCEROS, abajo); el texto del aviso sigue siendo «Usamos cookies.».
+ * v5 (28-nov-2026, Joseph: «Es demasiado largo no se puede acorrae a lo minimo ?»): la elección («Cookies» del pie y la
+ * privacidad) queda en lo mínimo: Medición «Google y Microsoft», Publicidad «Meta y Google», «Guardar» y «Aceptar todo».
  * Nada se pone ANTES de su clic.
  *   ags_ck   (la elección, 1 año; 6 meses si no aceptó nada)  «1.<medición>.<publicidad>.<AAAAMMDD>»
  *   ags_id   (solo con Medición: el mismo navegador cuando vuelve; 395 días, se renueva en cada visita)
@@ -201,14 +203,12 @@
     antes: 'Usamos ', palabra: 'cookies', despues: '.',   // v4: igual con Meta («el texto corto»); el detalle, en la privacidad
     aceptar: 'Aceptar',
     rechazar: 'Rechazar',
-    nec: 'Necesarias', necT: 'Hacen que el sitio funcione y guardan esta elección.', siempre: 'Siempre activas',
-    // v4: la elección (solo desde «Cookies» del pie o la privacidad) nombra a los terceros que de verdad carga esta web
-    med: 'Medición', medT: (vos ? 'Reconocer tu visita cuando volvés y saber desde qué equipo y enlace llegás'
-      : 'Reconocer tu visita cuando vuelves y saber desde qué equipo y enlace llegas') +
-      ((T.ga4 || T.clarity) ? ' (' + [T.ga4 && 'Google Analytics', T.clarity && 'Microsoft Clarity'].filter(Boolean).join(' y ') + ')' : '') + '.',
-    pub: 'Publicidad', pubT: T.meta ? 'Mostrarte nuestros avisos en Facebook e Instagram (Meta)' + (T.ga4 ? ' y saber edad e intereses en grupo (Google).' : '.')
-      : (T.ga4 ? 'Saber edad e intereses en grupo (Google).' : 'Mostrarte nuestros avisos en tus redes.'),
-    todo: 'Aceptar todo', guardarT: 'Guardar mi elección',
+    // v5 (28-nov-2026, Joseph: «Es demasiado largo no se puede acorrae a lo minimo ?»): la elección queda en lo mínimo:
+    // sin la fila «Necesarias» (nec vacío = no se pinta) y cada parte dice solo QUIÉN la usa en esta web
+    nec: '', necT: '', siempre: 'Siempre activas',
+    med: 'Medición', medT: [T.ga4 && 'Google', T.clarity && 'Microsoft'].filter(Boolean).join(' y ') || 'Tu visita',
+    pub: 'Publicidad', pubT: [T.meta && 'Meta', T.ga4 && 'Google'].filter(Boolean).join(' y ') || 'Nuestros avisos',
+    todo: 'Aceptar todo', guardarT: 'Guardar',
     pie: 'Cookies'
   };
 
@@ -348,7 +348,7 @@
           '</div>' +
         '</div>' +
         '<div class="ck-panel">' +
-          '<div class="ck-op"><div><b>' + TX.nec + '</b><span>' + TX.necT + '</span></div><em class="ck-fijo">' + TX.siempre + '</em></div>' +
+          (TX.nec ? '<div class="ck-op"><div><b>' + TX.nec + '</b><span>' + TX.necT + '</span></div><em class="ck-fijo">' + TX.siempre + '</em></div>' : '') +
           '<div class="ck-op"><div><b>' + TX.med + '</b><span>' + TX.medT + '</span></div>' + interruptor('medicion', st && st.medicion) + '</div>' +
           '<div class="ck-op"><div><b>' + TX.pub + '</b><span>' + TX.pubT + '</span></div>' + interruptor('publicidad', st && st.publicidad) + '</div>' +
           '<div class="ck-bots2">' +
