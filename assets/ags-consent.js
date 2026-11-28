@@ -14,6 +14,8 @@
  * v6 (28-nov-2026, Joseph: «Solo diga aceptar cokies nada mas … si quieres mas informacion ve a nuestra pagina de politicss
  * de privacidas t ahi tendriae que ir manual no con mink»): el aviso es SOLO la galleta y el botón «Aceptar cookies», sin
  * texto ni enlace; la privacidad se abre a mano («Privacidad» del pie). La elección («Cookies» del pie) se titula «Cookies».
+ * v7 (28-nov-2026, Joseph: «dan demasiada desconfianza que tenga tanta informacion»): la elección dice solo «Medición» y
+ * «Publicidad», sin nombrar empresas; la sección 9 de la privacidad, una frase corta.
  * Nada se pone ANTES de su clic.
  *   ags_ck   (la elección, 1 año; 6 meses si no aceptó nada)  «1.<medición>.<publicidad>.<AAAAMMDD>»
  *   ags_id   (solo con Medición: el mismo navegador cuando vuelve; 395 días, se renueva en cada visita)
@@ -206,10 +208,13 @@
     aceptar: 'Aceptar cookies',
     rechazar: 'Rechazar',
     // v5 (28-nov-2026, Joseph: «Es demasiado largo no se puede acorrae a lo minimo ?»): la elección queda en lo mínimo:
-    // sin la fila «Necesarias» (nec vacío = no se pinta) y cada parte dice solo QUIÉN la usa en esta web
+    // sin la fila «Necesarias» (nec vacío = no se pinta).
+    // v7 (28-nov-2026, Joseph: «dan demasiada desconfianza que tenga tanta informacion»): cada parte dice SOLO su nombre,
+    // sin las empresas (medT y pubT vacíos = no se pintan). Quién usa cada parte sigue en la privacidad (sección 10): Meta,
+    // Google y Microsoft piden que su nombre esté ahí.
     nec: '', necT: '', siempre: 'Siempre activas',
-    med: 'Medición', medT: [T.ga4 && 'Google', T.clarity && 'Microsoft'].filter(Boolean).join(' y ') || 'Tu visita',
-    pub: 'Publicidad', pubT: [T.meta && 'Meta', T.ga4 && 'Google'].filter(Boolean).join(' y ') || 'Nuestros avisos',
+    med: 'Medición', medT: '',
+    pub: 'Publicidad', pubT: '',
     todo: 'Aceptar todo', guardarT: 'Guardar',
     pie: 'Cookies'
   };
@@ -355,8 +360,8 @@
         '</div>' +
         '<div class="ck-panel">' +
           (TX.nec ? '<div class="ck-op"><div><b>' + TX.nec + '</b><span>' + TX.necT + '</span></div><em class="ck-fijo">' + TX.siempre + '</em></div>' : '') +
-          '<div class="ck-op"><div><b>' + TX.med + '</b><span>' + TX.medT + '</span></div>' + interruptor('medicion', st && st.medicion) + '</div>' +
-          '<div class="ck-op"><div><b>' + TX.pub + '</b><span>' + TX.pubT + '</span></div>' + interruptor('publicidad', st && st.publicidad) + '</div>' +
+          '<div class="ck-op"><div><b>' + TX.med + '</b>' + (TX.medT ? '<span>' + TX.medT + '</span>' : '') + '</div>' + interruptor('medicion', st && st.medicion) + '</div>' +
+          '<div class="ck-op"><div><b>' + TX.pub + '</b>' + (TX.pubT ? '<span>' + TX.pubT + '</span>' : '') + '</div>' + interruptor('publicidad', st && st.publicidad) + '</div>' +
           '<div class="ck-bots2">' +
             '<button type="button" class="ck-guardar" data-ck-accion="guardar">' + TX.guardarT + '</button>' +
             '<button type="button" class="ck-todo" data-ck-accion="si">' + TX.todo + '</button>' +
