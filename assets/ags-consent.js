@@ -266,9 +266,11 @@
       'html.ags-ck-abierto .to-top{opacity:0 !important;pointer-events:none !important}}'
     ];
     if (v2) {
+      // v6c: la letra de la web también fuera de la portada (precios, tesis, pago, privacidad... cargan tema.css, que trae
+      // --font y no --f-disp: el aviso salía con la letra del sistema)
       s.push(
         '#ags-ck .ck-caja{background:var(--papel,#FFFAF0);color:var(--tinta,#16120E);border:var(--borde,2.5px solid #16120E);',
-        'border-radius:var(--radio,22px);box-shadow:var(--sombra,5px 5px 0 #16120E);font-family:var(--f-disp,system-ui,sans-serif)}',
+        'border-radius:var(--radio,22px);box-shadow:var(--sombra,5px 5px 0 #16120E);font-family:var(--f-disp,var(--font,system-ui,sans-serif))}',
         '#ags-ck .ck-txt{font-weight:600}',
         '#ags-ck .ck-si,#ags-ck .ck-bots2 .ck-todo{background:var(--amarillo,#F7C948);color:var(--tinta,#16120E);',
         'border:var(--borde,2.5px solid #16120E);border-radius:14px;box-shadow:3px 3px 0 var(--tinta,#16120E);text-transform:uppercase;',
