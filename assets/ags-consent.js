@@ -11,6 +11,9 @@
  * píxel de Meta (TERCEROS, abajo); el texto del aviso sigue siendo «Usamos cookies.».
  * v5 (28-nov-2026, Joseph: «Es demasiado largo no se puede acorrae a lo minimo ?»): la elección («Cookies» del pie y la
  * privacidad) queda en lo mínimo: Medición «Google y Microsoft», Publicidad «Meta y Google», «Guardar» y «Aceptar todo».
+ * v6 (28-nov-2026, Joseph: «Solo diga aceptar cokies nada mas … si quieres mas informacion ve a nuestra pagina de politicss
+ * de privacidas t ahi tendriae que ir manual no con mink»): el aviso es SOLO la galleta y el botón «Aceptar cookies», sin
+ * texto ni enlace; la privacidad se abre a mano («Privacidad» del pie). La elección («Cookies» del pie) se titula «Cookies».
  * Nada se pone ANTES de su clic.
  *   ags_ck   (la elección, 1 año; 6 meses si no aceptó nada)  «1.<medición>.<publicidad>.<AAAAMMDD>»
  *   ags_id   (solo con Medición: el mismo navegador cuando vuelve; 395 días, se renueva en cada visita)
@@ -198,10 +201,9 @@
 
   // ── Textos ────────────────────────────────────────────────────────────────
   var TX = {
+    // v6: «titulo» solo se ve en la elección (el aviso no lleva texto ni enlace: «solo diga aceptar cookies nada mas»)
     titulo: 'Cookies',
-    // «Usamos cookies.»: la palabra «cookies» es el enlace a la privacidad (v3, «el texto corto»)
-    antes: 'Usamos ', palabra: 'cookies', despues: '.',   // v4: igual con Meta («el texto corto»); el detalle, en la privacidad
-    aceptar: 'Aceptar',
+    aceptar: 'Aceptar cookies',
     rechazar: 'Rechazar',
     // v5 (28-nov-2026, Joseph: «Es demasiado largo no se puede acorrae a lo minimo ?»): la elección queda en lo mínimo:
     // sin la fila «Necesarias» (nec vacío = no se pinta) y cada parte dice solo QUIÉN la usa en esta web
@@ -232,7 +234,9 @@
       '#ags-ck .ck-galleta{flex:0 0 auto;width:38px;height:38px}',
       '#ags-ck .ck-txt{flex:1 1 60px;min-width:0;margin:0;font-size:16px;line-height:1.3}',
       '#ags-ck .ck-txt a{color:inherit;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}',
-      '#ags-ck .ck-bots1{flex:0 0 auto;display:flex;gap:10px;align-items:center}',
+      // v6: el aviso es la galleta y el botón, que ocupa el resto de la fila; el título «Cookies» solo en la elección
+      '#ags-ck .ck-bots1{flex:1 1 auto;display:flex;gap:10px;align-items:center}',
+      '#ags-ck .ck-titulo{display:none}#ags-ck.ags-ck-config .ck-titulo{display:block}',
       '#ags-ck .ck-dos{flex:1 1 100%}',
       '#ags-ck button{font:inherit;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}',
       '#ags-ck .ck-si{flex:1 1 auto;min-height:48px;padding:0 24px;font-size:16px;font-weight:800;letter-spacing:.02em}',
@@ -333,7 +337,6 @@
 
   function construir(config) {
     var st = estado();
-    var priv = '/privacy/#cookies';
     caja = document.createElement('div');
     caja.id = 'ags-ck';
     caja.setAttribute('role', 'region');
@@ -341,7 +344,7 @@
     caja.innerHTML =
       '<div class="ck-caja">' +
         '<div class="ck-fila">' + GALLETA +
-          '<p class="ck-txt">' + TX.antes + '<a href="' + priv + '">' + TX.palabra + '</a>' + TX.despues + '</p>' +
+          '<p class="ck-txt ck-titulo">' + TX.titulo + '</p>' +
           '<div class="ck-bots ck-bots1' + (RECHAZO_VISIBLE[host] ? ' ck-dos' : '') + '">' +
             '<button type="button" class="ck-si" data-ck-accion="si">' + TX.aceptar + '</button>' +
             (RECHAZO_VISIBLE[host] ? '<button type="button" class="ck-no" data-ck-accion="no">' + TX.rechazar + '</button>' : '') +
