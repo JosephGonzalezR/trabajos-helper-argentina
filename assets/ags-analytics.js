@@ -10,6 +10,9 @@
  * Codigo del chat (19-nov-2026): si el enlace trae ?r= (lo pone la bienvenida de WhatsApp), la visita
  *            queda unida a esa conversacion, para saber que partes del sitio sirven antes de contratar.
  *            No es el numero ni el nombre.
+ * Cookies (28-nov-2026): carga el aviso de cookies (/assets/ags-consent.js). SOLO si la persona acepta
+ *            «Medicion», la visita lleva el id propio de su navegador y el codigo del chat de una visita
+ *            anterior, para unir sus visitas de distintos dias. Sin aceptar, todo sigue como antes.
  *
  * Dev Central — 2026-08-02.
  */
@@ -29,6 +32,17 @@
   var sitio = (me && me.getAttribute('data-sitio')) || SITIOS[host] || '';
   var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(host) ? 1 : 0;
   if (!sitio) return;                       // dominio desconocido: no medimos
+
+  // Aviso de cookies (28-nov-2026): lo carga el medidor, asi llega a todas las paginas que ya lo tienen.
+  // En los puentes a WhatsApp no aparece: ahi la persona solo va a escribirnos.
+  try {
+    if (!/^\/(tiktok|instagram|facebook|whatsapp)(\/|$)/.test(location.pathname) &&
+        !document.getElementById('ags-consent-js')) {
+      var cjs = document.createElement('script');
+      cjs.id = 'ags-consent-js'; cjs.defer = true; cjs.src = '/assets/ags-consent.js?v=20261128';
+      (document.head || document.documentElement).appendChild(cjs);
+    }
+  } catch (e) { /* nada */ }
   if (navigator.webdriver && !local) return; // bots de automatizacion
 
   // ── Identificadores efimeros (no son la persona, son la visita) ──────
@@ -74,6 +88,22 @@
     var rr = sessionStorage.getItem('ags_r');
     if (rr && !utm) utm = ('wa/' + rr).slice(0, 60);
   } catch (e) { /* nada */ }
+
+  // Cookies (28-nov-2026): SOLO con «Medicion» aceptada en el aviso. ags_id = el mismo navegador cuando vuelve;
+  // ags_rp = el codigo del chat que trajo un enlace de WhatsApp en una visita anterior.
+  function ckLeer(n) {
+    try {
+      var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)'));
+      return m ? decodeURIComponent(m[1]) : '';
+    } catch (e) { return ''; }
+  }
+  function ckMedicion() { return /^1\.1\.[01]\.\d{8}$/.test(ckLeer('ags_ck')); }
+  function ckId() { var v = ckMedicion() ? ckLeer('ags_id') : ''; return /^[0-9a-f]{16}$/.test(v) ? v : ''; }
+  function ckRp() {
+    if (!ckMedicion()) return '';
+    try { var v = localStorage.getItem('ags_rp') || ''; return /^[0-9a-z]{2,9}$/.test(v) ? v : ''; }
+    catch (e) { return ''; }
+  }
 
   var path = location.pathname.replace(/\/index\.html$/, '/') || '/';
 
@@ -207,7 +237,7 @@
       t: tipo, v: pvid, sid: sid, s: sitio, p: path, r: ref, u: utm,
       d: disp, w: W, sm: smax, dur: Math.round(durTotal),
       last: ultima, fin: smax >= 90 ? 1 : 0, loc: local,
-      sec: lista, ev: evs.slice(0, 25)
+      sec: lista, ev: evs.slice(0, 25), c: ckId(), rp: ckRp()
     };
   }
 
@@ -249,4 +279,10 @@
     }
   });
   window.addEventListener('pagehide', function () { enviar('end'); });
+
+  // Cookies (28-nov-2026): al aceptar «Medicion», la visita de ahora queda con su id sin esperar el refresco.
+  window.addEventListener('ags:consent', function (e) {
+    try { if (e && e.detail && e.detail.medicion) setTimeout(function () { enviar('upd'); }, 300); }
+    catch (err) { /* nada */ }
+  });
 })();
